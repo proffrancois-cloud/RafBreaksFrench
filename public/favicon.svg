@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DP French B SL Mastery">
+  <rect width="64" height="64" rx="12" fill="#f4f8ff"/>
+  <rect x="6" y="6" width="52" height="52" rx="9" fill="#ffffff" stroke="#2f6fed" stroke-width="3"/>
+  <text x="32" y="29" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#2f6fed">DP</text>
+  <text x="32" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#25865d">FR</text>
+</svg>
