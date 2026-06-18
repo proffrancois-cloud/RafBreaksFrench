@@ -9,6 +9,7 @@ import { WritingTaskView } from "./components/WritingTaskView";
 import { cultureTopics } from "./data/cultureTopics";
 import { diagnosticExerciseIds, exercises, exercisesById } from "./data/exercises";
 import { lessons, lessonsById } from "./data/lessons";
+import { iaStimuliByTopic } from "./data/iaStimuli.generated";
 import { mockExamThemes } from "./data/mockExamCatalog.generated";
 import { premiumListeningPapers, premiumReadingPapers, type PremiumGradeBand, type PremiumMockPaper } from "./data/premiumMockPapers.generated";
 import { categoryOrder, skills, skillsById } from "./data/skills";
@@ -265,6 +266,7 @@ export function DPFrenchApp() {
   const [mockPaperType, setMockPaperType] = useState<MockPaperType>("Paper 1");
   const [selectedPaper1TaskId, setSelectedPaper1TaskId] = useState(defaultMockTopic.paper1.tasks[0].id);
   const [selectedPaperSourceIds, setSelectedPaperSourceIds] = useState<Record<string, string>>({});
+  const [selectedIAStimulusIds, setSelectedIAStimulusIds] = useState<Record<string, string>>({});
   const [paperAnswers, setPaperAnswers] = useState<Record<string, string>>({});
   const [submittedPaperIds, setSubmittedPaperIds] = useState<Record<string, boolean>>({});
   const [importText, setImportText] = useState("");
@@ -303,6 +305,8 @@ export function DPFrenchApp() {
   const selectedPremiumListeningPaper = premiumListeningOptions.find((paper) => paper.id === selectedPaperSourceIds[listeningSourceKey]) ?? premiumListeningOptions[0];
   const readingPaperSession = selectedPremiumReadingPaper ? asPaperSession(selectedPremiumReadingPaper) : generatedReadingPaper(selectedMockTopic.reading);
   const listeningPaperSession = selectedPremiumListeningPaper ? asPaperSession(selectedPremiumListeningPaper) : generatedListeningPaper(selectedMockTopic.listening);
+  const iaStimuliForTopic = iaStimuliByTopic[selectedMockTopic.id] ?? [];
+  const selectedIAStimulus = iaStimuliForTopic.find((stimulus) => stimulus.id === selectedIAStimulusIds[selectedMockTopic.id]) ?? iaStimuliForTopic[0];
 
   const getSkillProgress = (skillId: string) => progress.skillProgress[skillId] ?? defaultSkillProgress(skillId);
 
@@ -790,33 +794,98 @@ export function DPFrenchApp() {
   );
 
   const renderIAPanel = () => {
-    const oralQuestions = selectedCultureTopic?.discussionQuestions ?? selectedMockTopic.listening.texts[0].questions.slice(0, 3).map((question) => question.prompt);
+    if (!selectedIAStimulus) {
+      return (
+        <section className="dp-theme-panel">
+          <article className="selected-text-card">
+            <div className="resource-card__top">
+              <div>
+                <h3>IA practice</h3>
+                <p className="hint">No IA visual stimulus from the March 27 completed PPTX is available for this topic yet.</p>
+              </div>
+              <span className="status-pill">{selectedMockTopic.topic}</span>
+            </div>
+          </article>
+        </section>
+      );
+    }
+
+    const transcriptWordCount = selectedIAStimulus.transcript.split(/\s+/).filter(Boolean).length;
 
     return (
       <section className="dp-theme-panel">
-        {renderTopicStimulus()}
-        <article className="selected-text-card">
+        {iaStimuliForTopic.length > 1 ? (
+          <div className="paper-item-selector ia-stimulus-selector" aria-label="IA stimulus source">
+            {iaStimuliForTopic.map((stimulus) => (
+              <button
+                type="button"
+                key={stimulus.id}
+                className={selectedIAStimulus.id === stimulus.id ? "is-selected" : ""}
+                onClick={() => setSelectedIAStimulusIds((current) => ({ ...current, [selectedMockTopic.id]: stimulus.id }))}
+              >
+                <span>{stimulus.title}</span>
+                <small>Slide {stimulus.sourceImageSlide}</small>
+              </button>
+            ))}
+          </div>
+        ) : null}
+
+        <article className="selected-text-card ia-practice-card">
           <div className="resource-card__top">
             <div>
               <h3>IA practice</h3>
-              <p className="hint">Use the image and student audio as the stimulus for a short individual oral.</p>
+              <p className="hint">Visual stimulus and audio transcript from the IA completed PPTX.</p>
             </div>
-            <span className="status-pill">{selectedMockTopic.topic}</span>
+            <span className="status-pill">{selectedIAStimulus.title}</span>
           </div>
-          <div className="compact-list-grid">
-            <div className="mini-list">
-              <strong>Prepare</strong>
-              <span>Describe what is visible in the image.</span>
-              <span>Connect it to {selectedMockTheme.theme}.</span>
-              <span>Add one Francophone example: {selectedMockTopic.francophoneAnchor}.</span>
+
+          <div className="ia-stimulus-layout">
+            <div className="ia-stimulus-image">
+              <img src={resolveAssetUrl(selectedIAStimulus.imageUrl)} alt={`${selectedMockTopic.topic} IA visual stimulus ${selectedIAStimulus.imageIndex}`} />
             </div>
+            <div className="ia-stimulus-copy">
+              <div className="compact-list-grid">
+                <div className="mini-list">
+                  <strong>Prepare</strong>
+                  <span>Describe the visible details first.</span>
+                  <span>Connect the image to {selectedMockTheme.theme}.</span>
+                  <span>Use one precise Francophone link.</span>
+                </div>
+                <div className="mini-list">
+                  <strong>Source</strong>
+                  <span>{selectedIAStimulus.sourceDeck}</span>
+                  <span>Image slide {selectedIAStimulus.sourceImageSlide}</span>
+                  <span>Transcript slide {selectedIAStimulus.sourceTranscriptSlide}</span>
+                </div>
+              </div>
+              <div className="ia-action-row">
+                <button type="button" className="button button-primary" onClick={() => speakFrench(selectedIAStimulus.transcript)}>
+                  Play transcript
+                </button>
+                <button type="button" className="button button-ghost" onClick={stopSpeaking}>
+                  Stop
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <details className="question-bank-details ia-transcript-details">
+            <summary>
+              Audio transcript <span>{transcriptWordCount} words</span>
+            </summary>
+            <p className="ia-transcript-text">{selectedIAStimulus.transcript}</p>
+          </details>
+
+          <details className="question-bank-details">
+            <summary>
+              IA question bank <span>{selectedIAStimulus.questions.length}</span>
+            </summary>
             <div className="mini-list">
-              <strong>Follow-up questions</strong>
-              {oralQuestions.map((question) => (
+              {selectedIAStimulus.questions.map((question) => (
                 <span key={question}>{question}</span>
               ))}
             </div>
-          </div>
+          </details>
         </article>
       </section>
     );

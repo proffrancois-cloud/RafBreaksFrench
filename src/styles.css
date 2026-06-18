@@ -1368,6 +1368,53 @@ textarea:focus {
   gap: 12px;
 }
 
+.ia-stimulus-selector {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ia-practice-card {
+  gap: 14px;
+}
+
+.ia-stimulus-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.ia-stimulus-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  overflow: hidden;
+}
+
+.ia-stimulus-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.ia-stimulus-copy {
+  display: grid;
+  gap: 12px;
+}
+
+.ia-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ia-transcript-text {
+  margin: 12px 0 0;
+  white-space: pre-line;
+}
+
 .selected-subject-card strong {
   font-size: 1rem;
   line-height: 1.45;
@@ -1844,7 +1891,8 @@ textarea:focus {
   .paper-item-selector,
   .task-selector,
   .topic-asset-card,
-  .topic-stimulus-card {
+  .topic-stimulus-card,
+  .ia-stimulus-layout {
     grid-template-columns: 1fr;
   }
 
