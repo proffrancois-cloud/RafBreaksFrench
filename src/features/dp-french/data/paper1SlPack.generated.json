@@ -1,0 +1,655 @@
+{
+  "forms": [
+    {
+      "id": "Épreuve 1",
+      "tasks": [
+        {
+          "theme": "Identités",
+          "topic": "styles de vie",
+          "anchor": "Montréal",
+          "prompt": "Votre établissement lance une semaine consacrée aux modes de vie plus équilibrés. Après avoir observé plusieurs habitudes chez les élèves, rédigez un texte pour vos camarades dans lequel vous expliquez pourquoi cette semaine est utile et vous les encouragez à y participer.",
+          "options": [
+            "Message publié dans les médias sociaux / forum en ligne",
+            "Discours",
+            "Dissertation"
+          ],
+          "best": "Message publié dans les médias sociaux / forum en ligne",
+          "ok": "Discours",
+          "weak": "Dissertation",
+          "audience": "camarades de l'établissement",
+          "purposes": [
+            "expliquer l'intérêt d'un mode de vie plus équilibré",
+            "encourager la participation"
+          ],
+          "rationale": "Le message social touche directement les élèves et peut mobiliser rapidement; le discours fonctionne si l'élève imagine une annonce orale; la dissertation est trop scolaire et peu située pour encourager des pairs."
+        },
+        {
+          "theme": "Ingéniosité humaine",
+          "topic": "technologie",
+          "anchor": "Dakar",
+          "prompt": "Votre classe a testé pendant une semaine un outil numérique d'aide aux devoirs. La direction veut connaître l'avis des élèves. Rédigez un texte dans lequel vous décrivez votre expérience et vous recommandez une amélioration concrète.",
+          "options": [
+            "Rapport officiel",
+            "Blog",
+            "Journal intime"
+          ],
+          "best": "Rapport officiel",
+          "ok": "Blog",
+          "weak": "Journal intime",
+          "audience": "direction ou comité numérique",
+          "purposes": [
+            "décrire l'expérience menée en classe",
+            "recommander une amélioration"
+          ],
+          "rationale": "Le rapport permet de présenter des observations et une recommandation; le blog peut fonctionner si l'avis reste public et structuré; le journal intime ne répond pas naturellement à la direction."
+        },
+        {
+          "theme": "Partage de la planète",
+          "topic": "environnement",
+          "anchor": "Bruxelles",
+          "prompt": "Avec votre club écologique, vous organisez une journée sans plastique dans votre quartier. Rédigez un texte pour les habitants dans lequel vous expliquez le problème et vous présentez les activités prévues.",
+          "options": [
+            "Brochure / dépliant / prospectus",
+            "Chronique d'opinion / courrier des lecteurs",
+            "Lettre de motivation"
+          ],
+          "best": "Brochure / dépliant / prospectus",
+          "ok": "Chronique d'opinion / courrier des lecteurs",
+          "weak": "Lettre de motivation",
+          "audience": "habitants du quartier",
+          "purposes": [
+            "sensibiliser au plastique",
+            "présenter les activités"
+          ],
+          "rationale": "La brochure informe et mobilise un public local; une chronique peut défendre l'action mais donne moins d'informations pratiques; la lettre de motivation n'a pas de fonction adaptée."
+        }
+      ]
+    },
+    {
+      "id": "Épreuve 2",
+      "tasks": [
+        {
+          "theme": "Expériences",
+          "topic": "vacances et voyages",
+          "anchor": "Bruxelles",
+          "prompt": "Vous avez participé à un échange scolaire avec un lycée francophone. Rédigez un texte pour les élèves qui hésitent à partir dans lequel vous racontez un moment important de votre séjour et vous expliquez ce que cette expérience peut leur apporter.",
+          "options": [
+            "Blog",
+            "Reportage",
+            "Annonce publicitaire"
+          ],
+          "best": "Blog",
+          "ok": "Reportage",
+          "weak": "Annonce publicitaire",
+          "audience": "élèves intéressés par un échange",
+          "purposes": [
+            "raconter une expérience",
+            "expliquer son intérêt pour d'autres élèves"
+          ],
+          "rationale": "Le blog convient à une expérience personnelle partagée avec des pairs; le reportage peut raconter un séjour vécu avec un angle public; l'annonce publicitaire vendrait l'échange sans développer suffisamment l'expérience."
+        },
+        {
+          "theme": "Organisation sociale",
+          "topic": "éducation",
+          "anchor": "Dakar",
+          "prompt": "La direction de votre lycée envisage de changer la quantité de devoirs donnés chaque semaine. Rédigez un texte pour la direction dans lequel vous présentez l'avis des élèves et vous proposez une solution équilibrée.",
+          "options": [
+            "Proposition",
+            "Message publié dans les médias sociaux / forum en ligne",
+            "Journal intime"
+          ],
+          "best": "Proposition",
+          "ok": "Message publié dans les médias sociaux / forum en ligne",
+          "weak": "Journal intime",
+          "audience": "direction du lycée",
+          "purposes": [
+            "présenter l'avis des élèves",
+            "proposer une solution"
+          ],
+          "rationale": "La proposition correspond à une demande institutionnelle et orientée solution; un message en ligne peut lancer le débat mais s'adresse moins directement à la direction; le journal intime ne convient pas."
+        },
+        {
+          "theme": "Identités",
+          "topic": "santé et bien-être",
+          "anchor": "Bruxelles",
+          "prompt": "Après un sondage sur le stress scolaire, votre établissement veut aider les élèves à mieux gérer leur bien-être. Rédigez un texte pour vos camarades dans lequel vous expliquez deux causes possibles du stress et vous suggérez des habitudes réalistes.",
+          "options": [
+            "Brochure / dépliant / prospectus",
+            "Article",
+            "Critique"
+          ],
+          "best": "Brochure / dépliant / prospectus",
+          "ok": "Article",
+          "weak": "Critique",
+          "audience": "camarades de l'établissement",
+          "purposes": [
+            "expliquer des causes du stress",
+            "suggérer des habitudes réalistes"
+          ],
+          "rationale": "La brochure peut conseiller et synthétiser; un article peut expliquer les causes du stress à un public scolaire; la critique n'a pas d'objet culturel ou événementiel à évaluer."
+        }
+      ]
+    },
+    {
+      "id": "Épreuve 3",
+      "tasks": [
+        {
+          "theme": "Partage de la planète",
+          "topic": "droits de l'homme",
+          "anchor": "Genève",
+          "prompt": "Dans votre établissement, certains élèves disent que les activités scolaires ne sont pas accessibles à tout le monde. Rédigez un texte à la direction dans lequel vous décrivez les difficultés observées et vous demandez des changements précis.",
+          "options": [
+            "Courriel",
+            "Blog",
+            "Entretien / interview"
+          ],
+          "best": "Courriel",
+          "ok": "Blog",
+          "weak": "Entretien / interview",
+          "audience": "direction de l'établissement",
+          "purposes": [
+            "décrire des difficultés d'accès",
+            "demander des changements"
+          ],
+          "rationale": "Le courriel permet une adresse directe et formelle à la direction; le blog peut sensibiliser mais ne s'adresse pas prioritairement à la direction; l'entretien n'est pas logique sans interlocuteur témoin."
+        },
+        {
+          "theme": "Ingéniosité humaine",
+          "topic": "communications et médias",
+          "anchor": "Genève",
+          "prompt": "Un faux message a circulé dans un groupe de classe et a créé des tensions. Rédigez un texte pour les élèves dans lequel vous expliquez comment vérifier une information et comment réagir de manière responsable.",
+          "options": [
+            "Instructions / directives",
+            "Article",
+            "Lettre de motivation"
+          ],
+          "best": "Instructions / directives",
+          "ok": "Article",
+          "weak": "Lettre de motivation",
+          "audience": "élèves de l'établissement",
+          "purposes": [
+            "expliquer une méthode de vérification",
+            "indiquer une réaction responsable"
+          ],
+          "rationale": "Les instructions sont naturelles pour guider des comportements; un article peut informer plus largement; une lettre de motivation est sans rapport."
+        },
+        {
+          "theme": "Expériences",
+          "topic": "migration",
+          "anchor": "Lyon",
+          "prompt": "Un nouvel élève venant d'un pays francophone arrive dans votre lycée. Le conseil des élèves veut mieux accueillir les nouveaux arrivants. Rédigez un texte dans lequel vous expliquez les défis possibles et vous proposez une action d'accueil.",
+          "options": [
+            "Proposition",
+            "Blog",
+            "Critique"
+          ],
+          "best": "Proposition",
+          "ok": "Blog",
+          "weak": "Critique",
+          "audience": "conseil des élèves",
+          "purposes": [
+            "expliquer les défis d'intégration",
+            "proposer une action d'accueil"
+          ],
+          "rationale": "La proposition répond à une demande d'action; le blog peut sensibiliser les élèves; la critique n'a pas d'objet à évaluer."
+        }
+      ]
+    },
+    {
+      "id": "Épreuve 4",
+      "tasks": [
+        {
+          "theme": "Organisation sociale",
+          "topic": "communauté",
+          "anchor": "Bruxelles",
+          "prompt": "Le centre de jeunes de votre quartier risque de fermer plus tôt le soir faute de budget. Rédigez un texte au maire dans lequel vous expliquez l'importance de ce lieu et vous demandez une solution.",
+          "options": [
+            "Lettre",
+            "Annonce publicitaire",
+            "Rapport officiel"
+          ],
+          "best": "Lettre",
+          "ok": "Rapport officiel",
+          "weak": "Annonce publicitaire",
+          "audience": "maire de la ville",
+          "purposes": [
+            "expliquer l'importance du centre",
+            "demander une solution"
+          ],
+          "rationale": "La lettre est directe et formelle; un rapport peut fonctionner si l'élève présente des constats; l'annonce publicitaire promeut au lieu de demander."
+        },
+        {
+          "theme": "Identités",
+          "topic": "langue et identité",
+          "anchor": "Rabat",
+          "prompt": "Votre lycée prépare une semaine des langues avec une classe partenaire francophone. Rédigez un texte pour le journal de l'établissement dans lequel vous expliquez pourquoi apprendre plusieurs langues peut changer l'identité d'un jeune et vous invitez les élèves à participer.",
+          "options": [
+            "Article",
+            "Journal intime",
+            "Instructions / directives"
+          ],
+          "best": "Article",
+          "ok": "Instructions / directives",
+          "weak": "Journal intime",
+          "audience": "communauté scolaire",
+          "purposes": [
+            "expliquer le lien entre langues et identité",
+            "inviter à participer"
+          ],
+          "rationale": "L'article convient à un journal scolaire; des instructions pourraient détailler la participation mais perdent la réflexion; le journal intime ne touche pas la communauté scolaire."
+        },
+        {
+          "theme": "Partage de la planète",
+          "topic": "environnements urbains et ruraux",
+          "anchor": "Port-au-Prince",
+          "prompt": "La ville veut modifier les transports qui relient votre quartier aux écoles. Rédigez un texte pour le conseil municipal dans lequel vous décrivez les conséquences pour les jeunes et vous recommandez une amélioration.",
+          "options": [
+            "Rapport officiel",
+            "Message publié dans les médias sociaux / forum en ligne",
+            "Critique"
+          ],
+          "best": "Rapport officiel",
+          "ok": "Message publié dans les médias sociaux / forum en ligne",
+          "weak": "Critique",
+          "audience": "conseil municipal",
+          "purposes": [
+            "décrire des conséquences locales",
+            "recommander une amélioration"
+          ],
+          "rationale": "Le rapport organise constats et recommandations pour une institution; le message social peut mobiliser mais reste moins institutionnel; la critique ne convient pas."
+        }
+      ]
+    },
+    {
+      "id": "Épreuve 5",
+      "tasks": [
+        {
+          "theme": "Ingéniosité humaine",
+          "topic": "divertissements",
+          "anchor": "Montréal",
+          "prompt": "Votre lycée organise des activités sans écran pendant la pause déjeuner. Rédigez un texte pour vos camarades dans lequel vous présentez l'idée et vous expliquez pourquoi ces activités peuvent améliorer la vie scolaire.",
+          "options": [
+            "Discours",
+            "Courriel",
+            "Dissertation"
+          ],
+          "best": "Discours",
+          "ok": "Courriel",
+          "weak": "Dissertation",
+          "audience": "camarades",
+          "purposes": [
+            "présenter une initiative",
+            "expliquer ses bénéfices"
+          ],
+          "rationale": "Le discours est efficace pour convaincre des élèves en assemblée; un courriel peut annoncer l'initiative; la dissertation serait trop générale et trop peu adressée aux camarades."
+        },
+        {
+          "theme": "Expériences",
+          "topic": "coutumes et traditions",
+          "anchor": "Rabat",
+          "prompt": "Vous avez posé des questions à une personne de votre communauté sur une tradition qu'elle juge importante. Pour partager cet échange avec les élèves, rédigez un texte dans lequel vous présentez cette tradition et expliquez son importance.",
+          "options": [
+            "Entretien / interview",
+            "Blog",
+            "Proposition"
+          ],
+          "best": "Entretien / interview",
+          "ok": "Blog",
+          "weak": "Proposition",
+          "audience": "élèves de l'établissement",
+          "purposes": [
+            "présenter une tradition à partir d'un échange",
+            "expliquer son importance"
+          ],
+          "rationale": "L'entretien exploite naturellement l'échange; le blog peut raconter la découverte; la proposition attend une solution ou un plan d'action."
+        },
+        {
+          "theme": "Organisation sociale",
+          "topic": "engagement social",
+          "anchor": "Genève",
+          "prompt": "Le conseil des élèves cherche des volontaires pour un projet de solidarité locale. Rédigez un texte pour les élèves dans lequel vous expliquez le projet et vous les persuadez de s'engager.",
+          "options": [
+            "Discours",
+            "Article",
+            "Journal intime"
+          ],
+          "best": "Discours",
+          "ok": "Article",
+          "weak": "Journal intime",
+          "audience": "élèves de l'établissement",
+          "purposes": [
+            "expliquer le projet",
+            "persuader les élèves de participer"
+          ],
+          "rationale": "Le discours mobilise directement; l'article peut informer et encourager; le journal intime reste privé."
+        }
+      ]
+    },
+    {
+      "id": "Épreuve 6",
+      "tasks": [
+        {
+          "theme": "Partage de la planète",
+          "topic": "éthique",
+          "anchor": "Lyon",
+          "prompt": "À la cantine, beaucoup de nourriture encore consommable est jetée chaque jour. Rédigez un texte pour la communauté scolaire dans lequel vous expliquez pourquoi cette situation pose un problème moral et vous proposez des actions simples.",
+          "options": [
+            "Chronique d'opinion / courrier des lecteurs",
+            "Rapport officiel",
+            "Lettre de motivation"
+          ],
+          "best": "Chronique d'opinion / courrier des lecteurs",
+          "ok": "Rapport officiel",
+          "weak": "Lettre de motivation",
+          "audience": "communauté scolaire",
+          "purposes": [
+            "expliquer un problème moral",
+            "proposer des actions"
+          ],
+          "rationale": "La chronique permet une prise de position publique; le rapport peut présenter constats et recommandations; la lettre de motivation ne correspond pas."
+        },
+        {
+          "theme": "Identités",
+          "topic": "convictions et valeurs",
+          "anchor": "Genève",
+          "prompt": "Après un désaccord autour d'une affiche dans votre lycée, votre classe discute de la liberté d'expression et du respect des autres. Rédigez un texte pour vos camarades dans lequel vous défendez une position équilibrée et proposez des règles de discussion.",
+          "options": [
+            "Discours",
+            "Blog",
+            "Dissertation"
+          ],
+          "best": "Discours",
+          "ok": "Blog",
+          "weak": "Dissertation",
+          "audience": "camarades de classe",
+          "purposes": [
+            "défendre une position équilibrée",
+            "proposer des règles de discussion"
+          ],
+          "rationale": "Le discours convient à un débat de classe; le blog peut exprimer une opinion personnelle publique; la dissertation peut discuter les valeurs mais ignore plus facilement le contexte et le public."
+        },
+        {
+          "theme": "Organisation sociale",
+          "topic": "monde du travail",
+          "anchor": "Rabat",
+          "prompt": "Une entreprise locale propose un stage d'observation aux élèves de votre lycée. Rédigez un texte au responsable du programme dans lequel vous expliquez votre motivation et présentez les qualités que vous pourriez apporter.",
+          "options": [
+            "Lettre de motivation",
+            "Chronique d'opinion / courrier des lecteurs",
+            "Brochure / dépliant / prospectus"
+          ],
+          "best": "Lettre de motivation",
+          "ok": "Brochure / dépliant / prospectus",
+          "weak": "Chronique d'opinion / courrier des lecteurs",
+          "audience": "responsable d'un programme de stage",
+          "purposes": [
+            "expliquer sa motivation",
+            "présenter ses qualités"
+          ],
+          "rationale": "La lettre de motivation correspond exactement à une candidature; une brochure serait artificielle; une chronique d'opinion ne répond pas à la situation."
+        }
+      ]
+    },
+    {
+      "id": "Épreuve 7",
+      "tasks": [
+        {
+          "theme": "Expériences",
+          "topic": "activités de loisirs",
+          "anchor": "Montréal",
+          "prompt": "Depuis un mois, vous participez à une activité gratuite organisée dans votre ville. Rédigez un texte pour les élèves de votre établissement dans lequel vous racontez votre expérience et expliquez les avantages de ce type d'activité.",
+          "options": [
+            "Blog",
+            "Critique",
+            "Lettre"
+          ],
+          "best": "Blog",
+          "ok": "Critique",
+          "weak": "Lettre",
+          "audience": "élèves de l'établissement",
+          "purposes": [
+            "raconter une expérience de loisirs",
+            "expliquer ses avantages"
+          ],
+          "rationale": "Le blog permet un témoignage vivant; la critique peut évaluer l'activité vécue; la lettre est moins naturelle si aucun destinataire précis n'est donné."
+        },
+        {
+          "theme": "Ingéniosité humaine",
+          "topic": "expressions artistiques",
+          "anchor": "Dakar",
+          "prompt": "Une exposition de créations urbaines vient d'être organisée près de votre lycée. Rédigez un texte pour le public local dans lequel vous racontez ce que vous avez vu et expliquez pourquoi cet art mérite plus d'attention.",
+          "options": [
+            "Reportage",
+            "Proposition",
+            "Courriel"
+          ],
+          "best": "Reportage",
+          "ok": "Courriel",
+          "weak": "Proposition",
+          "audience": "public local",
+          "purposes": [
+            "raconter une visite ou un événement",
+            "expliquer la valeur de l'art urbain"
+          ],
+          "rationale": "Le reportage rend compte d'un événement public; un courriel peut être adapté à un destinataire précis; une proposition attend un plan à mettre en œuvre."
+        },
+        {
+          "theme": "Partage de la planète",
+          "topic": "mondialisation",
+          "anchor": "Rabat",
+          "prompt": "Votre classe organise un marché scolaire où les élèves doivent choisir entre produits locaux et produits importés. Rédigez un texte pour vos camarades dans lequel vous comparez ces choix et recommandez une attitude responsable.",
+          "options": [
+            "Chronique d'opinion / courrier des lecteurs",
+            "Rapport officiel",
+            "Journal intime"
+          ],
+          "best": "Chronique d'opinion / courrier des lecteurs",
+          "ok": "Rapport officiel",
+          "weak": "Journal intime",
+          "audience": "camarades",
+          "purposes": [
+            "comparer deux choix de consommation",
+            "recommander une attitude responsable"
+          ],
+          "rationale": "La chronique permet une opinion argumentée; le rapport peut comparer de façon organisée; le journal intime ne vise pas les camarades."
+        }
+      ]
+    },
+    {
+      "id": "Épreuve 8",
+      "tasks": [
+        {
+          "theme": "Organisation sociale",
+          "topic": "relations sociales",
+          "anchor": "Montréal",
+          "prompt": "Un groupe d'élèves veut créer un système de soutien pour les nouveaux arrivants au lycée. Rédigez un texte pour les futurs élèves dans lequel vous expliquez comment ce système fonctionnerait et pourquoi il pourrait les aider.",
+          "options": [
+            "Brochure / dépliant / prospectus",
+            "Entretien / interview",
+            "Rapport officiel"
+          ],
+          "best": "Brochure / dépliant / prospectus",
+          "ok": "Rapport officiel",
+          "weak": "Entretien / interview",
+          "audience": "futurs élèves",
+          "purposes": [
+            "expliquer le fonctionnement d'un soutien",
+            "montrer son utilité"
+          ],
+          "rationale": "La brochure informe des nouveaux élèves de manière pratique; le rapport peut présenter le système à une institution; l'entretien n'a pas de rôle clair."
+        },
+        {
+          "theme": "Partage de la planète",
+          "topic": "paix et conflits",
+          "anchor": "Genève",
+          "prompt": "Votre établissement organise une collecte pour aider des jeunes déplacés par un conflit. Rédigez un texte pour la communauté scolaire dans lequel vous expliquez la raison de cette action et vous encouragez les familles à participer.",
+          "options": [
+            "Discours",
+            "Critique",
+            "Courriel"
+          ],
+          "best": "Discours",
+          "ok": "Courriel",
+          "weak": "Critique",
+          "audience": "communauté scolaire",
+          "purposes": [
+            "expliquer la raison de la collecte",
+            "encourager la participation"
+          ],
+          "rationale": "Le discours mobilise une communauté; le courriel peut informer les familles; la critique ne correspond pas à une action solidaire."
+        },
+        {
+          "theme": "Identités",
+          "topic": "sous-cultures",
+          "anchor": "Dakar",
+          "prompt": "Un nouveau club consacré à une culture de jeunes suscite des réactions négatives chez certains adultes. Rédigez un texte pour le journal de l'établissement dans lequel vous expliquez les codes de cette culture et montrez ce qu'elle peut apporter aux jeunes.",
+          "options": [
+            "Article",
+            "Lettre",
+            "Critique"
+          ],
+          "best": "Article",
+          "ok": "Lettre",
+          "weak": "Critique",
+          "audience": "communauté scolaire",
+          "purposes": [
+            "expliquer une sous-culture",
+            "montrer son intérêt pour les jeunes"
+          ],
+          "rationale": "L'article informe un public scolaire large; la lettre peut répondre aux adultes; la critique supposerait d'évaluer une œuvre ou un événement précis."
+        }
+      ]
+    },
+    {
+      "id": "Épreuve 9",
+      "tasks": [
+        {
+          "theme": "Expériences",
+          "topic": "rites de passage",
+          "anchor": "Dakar",
+          "prompt": "Votre lycée veut modifier la cérémonie de fin d'année pour qu'elle soit plus inclusive. Rédigez un texte au comité d'organisation dans lequel vous expliquez ce que cette cérémonie représente pour les élèves et vous suggérez des changements.",
+          "options": [
+            "Proposition",
+            "Journal intime",
+            "Annonce publicitaire"
+          ],
+          "best": "Proposition",
+          "ok": "Journal intime",
+          "weak": "Annonce publicitaire",
+          "audience": "comité d'organisation",
+          "purposes": [
+            "expliquer la signification d'un rite scolaire",
+            "suggérer des changements"
+          ],
+          "rationale": "La proposition traite clairement objectifs et changements; le journal intime montre une perception personnelle mais ne s'adresse pas au comité; l'annonce publicitaire promeut sans argumenter."
+        },
+        {
+          "theme": "Ingéniosité humaine",
+          "topic": "innovation scientifique",
+          "anchor": "Rabat",
+          "prompt": "Un atelier scientifique sur l'eau potable est organisé pour les jeunes de votre ville. Rédigez un texte pour vos camarades dans lequel vous expliquez l'intérêt de cette innovation et les encouragez à assister à l'atelier.",
+          "options": [
+            "Article",
+            "Instructions / directives",
+            "Lettre de motivation"
+          ],
+          "best": "Article",
+          "ok": "Instructions / directives",
+          "weak": "Lettre de motivation",
+          "audience": "camarades",
+          "purposes": [
+            "expliquer l'intérêt d'une innovation",
+            "encourager la participation"
+          ],
+          "rationale": "L'article informe et donne envie d'assister; les instructions peuvent guider la participation mais expliquent moins l'intérêt; la lettre de motivation n'a pas de destinataire logique."
+        },
+        {
+          "theme": "Organisation sociale",
+          "topic": "ordre public",
+          "anchor": "Lyon",
+          "prompt": "Votre lycée applique une nouvelle règle sur l'utilisation du téléphone pendant la journée. Rédigez un texte au conseil des élèves dans lequel vous présentez les réactions des jeunes et proposez une manière juste d'appliquer la règle.",
+          "options": [
+            "Lettre",
+            "Message publié dans les médias sociaux / forum en ligne",
+            "Dissertation"
+          ],
+          "best": "Lettre",
+          "ok": "Message publié dans les médias sociaux / forum en ligne",
+          "weak": "Dissertation",
+          "audience": "conseil des élèves",
+          "purposes": [
+            "présenter les réactions des jeunes",
+            "proposer une application juste"
+          ],
+          "rationale": "La lettre permet de s'adresser à un organe précis; un message social peut relayer l'opinion des élèves; une dissertation serait trop scolaire et peu située."
+        }
+      ]
+    },
+    {
+      "id": "Épreuve 10",
+      "tasks": [
+        {
+          "theme": "Partage de la planète",
+          "topic": "égalité",
+          "anchor": "Dakar",
+          "prompt": "Votre établissement veut rendre les clubs et sorties scolaires plus accessibles à tous les élèves. Rédigez un texte pour la direction dans lequel vous décrivez un obstacle possible et recommandez deux améliorations.",
+          "options": [
+            "Rapport officiel",
+            "Blog",
+            "Discours"
+          ],
+          "best": "Rapport officiel",
+          "ok": "Discours",
+          "weak": "Blog",
+          "audience": "direction de l'établissement",
+          "purposes": [
+            "décrire un obstacle à l'égalité",
+            "recommander des améliorations"
+          ],
+          "rationale": "Le rapport convient à une analyse suivie de recommandations; le discours peut défendre le projet publiquement; le blog est moins ciblé vers la direction."
+        },
+        {
+          "theme": "Expériences",
+          "topic": "récits de vie",
+          "anchor": "Port-au-Prince",
+          "prompt": "Un ancien élève est venu parler de son parcours après le lycée. Vous lui avez posé plusieurs questions. Rédigez un texte pour les élèves dans lequel vous présentez son parcours et montrez ce que les jeunes peuvent en retenir.",
+          "options": [
+            "Entretien / interview",
+            "Chronique d'opinion / courrier des lecteurs",
+            "Instructions / directives"
+          ],
+          "best": "Entretien / interview",
+          "ok": "Chronique d'opinion / courrier des lecteurs",
+          "weak": "Instructions / directives",
+          "audience": "élèves de l'établissement",
+          "purposes": [
+            "présenter un parcours de vie",
+            "tirer une leçon utile pour les jeunes"
+          ],
+          "rationale": "L'entretien valorise l'échange avec l'ancien élève; la chronique peut tirer une leçon personnelle; les instructions transforment mal un récit de vie en procédure."
+        },
+        {
+          "theme": "Ingéniosité humaine",
+          "topic": "technologie",
+          "anchor": "Dakar",
+          "prompt": "Votre lycée prépare des règles sur l'utilisation de l'intelligence artificielle dans les travaux scolaires. Rédigez un texte pour le comité numérique dans lequel vous présentez le point de vue des élèves et vous suggérez des règles équilibrées.",
+          "options": [
+            "Proposition",
+            "Annonce publicitaire",
+            "Courriel"
+          ],
+          "best": "Proposition",
+          "ok": "Courriel",
+          "weak": "Annonce publicitaire",
+          "audience": "comité numérique de l'établissement",
+          "purposes": [
+            "présenter le point de vue des élèves",
+            "suggérer des règles équilibrées"
+          ],
+          "rationale": "La proposition convient à des règles à adopter; le courriel peut transmettre l'avis des élèves; l'annonce publicitaire ne correspond pas à une politique scolaire.",
+          "repeat_reason": "Topic répété volontairement: technologie est le topic premium le plus mûr dans Reading/Listening et très fréquent en contexte scolaire."
+        }
+      ]
+    }
+  ]
+}
