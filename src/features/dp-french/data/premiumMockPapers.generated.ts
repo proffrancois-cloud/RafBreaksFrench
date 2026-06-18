@@ -19,6 +19,13 @@ export interface PremiumMockQuestion {
   rejectedAnswer: string;
 }
 
+export interface PremiumSourceDocuments {
+  textBooklet: string;
+  questionBooklet: string;
+  markscheme: string;
+  page1?: string;
+}
+
 export interface PremiumGradeBand {
   min: number;
   grade: number;
@@ -36,17 +43,18 @@ export interface PremiumMockPaper {
   gradeBands: PremiumGradeBand[];
   texts: PremiumMockText[];
   questions: PremiumMockQuestion[];
+  sourceDocuments?: PremiumSourceDocuments;
 }
 
 export const premiumReadingPapers: PremiumMockPaper[] = [
   {
-    "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1",
+    "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle",
     "kind": "Paper 2 Reading",
-    "theme": "Ingéniosité humaine",
-    "topic": "technologie",
-    "themeKey": "ingeniosite-humaine",
-    "topicKey": "technologie",
-    "variant": "FrenchEase premium v1",
+    "theme": "Cas spécial",
+    "topic": "Mémoires algériennes, cultures partagées",
+    "themeKey": "cas-special",
+    "topicKey": "memoires-algeriennes-cultures-partagees",
+    "variant": "Validated bundle",
     "totalMarks": 40,
     "gradeBands": [
       {
@@ -81,401 +89,4321 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     "texts": [
       {
         "label": "Texte A",
-        "title": "Yanis apprend à programmer en créant ses propres jeux",
-        "body": "Portrait d’un adolescent qui apprend la programmation en créant de petits jeux, entre autonomie, bogues, test et plaisir créatif.\n\nQuand on entre dans la chambre de Yanis Maret, on voit tout de suite qu’il aime les jeux vidéo. Pourtant, ce lycéen de dix-sept ans n’a plus seulement envie d’y jouer. Depuis deux ans, il apprend surtout à en fabriquer. Au début, il voulait comprendre comment un personnage pouvait bouger, sauter ou disparaître à l’écran. Aujourd’hui, il passe plusieurs soirées par semaine à coder de petits jeux dans lesquels on résout une énigme, évite des obstacles ou trouve une sortie avant la fin du temps imparti.\n\nYanis n’a pas commencé dans une grande école ni dans un club très encadré. Tout est parti d’un tutoriel gratuit trouvé en ligne après les cours. Son premier essai était minuscule: un personnage avançait de gauche à droite et ramassait des pièces. Le résultat était maladroit, plein de bogues, mais cela lui a donné envie de continuer. Il aimait l’idée qu’une simple ligne de code puisse modifier une action visible immédiatement. Très vite, il a compris qu’apprendre à programmer, ce n’était pas réciter une formule, mais construire pas à pas quelque chose de jouable.\n\nAujourd’hui, il crée surtout de petits jeux de plateforme ou de réflexion. Il dessine des niveaux très courts, ajoute quelques sons et fait tester ses versions à trois camarades qu’il appelle ses testeurs officiels. Leurs réactions l’aident à voir ce qui fonctionne vraiment. Si un passage paraît injuste, il le simplifie. Si un déplacement semble trop facile, il l’ajuste. Cette phase lui plaît presque autant que la création elle-même, parce qu’elle lui apprend à observer comment les autres comprennent ce qu’il a imaginé.\n\nQuand il bloque, Yanis ne ferme pas tout en soupirant. Il relit son code, cherche un exemple sur un forum ou regarde une courte vidéo d’explication. Il dit qu’il a surtout appris la patience. Certains soirs, il passe presque quarante minutes à corriger un saut qui retombe mal ou une porte qui s’ouvre trop tôt. Mais il aime ce moment où le problème finit par céder. Pour lui, la plus grande récompense n’est pas d’impressionner quelqu’un; c’est de voir sa petite sœur rire, ou un ami demander s’il peut rejouer une seconde fois.\n\nYanis ne prétend pas qu’il créera bientôt un grand studio. Ce qui le motive, c’est autre chose: la sensation de ne plus être seulement devant un écran pour consommer. En programmant, il a l’impression d’inventer, de progresser et de faire travailler à la fois sa logique et son imagination. Ses jeux restent modestes, mais ils lui ont déjà donné une forme d’autonomie créative. Quand il parle d’avenir, il n’évoque pas d’abord un métier précis. Il dit plutôt qu’il aimerait garder cette capacité à fabriquer quelque chose qui porte sa marque."
+        "title": "Nassim, une voix de raï entre deux rives",
+        "body": "Portrait accessible d'un jeune musicien français d'origine algérienne qui relie le raï d'Oran, son quartier et l'histoire familiale.\n\nÀ vingt ans, Nassim Bekhti n'a pas encore sorti d'album, mais son nom circule déjà dans plusieurs maisons de jeunes de la région lyonnaise. Sur scène, il arrive avec un clavier, un petit ordinateur et parfois une derbouka prêtée par son oncle. Ce qui surprend le public, c'est son choix musical: Nassim chante du raï, une musique populaire née autour d'Oran, que son père écoutait autrefois sur des cassettes usées.\n\nNassim est né en France, dans un quartier populaire où les familles viennent de partout. À la maison, on parlait surtout français, mais certains mots arabes revenaient dans les repas, les blagues et les refrains. Il dit souvent qu'il a le cœur partagé entre deux cultures, non pas parce qu'il devrait choisir, mais parce qu'il se sent construit par les deux. Le raï lui offre justement un espace où cette double appartenance devient une force.\n\nSes paroles racontent la vie d'un jeune homme qui prend le bus tôt, qui voit ses amis chercher un stage et qui connaît les cages d'escalier où l'on discute tard le soir. Mais elles parlent aussi des épreuves que ses parents ont traversées. Arrivés d'Algérie avant sa naissance, ils ont travaillé des années à la chaîne, dans une usine dont Nassim connaît les horaires décalés et la fatigue.\n\nDans une chanson récente, il compare la solitude d'un adolescent qui se sent invisible dans sa cité à celle de sa mère, qui ne comprenait pas toujours les papiers administratifs en arrivant en France. Le parallèle est simple, presque discret. Nassim ne veut pas faire un cours d'histoire: il veut montrer que les difficultés changent de forme, mais que le besoin de respect reste le même.\n\nPour toucher des jeunes de son âge, il mélange le raï avec des sons électroniques et quelques rythmes de rap. Ses concerts restent modestes, mais ils rassemblent parfois des parents qui reconnaissent les mélodies d'Oran et des adolescents qui découvrent cette musique pour la première fois. Nassim sourit quand on lui demande s'il est un chanteur traditionnel ou moderne. Il répond qu'il préfère être un pont, dont chacun peut traverser une partie."
       },
       {
         "label": "Texte B",
-        "title": "Réseaux sociaux : sommeil fragile, estime de soi sous pression",
-        "body": "Article accessible sur la manière dont les réseaux sociaux peuvent fragiliser le sommeil et l’estime de soi des adolescents, sans tomber dans le discours moraliste.\n\nLes réseaux sociaux font partie de la vie ordinaire de beaucoup d’adolescents. Ils servent à discuter, à suivre des artistes, à rire devant des vidéos courtes et à partager des moments du quotidien. Pourtant, plusieurs études récentes montrent que leur usage répété n’est pas neutre. Ce ne sont pas toujours les plateformes elles-mêmes qui posent problème, mais plutôt certaines habitudes: garder son téléphone allumé jusqu’au dernier moment, vérifier les réactions juste après une publication, ou comparer sa vie réelle à des images extrêmement travaillées.\n\nLe premier effet visible touche souvent le sommeil. Beaucoup de jeunes gardent leur téléphone sur la table de nuit, à portée de main. Une notification, un message ou une nouvelle vidéo peuvent repousser l’endormissement sans qu’ils s’en rendent compte. Même quand ils ont prévu d’éteindre l’écran rapidement, ils restent quelques minutes de plus, puis quelques minutes encore. Le corps, lui, ralentit moins bien. Le lendemain, la fatigue rend parfois la journée scolaire plus lourde, surtout quand ce scénario se répète plusieurs soirs de suite.\n\nUn autre mécanisme agit plus discrètement sur l’estime de soi. Les plateformes montrent sans arrêt des visages retouchés, des chambres parfaitement rangées, des silhouettes idéales ou des sorties qui semblent toujours réussies. À force, certains adolescents entrent dans une comparaison épuisante. Ils savent parfois que les images sont filtrées, mais cela ne suffit pas toujours à les protéger. Après avoir publié une photo ou une vidéo, ils attendent une forme de validation immédiate: des likes, des réactions, des commentaires. Quand ces signes tardent, le doute peut s’installer très vite.\n\nCette pression n’affecte pas tout le monde de la même manière, mais elle peut fragiliser des équilibres déjà précaires. Un adolescent qui dort moins concentre aussi plus difficilement son attention, supporte moins bien la frustration et interprète parfois plus sévèrement ce qu’il voit. Dans ce contexte, une remarque ironique ou une exclusion numérique peuvent peser davantage. Les spécialistes rappellent donc que le problème ne se limite pas à la quantité de temps d’écran. Il concerne aussi la qualité des contenus consultés et la manière dont chacun apprend à les interpréter.\n\nFace à cela, les réponses les plus utiles ne sont pas forcément les plus brutales. Interdire toutes les applications du jour au lendemain peut créer un affrontement stérile. Beaucoup de professionnels préfèrent des règles simples et régulières: couper certaines notifications, prévoir un moment sans écran avant le coucher, parler franchement des filtres et des mises en scène, demander à un adolescent pourquoi il publie et ce qu’il attend en retour. Comprendre comment une image paraît parfaite aide déjà à prendre du recul. La conversation doit se faire sans culpabiliser, sinon elle perd vite toute efficacité.\n\nRien de tout cela ne signifie qu’il faudrait diaboliser les réseaux sociaux. Ils peuvent aussi informer, faire rire et donner envie de créer. Mais pour qu’ils restent des outils, il faut apprendre à reconnaître le moment où ils commencent à dicter le rythme du soir ou l’image que l’on a de soi. L’enjeu n’est pas de revenir à un monde sans écran. Il est d’aider les adolescents à garder une marge de liberté face à des usages conçus pour retenir leur attention le plus longtemps possible."
+        "title": "Harkis : une cérémonie pour une mémoire encore sensible",
+        "body": "Article sur une cérémonie de reconnaissance organisée avec des descendants de harkis, entre hommage, attentes et mémoire collective.\n\nDans une petite ville du sud de la France, la salle municipale était pleine pour une cérémonie consacrée à la mémoire des harkis. Ces Algériens avaient combattu aux côtés de l'armée française pendant la guerre d'Algérie. L'événement réunissait des élus, des élèves et surtout un groupe de descendants de harkis, invités à lire des témoignages familiaux devant le public.\n\nL'hommage devait être un moment de reconnaissance. Pourtant, dès l'entrée, certains panneaux rappelaient que cette histoire reste douloureuse. Après l'indépendance de l'Algérie, beaucoup de harkis ont été considérés comme des traîtres par une partie de la société algérienne. En France, ceux qui ont pu venir ont souvent vécu dans des camps ou des lieux isolés. Plusieurs descendants disent que leurs familles se sont senties abandonnées et parfois traitées comme des citoyens de seconde zone.\n\nAu micro, Samia Rahmani, petite-fille de harki, a expliqué qu'une cérémonie ne suffirait pas à réparer des années de silence. Selon elle, l'État devrait mieux reconnaître la souffrance des familles, mais les écoles devraient aussi raconter cette histoire avec plus de clarté. « On nous demande parfois de tourner la page, a-t-elle dit. Mais comment tourner la page si la page n'a jamais été vraiment lue? »\n\nLe collectif qui a préparé la cérémonie formule des demandes précises. Il voudrait un accès plus simple aux archives, des ateliers pédagogiques dans les lycées et un lieu de mémoire entretenu toute l'année. Ces mesures permettraient, selon ses membres, de sortir d'un hommage seulement symbolique. Quelques participants auraient voulu que ces engagements soient annoncés depuis longtemps, mais ils reconnaissent que le dialogue actuel pourrait ouvrir une étape utile.\n\nLa mairie répond avec prudence. Un élu affirme que la commune ne pourrait pas tout résoudre seule, mais qu'elle pourrait soutenir des rencontres entre historiens, familles et jeunes. Une enseignante présente dans la salle ajoute qu'un travail régulier serait plus efficace qu'une seule journée officielle. Pour elle, les élèves comprennent mieux quand ils entendent plusieurs voix, y compris celles qui se contredisent.\n\nÀ la fin, personne ne prétend que la cérémonie a effacé les blessures. Certains descendants restent méfiants, d'autres sont émus d'avoir enfin parlé publiquement. Le sentiment général est plus nuancé: reconnaître ne veut pas dire oublier, et tourner la page ne signifie pas fermer le livre. Cela signifie peut-être apprendre à lire ensemble une histoire longtemps laissée dans les marges."
       },
       {
         "label": "Texte C",
-        "title": "Une association reconditionne des ordinateurs pour redonner accès au numérique",
-        "body": "Article de fond sur une association qui reconditionne des ordinateurs pour des familles, en mêlant utilité sociale, autonomie numérique et réduction des inégalités.\n\nÀ Angers, l’association Rebond Numérique récupère des ordinateurs donnés par des entreprises, puis les remet en état avant de les confier à des familles qui en ont besoin. À première vue, l’idée semble simple: éviter qu’un matériel encore utilisable dorme dans un local ou parte trop vite au rebut. Mais sur place, on comprend vite que le projet dépasse largement la seule question technique. Les bénévoles parlent d’école, de démarches administratives, d’égalité d’accès et de confiance retrouvée.\n\nCertaines familles accompagnées vivaient jusque-là avec un seul téléphone pour tout faire. Les parents lisaient leurs messages administratifs sur un petit écran, pendant que les enfants essayaient d’y ouvrir des devoirs en ligne. Cette organisation obligeait chacun à attendre son tour et compliquait des gestes devenus banals ailleurs: imprimer un document, remplir un formulaire, envoyer une pièce jointe ou suivre un cours à distance. L’absence d’ordinateur n’était donc pas un détail. Elle limitait concrètement l’autonomie du foyer.\n\nQuand les machines arrivent à l’atelier, elles sont triées, nettoyées et réparées. Ce matériel passe ensuite par plusieurs tests avant d’être redistribué. Les bénévoles remplacent certaines pièces, vérifient la batterie quand c’est utile et installent des logiciels libres pour que l’ordinateur soit prêt à servir dès la remise. L’objectif n’est pas d’offrir un objet spectaculaire, mais un outil fiable. C’est pour cela que l’équipe insiste sur la préparation en amont: une machine donnée trop vite, sans contrôle, risque de décevoir ou de tomber en panne au pire moment.\n\nL’accompagnement compte presque autant que l’équipement. L’association organise de petits ateliers pour créer une adresse électronique, classer des documents, reconnaître un faux message ou lancer une mise à jour. Ce soutien évite que l’ordinateur reste fermé sur une table, faute d’habitude ou par peur de se tromper. Les bénévoles savent qu’un appareil utile n’est pas seulement un appareil allumé. C’est un appareil que l’on ose utiliser seul, sans demander de l’aide à chaque clic.\n\nLe projet a aussi une dimension écologique claire. Prolonger la vie d’un ordinateur permet de réduire une partie des déchets électroniques et de ralentir le renouvellement systématique du matériel. Mais les responsables refusent de présenter cela comme un geste abstrait. Pour eux, la force du reconditionnement tient justement à la rencontre entre deux objectifs concrets: limiter le gaspillage et réduire les inégalités d’accès au numérique. L’utilité sociale et l’enjeu environnemental avancent ensemble.\n\nTout ne se règle pourtant pas avec une machine reconditionnée. Certaines familles manquent encore de connexion stable, de temps ou de confiance. D’autres ont besoin d’un suivi plus long pour intégrer vraiment l’ordinateur à leur organisation. L’association ne parle donc jamais de solution miracle. Elle défend plutôt une progression réaliste: donner un bon appareil, expliquer les bases, rester disponible et accepter que l’autonomie se construise peu à peu.\n\nAïcha, bénévole depuis trois ans, résume cette logique très simplement. Quand un enfant peut enfin faire ses devoirs en ligne sans emprunter le téléphone d’un parent, quelque chose change déjà. Quand un adulte réussit seul une démarche administrative ou prépare un CV, le bénéfice devient encore plus visible. Selon elle, l’accès au numérique n’efface pas tous les obstacles, mais il redonne une marge de liberté très concrète. C’est pour cela que l’équipe refuse de parler de charité au sens passif du terme.\n\nAu fond, Rebond Numérique propose moins un don ponctuel qu’une forme d’équipement durable. En reconditionnant des ordinateurs et en accompagnant leur usage, l’association rappelle qu’aujourd’hui, participer pleinement à la vie scolaire, sociale et administrative suppose aussi des outils adaptés. Dans ce domaine, réparer une machine revient parfois à réparer un peu l’écart entre ceux qui peuvent agir facilement et ceux qui restent bloqués devant un écran trop petit ou un appareil absent."
+        "title": "Jimmy et Karim, le RER comme terrain commun",
+        "body": "Reportage en Seine-Saint-Denis sur deux adolescents dont les histoires familiales opposées n'empêchent ni l'amitié ni le respect.\n\nLe matin, sur le quai d'une gare de Seine-Saint-Denis, les sacs de sport croisent les cartables et les langues se mélangent. Dans ce département où des familles venues d'Afrique du Nord, d'Europe, d'Asie ou des Antilles vivent côte à côte, les histoires personnelles se répondent souvent sans se ressembler. Jimmy et Karim, seize ans tous les deux, se retrouvent trois fois par semaine pour prendre le RER vers le centre d'entraînement du PSG.\n\nLe centre auquel ils se rendent n'est pas seulement un lieu de football. C'est aussi l'endroit où ils ont appris à se connaître loin des discussions familiales. Jimmy est le petit-fils de pieds-noirs partis d'Oran en 1962. Karim, lui, est le petit-fils d'un homme qui aurait aidé le FLN en transportant des messages dans son village. Sur le papier, leurs mémoires familiales semblent placées face à face.\n\nChez Jimmy, sa grand-mère parle encore de la ville d'Oran avec une tendresse inquiète. Elle se souvient de l'appartement quitté trop vite, des voisins perdus de vue et du bateau vers Marseille. Chez Karim, le grand-père raconte moins. Quand il parle de la guerre d'Algérie, à laquelle il rattache des souvenirs difficiles, il choisit ses mots avec lenteur. Les deux garçons savent que certains termes peuvent blesser avant même qu'on les explique.\n\nIls savent aussi qu'ils appartiennent à un conflit au sujet duquel leurs familles ne parlent pas toujours de la même manière. Au début, Jimmy évitait le sujet. Karim faisait pareil. Puis, un soir de retour d'entraînement, ils ont découvert qu'ils connaissaient tous les deux des silences semblables: des repas où un prénom fait baisser la voix, des photos que l'on garde dans une boîte, des phrases interrompues quand les plus jeunes posent trop de questions.\n\nDans la rame, leur quotidien est pourtant très éloigné des grands débats. Ils comparent leurs crampons, révisent un contrôle de maths et commentent le dernier match du PSG. Autour d'eux, il y a des jeunes dont les parents viennent du Mali, du Portugal, de Turquie ou de Kabylie. Cette banlieue, souvent décrite de l'extérieur comme un problème, leur apparaît plutôt comme un territoire dans lequel plusieurs mémoires apprennent à partager le même espace.\n\nCela ne veut pas dire que tout est simple. Au collège, une plaisanterie sur l'Algérie peut encore jeter un froid. Dans certaines familles, on préfère que les enfants ne posent pas trop de questions. Jimmy et Karim respectent des récits auxquels leurs familles tiennent, mais ils ont appris à ne pas laisser les adultes décider seuls de leur amitié. « On respecte nos grands-parents, dit Karim, mais on ne veut pas hériter de toutes leurs colères. »\n\nLeur entraîneur utilise une expression un peu ancienne, à laquelle Jimmy n'adhère pas totalement: selon lui, les deux amis ont réussi à enterrer la hache de guerre. Jimmy n'aime pas trop l'image, parce qu'elle donne l'impression qu'il suffirait de cacher le passé sous terre. Karim nuance aussi: enterrer la hache de guerre, pour eux, ce n'est pas oublier. C'est accepter que deux histoires puissent rester différentes sans empêcher deux adolescents de courir vers le même ballon."
       }
     ],
     "questions": [
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q1",
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q1",
         "number": "1",
         "textLabel": "Texte A",
-        "prompt": "Choisissez les quatre affirmations vraies (paragraphes 1-2). [4]\nA.\nYanis a commencé la programmation parce que son lycée l’y a obligé.\nB.\nAu départ, il voulait comprendre comment un jeu pouvait fonctionner.\nC.\nSes premiers essais étaient déjà de grands jeux en trois dimensions.\nD.\nSes premières créations contenaient plusieurs erreurs techniques.\nE.\nIl préfère cacher ses projets à tous ses proches.\nF.\nIl s’est appuyé au début sur un tutoriel trouvé en ligne.\nG.\nIl refuse que d’autres personnes testent ses jeux.\nH.\nCréer lui apporte une satisfaction différente du simple fait de jouer.\nEn vous basant sur le paragraphe 3 , trouvez les mots qui ont la signification suivante.",
+        "prompt": "Choisissez la réponse pour la question 1.",
+        "marks": 4,
+        "expectedAnswer": "A, C, E, G",
+        "acceptedAnswer": "Ordre indifférent. Accorder 1 point par bonne lettre, sans pénalité sauf si plus de quatre réponses sont données.",
+        "rejectedAnswer": "Toute lettre incorrecte au-delà de quatre choix."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies. [4]\nChoisissez la bonne réponse.\nDans le texte, l’expression « avoir le cœur partagé entre deux cultures » signifie que Nassim... A.\nne sait pas quelle langue parler à l'école.\nB.\nse sent construit par deux héritages culturels.\nC.\nveut séparer complètement sa famille et sa musique.\nTrouvez les mots du texte A qui ont la signification suivante.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L'expression montre qu'il se sent construit par deux cultures.",
+        "rejectedAnswer": "A ; C"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "textes d'une chanson :",
+        "marks": 1,
+        "expectedAnswer": "paroles",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "texte ; chanson"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "difficultés traversées par une personne :",
+        "marks": 1,
+        "expectedAnswer": "épreuves",
+        "acceptedAnswer": "les épreuves",
+        "rejectedAnswer": "difficultés si le mot demandé devait être recopié du texte"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "ligne de production dans une usine :\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "chaîne",
+        "acceptedAnswer": "à la chaîne",
+        "rejectedAnswer": "usine seul"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi Nassim compare-t-il parfois sa solitude à celle de sa mère? A.\nPour dire que leurs vies sont exactement identiques.\nB.\nPour montrer que des difficultés différentes peuvent exprimer le même besoin de respect.\nC.\nPour affirmer que les jeunes d'aujourd'hui n'ont aucun problème.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Il veut montrer que des difficultés différentes peuvent exprimer le même besoin de respect.",
+        "rejectedAnswer": "A ; C"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que Nassim ne veut-il pas faire dans ses chansons? A.\nDonner un cours d'histoire.\nB.\nParler de son quartier.\nC.\nMélanger plusieurs sons.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Il ne veut pas faire un cours d'histoire.",
+        "rejectedAnswer": "B ; C"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Qui ses concerts rassemblent-ils parfois? A.\nSeulement des professionnels de la musique.\nB.\nSeulement des adolescents de son lycée.\nC.\nDes parents qui reconnaissent les mélodies d'Oran et des adolescents qui les découvrent.",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "Des parents qui reconnaissent les mélodies d'Oran et des adolescents qui les découvrent.",
+        "rejectedAnswer": "A ; B"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Quelle image Nassim préfère-t-il pour se définir? A.\nUn professeur d'histoire.\nB.\nUn chanteur uniquement moderne.\nC.\nUn pont entre plusieurs publics.",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "Il préfère être un pont entre des publics et des héritages différents.",
+        "rejectedAnswer": "A ; B"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q10",
+        "number": "10",
+        "textLabel": "Texte B",
+        "prompt": "Répondez brièvement aux questions suivantes. [4]\nÀ quoi la cérémonie est-elle consacrée?",
+        "marks": 1,
+        "expectedAnswer": "La mémoire / la reconnaissance des harkis.",
+        "acceptedAnswer": "Une cérémonie consacrée aux harkis.",
+        "rejectedAnswer": "Une fête musicale ; une cérémonie militaire actuelle."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Quel groupe de personnes a été invité à lire des témoignages?",
+        "marks": 1,
+        "expectedAnswer": "Des descendants de harkis.",
+        "acceptedAnswer": "Un groupe de descendants ; des familles de harkis.",
+        "rejectedAnswer": "Des soldats actuels seul."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi l'événement reste-t-il controversé pour certains descendants?",
+        "marks": 1,
+        "expectedAnswer": "Parce que certaines familles se sentent encore oubliées / insuffisamment reconnues.",
+        "acceptedAnswer": "Parce que l'histoire reste douloureuse.",
+        "rejectedAnswer": "Parce que la salle était petite."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi Samia Rahmani pense-t-elle qu'on ne peut pas simplement « tourner la page »?\nComplétez chaque phrase avec un mot du texte B. [4]",
+        "marks": 1,
+        "expectedAnswer": "Parce que la page n'a jamais été vraiment lue / parce que l'histoire n'a pas été assez reconnue.",
+        "acceptedAnswer": "Parce qu'il faut reconnaître clairement l'histoire avant d'avancer.",
+        "rejectedAnswer": "Parce qu'ils refusent toute évolution."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Le collectif voudrait un accès plus simple aux .",
+        "marks": 1,
+        "expectedAnswer": "archives",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "documents seul"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Il souhaite aussi des pédagogiques dans les lycées.",
+        "marks": 1,
+        "expectedAnswer": "ateliers",
+        "acceptedAnswer": "ateliers pédagogiques",
+        "rejectedAnswer": "cours seul"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le collectif demande un de mémoire entretenu toute l'année.",
+        "marks": 1,
+        "expectedAnswer": "lieu",
+        "acceptedAnswer": "lieu de mémoire",
+        "rejectedAnswer": "monument si le mot du texte est exigé"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Quelques participants auraient voulu que ces soient annoncés depuis longtemps.",
+        "marks": 1,
+        "expectedAnswer": "engagements",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "promesses si le mot du texte est exigé"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "La commune pourrait soutenir ______ A. plus efficace qu'une seule journée officielle.",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "La commune pourrait soutenir des rencontres entre historiens, familles et jeunes.",
+        "rejectedAnswer": "A ; B ; D ; E ; F"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le dialogue actuel pourrait ______ B. fermer le livre.",
+        "marks": 1,
+        "expectedAnswer": "F",
+        "acceptedAnswer": "Le dialogue actuel pourrait ouvrir une étape utile.",
+        "rejectedAnswer": "A ; B ; C ; D ; E"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "Tourner la page ne signifie pas ______ C. des rencontres entre historiens, familles et jeunes.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Tourner la page ne signifie pas fermer le livre.",
+        "rejectedAnswer": "A ; C ; D ; E ; F"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "Cette histoire a été ______ D. d'effacer toutes les blessures immédiatement.\nE. longtemps laissée dans les marges.\nF. ouvrir une étape utile.\nChoisissez la bonne réponse. [2]",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "Cette histoire a été longtemps laissée dans les marges.",
+        "rejectedAnswer": "A ; B ; C ; D ; F"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment domine à la fin de la cérémonie? A.\nUne victoire simple que tout le monde accepte.\nB.\nUn sentiment nuancé, entre méfiance et émotion.\nC.\nUn refus total de parler publiquement.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Un sentiment nuancé mêlant méfiance et émotion.",
+        "rejectedAnswer": "A ; C"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Quel est le ton général de l'article? A.\nAccusateur et agressif.\nB.\nHumoristique et léger.\nC.\nPrudent, équilibré et informatif.",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "Le ton est prudent, équilibré et informatif.",
+        "rejectedAnswer": "A ; B"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Affirmation Vrai Faux Justification\nLa Seine-Saint-Denis est présentée comme un lieu culturellement homogène.",
+        "marks": 1,
+        "expectedAnswer": "Faux + preuve: familles venues d'Afrique du Nord, d'Europe, d'Asie ou des Antilles / les langues se mélangent.",
+        "acceptedAnswer": "Toute citation montrant la diversité du département.",
+        "rejectedAnswer": "Faux sans preuve ; Vrai."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "Jimmy et Karim vont ensemble au centre d'entraînement du PSG.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + preuve: prendre le RER vers le centre d'entraînement du PSG.",
+        "acceptedAnswer": "Toute citation montrant qu'ils s'y rendent ensemble.",
+        "rejectedAnswer": "Vrai sans preuve ; Faux."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Les grands-pères des deux garçons avaient combattu ou vécu l'histoire dans le même camp.",
+        "marks": 1,
+        "expectedAnswer": "Faux + preuve: Jimmy est petit-fils de pieds-noirs ; Karim est petit-fils d'un homme lié au FLN.",
+        "acceptedAnswer": "Toute preuve indiquant des histoires opposées.",
+        "rejectedAnswer": "Faux sans preuve ; Vrai."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le grand-père de Karim raconte la guerre facilement et rapidement.",
+        "marks": 1,
+        "expectedAnswer": "Faux + preuve: le grand-père raconte moins / il choisit ses mots avec lenteur.",
+        "acceptedAnswer": "Toute citation montrant que Karim n'entend pas un récit facile ou rapide.",
+        "rejectedAnswer": "Faux sans preuve ; Vrai."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "À qui ou à quoi les mots soulignés font-ils référence? [4]\nduquel :",
+        "marks": 1,
+        "expectedAnswer": "un conflit",
+        "acceptedAnswer": "le conflit lié à la guerre d'Algérie.",
+        "rejectedAnswer": "leurs familles ; l'amitié."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "dans lequel :",
+        "marks": 1,
+        "expectedAnswer": "un territoire / cette banlieue",
+        "acceptedAnswer": "la banlieue ; la Seine-Saint-Denis si le lien est clair.",
+        "rejectedAnswer": "les mémoires ; le RER."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "auxquels :",
+        "marks": 1,
+        "expectedAnswer": "des récits",
+        "acceptedAnswer": "les récits familiaux.",
+        "rejectedAnswer": "les adultes ; les colères."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "à laquelle :\nRépondez brièvement aux questions suivantes. [4]",
+        "marks": 1,
+        "expectedAnswer": "une expression un peu ancienne",
+        "acceptedAnswer": "l'expression enterrer la hache de guerre.",
+        "rejectedAnswer": "Jimmy ; l'entraîneur."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "Quelle expression l'entraîneur utilise-t-il pour parler de Jimmy et Karim?",
+        "marks": 1,
+        "expectedAnswer": "Enterrer la hache de guerre.",
+        "acceptedAnswer": "L'expression une expression un peu ancienne si le lien est clair.",
+        "rejectedAnswer": "Un conflit ; le RER."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi Jimmy n'aime-t-il pas trop cette image?",
+        "marks": 1,
+        "expectedAnswer": "Parce qu'elle donne l'impression qu'il suffirait de cacher le passé sous terre.",
+        "acceptedAnswer": "Parce qu'elle semble simplifier ou cacher le passé.",
+        "rejectedAnswer": "Parce qu'il déteste son entraîneur."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "Quelle précision Karim ajoute-t-il sur cette expression?",
+        "marks": 1,
+        "expectedAnswer": "Que ce n'est pas oublier.",
+        "acceptedAnswer": "Enterrer la hache de guerre ne veut pas dire oublier.",
+        "rejectedAnswer": "Qu'il faut oublier."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "Dans le texte, que signifie « enterrer la hache de guerre » pour Jimmy et Karim?\nChoisissez la bonne réponse. [2]",
+        "marks": 1,
+        "expectedAnswer": "Accepter que deux histoires restent différentes sans empêcher leur amitié.",
+        "acceptedAnswer": "Ne pas oublier, mais vivre ensemble malgré des mémoires différentes.",
+        "rejectedAnswer": "Oublier complètement le passé."
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quel est le ton dominant du reportage? A.\nIronique et moqueur.\nB.\nPrudent mais porteur d'espoir.\nC.\nPolémique et violent.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Un ton prudent mais porteur d'espoir.",
+        "rejectedAnswer": "A ; C"
+      },
+      {
+        "id": "paper-2-reading-cas_special-memoires_algeriennes_rai_banlieue-validated-bundle-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Quel message résume le mieux le texte C? A.\nDes jeunes peuvent vivre avec des mémoires opposées sans être prisonniers d'elles.\nB.\nLes familles doivent toutes raconter l'histoire exactement de la même manière.\nC.\nLe football permet d'effacer définitivement les conflits historiques.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Les jeunes peuvent vivre avec des mémoires opposées sans être prisonniers d'elles.",
+        "rejectedAnswer": "B ; C"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "memoires_algeriennes_rai_banlieue_reading_text_booklet_v1.html",
+      "questionBooklet": "memoires_algeriennes_rai_banlieue_reading_question_answer_booklet_v1.html",
+      "markscheme": "memoires_algeriennes_rai_banlieue_reading_markscheme_v1.html"
+    }
+  },
+  {
+    "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Expériences",
+    "topic": "activités de loisirs",
+    "themeKey": "experiences",
+    "topicKey": "activites-de-loisirs",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur portrait de responsable local / transmission de loisirs",
+        "body": "Portrait de Michel, responsable de la ludothèque de sa ville.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « activités de loisirs » à partir d’une situation concrète. Portrait de Michel, responsable de la ludothèque de sa ville. Cette année, il met à l’honneur les jeux en bois et les jeux anciens afin de montrer aux jeunes générations qu’on peut créer des loisirs très riches, très bien pensés et profondément conviviaux, même sans écran, sans électricité et sans technologie avancée. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur portrait de Michel, ludothèque municipale, jeux en bois, jeux anciens. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de temps libre et détente, sports et activités, sorties et divertissements, mais elle évite discours nostalgique simpliste. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « activités de loisirs » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Activités de loisirs : comprendre les effets concrets",
+        "body": "Article sur la Paris Games Week comme grand rendez-vous des passionnés de jeux vidéo.\n\nLe deuxième texte adopte un ton plus explicatif. Article sur la Paris Games Week comme grand rendez-vous des passionnés de jeux vidéo. Le texte présente l’événement, l’ambiance, les publics qui s’y croisent, les démonstrations, les découvertes et les raisons pour lesquelles ce salon est devenu un temps fort du loisir numérique. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve Paris Games Week, grand événement, jeux vidéo, ambiance. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de équilibre du temps libre, pratiques artistiques, engagement sportif. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « mettre les voiles » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « activités de loisirs » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article purement promotionnel et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « activités de loisirs » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand activités de loisirs devient un enjeu collectif",
+        "body": "Article sur le Puy du Fou comme activité de loisir singulière, à la frontière du spectacle, de l’histoire et de l’immersion.\n\nLe dernier texte est plus dense et plus collectif. Article sur le Puy du Fou comme activité de loisir singulière, à la frontière du spectacle, de l’histoire et de l’immersion. Le texte analyse pourquoi ce lieu attire autant : émotion, mise en scène grandiose, impression de voyager dans le temps et expérience collective marquante. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque Puy du Fou, angle singulier, spectacle, histoire, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « avoir le vent en poupe » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite brochure touristique. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « activités de loisirs » demande une organisation durable. Le champ lexical de épanouissement personnel, sociabilité et appartenance, consommation culturelle renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « activités de loisirs ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
         "marks": 4,
         "expectedAnswer": "B, D, F, H",
         "acceptedAnswer": "ordre indifférent",
         "rejectedAnswer": "toute autre combinaison"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q2",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q2",
         "number": "2",
         "textLabel": "Texte A",
-        "prompt": "petites erreurs techniques répétées",
+        "prompt": "habitude qui revient régulièrement",
         "marks": 1,
-        "expectedAnswer": "bogues",
+        "expectedAnswer": "rituel",
         "acceptedAnswer": "",
-        "rejectedAnswer": "erreurs ; problèmes"
+        "rejectedAnswer": "habitude seule"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q3",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q3",
         "number": "3",
         "textLabel": "Texte A",
-        "prompt": "étapes ou parties successives d’un jeu",
+        "prompt": "signes ou points qui permettent de se guider",
         "marks": 1,
-        "expectedAnswer": "niveaux",
-        "acceptedAnswer": "petits niveaux",
-        "rejectedAnswer": "étapes ; parties"
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q4",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q4",
         "number": "4",
         "textLabel": "Texte A",
-        "prompt": "personnes qui essaient une version avant la version finale\nChoisissez la bonne réponse (paragraphes 4-5).",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
         "marks": 1,
-        "expectedAnswer": "testeurs",
-        "acceptedAnswer": "ses testeurs officiels",
-        "rejectedAnswer": "camarades seul ; amis seul"
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q5",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q5",
         "number": "5",
         "textLabel": "Texte A",
-        "prompt": "Quand Yanis bloque sur un problème, que fait-il le plus souvent ? A.\nIl efface immédiatement tout son projet.\nB.\nIl relit son code et cherche un exemple utile.\nC.\nIl attend qu’un ami termine à sa place.",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
         "marks": 1,
-        "expectedAnswer": "B",
-        "acceptedAnswer": "il relit son code et cherche un exemple utile",
-        "rejectedAnswer": "A ; C"
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q6",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q6",
         "number": "6",
         "textLabel": "Texte A",
-        "prompt": "Pourquoi fait-il tester ses jeux à ses camarades ? A.\nPour voir si ce qu’il a conçu fonctionne réellement.\nB.\nPour leur vendre une version définitive.\nC.\nPour éviter de modifier ses niveaux.",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
         "marks": 1,
-        "expectedAnswer": "A",
-        "acceptedAnswer": "pour voir si le jeu fonctionne vraiment",
-        "rejectedAnswer": "B ; C"
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q7",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q7",
         "number": "7",
         "textLabel": "Texte A",
-        "prompt": "Quelle situation lui apporte le plus de satisfaction ? A.\nQuand quelqu’un rejoue avec envie.\nB.\nQuand il gagne de l’argent.\nC.\nQuand il supprime toute la difficulté.",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
         "marks": 1,
         "expectedAnswer": "A",
-        "acceptedAnswer": "quand quelqu’un rejoue avec envie",
-        "rejectedAnswer": "B ; C"
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q8",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q8",
         "number": "8",
         "textLabel": "Texte A",
-        "prompt": "Pour Yanis, programmer est surtout… A.\nune activité purement scolaire.\nB.\nun espace où logique et imagination se rencontrent.\nC.\nune façon d’abandonner totalement les jeux vidéo.",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
         "marks": 1,
         "expectedAnswer": "B",
-        "acceptedAnswer": "la logique et l’imagination se rencontrent",
-        "rejectedAnswer": "A ; C"
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q9",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q9",
         "number": "9",
         "textLabel": "Texte A",
-        "prompt": "Quelle idée résume le mieux la fin du texte ? A.\nIl veut seulement impressionner ses proches.\nB.\nIl voit dans la programmation une autonomie créative.\nC.\nIl a déjà décidé de créer un grand studio.",
-        "marks": 1,
-        "expectedAnswer": "B",
-        "acceptedAnswer": "une autonomie créative ; fabriquer au lieu de seulement consommer",
-        "rejectedAnswer": "A ; C"
-      },
-      {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q10",
-        "number": "10",
-        "textLabel": "Texte B",
-        "prompt": "Répondez aux questions suivantes (paragraphes 1-3).\nOù beaucoup de jeunes gardent-ils leur téléphone la nuit ?",
-        "marks": 1,
-        "expectedAnswer": "sur la table de nuit / près du lit",
-        "acceptedAnswer": "",
-        "rejectedAnswer": "dans la cuisine ; à l’école"
-      },
-      {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q11",
-        "number": "11",
-        "textLabel": "Texte B",
-        "prompt": "Quel type de photos peut pousser à la comparaison ?",
-        "marks": 1,
-        "expectedAnswer": "des photos retouchées",
-        "acceptedAnswer": "des images filtrées",
-        "rejectedAnswer": "des photos de classe ; des paysages"
-      },
-      {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q12",
-        "number": "12",
-        "textLabel": "Texte B",
-        "prompt": "Quelle forme de réaction certains attendent-ils après une publication ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans les paragraphes 2-3.",
-        "marks": 1,
-        "expectedAnswer": "des likes / des réactions / des commentaires",
-        "acceptedAnswer": "une validation immédiate",
-        "rejectedAnswer": "du sommeil ; des devoirs"
-      },
-      {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q13",
-        "number": "13",
-        "textLabel": "Texte B",
-        "prompt": "Les ______ peuvent prolonger le temps avant de dormir.",
-        "marks": 1,
-        "expectedAnswer": "notifications",
-        "acceptedAnswer": "",
-        "rejectedAnswer": "messages ; écran"
-      },
-      {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q14",
-        "number": "14",
-        "textLabel": "Texte B",
-        "prompt": "Le téléphone peut retarder l’______.",
-        "marks": 1,
-        "expectedAnswer": "endormissement",
-        "acceptedAnswer": "",
-        "rejectedAnswer": "sommeil si le noyau reste trop large"
-      },
-      {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q15",
-        "number": "15",
-        "textLabel": "Texte B",
-        "prompt": "Certains adolescents recherchent une ______ immédiate.",
-        "marks": 1,
-        "expectedAnswer": "validation",
-        "acceptedAnswer": "validation immédiate",
-        "rejectedAnswer": "attention ; comparaison"
-      },
-      {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q16",
-        "number": "16",
-        "textLabel": "Texte B",
-        "prompt": "À force, la ______ devient fatigante.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase (paragraphes 3-5).",
-        "marks": 1,
-        "expectedAnswer": "comparaison",
-        "acceptedAnswer": "",
-        "rejectedAnswer": "estime ; image"
-      },
-      {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q17",
-        "number": "17",
-        "textLabel": "Texte B",
-        "prompt": "Le sommeil se fragilise,",
-        "marks": 1,
-        "expectedAnswer": "C",
-        "acceptedAnswer": "",
-        "rejectedAnswer": "A ; B ; D ; E ; F"
-      },
-      {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q18",
-        "number": "18",
-        "textLabel": "Texte B",
-        "prompt": "La comparaison répétée peut devenir difficile à supporter,",
-        "marks": 1,
-        "expectedAnswer": "B",
-        "acceptedAnswer": "",
-        "rejectedAnswer": "A ; C ; D ; E ; F"
-      },
-      {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q19",
-        "number": "19",
-        "textLabel": "Texte B",
-        "prompt": "Les spécialistes privilégient la discussion,\nA.\nmême quand les images paraissent artificielles.\nB.\nce qui peut affaiblir l’estime de soi.\nC.\ncar les notifications gardent le cerveau en éveil.\nD.\nparce que les réseaux remplacent totalement l’école.\nE.\nafin que les jeunes comprennent leurs usages.\nF.\nce qui annule toujours le besoin de sommeil.\nChoisissez un mot approprié de la liste pour remplir chaque blanc dans le texte suivant (paragraphe 5).\nLes spécialistes recommandent d’éteindre certaines notifications 20 le coucher. Ils suggèrent aussi de discuter des usages, 21 de tout interdire d’un coup. Comprendre 22 une image paraît parfaite aide déjà à prendre du recul. Cette conversation doit se faire 23 culpabiliser.\nA. avant\nB. comment\nC. plutôt que\nD. sans\nE. malgré\nF. pendant",
-        "marks": 1,
-        "expectedAnswer": "E",
-        "acceptedAnswer": "",
-        "rejectedAnswer": "A ; B ; C ; D ; F"
-      },
-      {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q20",
-        "number": "20",
-        "textLabel": "Texte B",
-        "prompt": "Choisissez la réponse pour la question 20.",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
         "marks": 1,
         "expectedAnswer": "A",
-        "acceptedAnswer": "avant",
-        "rejectedAnswer": "B ; C ; D ; E ; F"
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q21",
-        "number": "21",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q11",
+        "number": "11",
         "textLabel": "Texte B",
-        "prompt": "Choisissez la réponse pour la question 21.",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
         "marks": 1,
         "expectedAnswer": "C",
-        "acceptedAnswer": "plutôt que",
-        "rejectedAnswer": "A ; B ; D ; E ; F"
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q22",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q22",
         "number": "22",
         "textLabel": "Texte B",
         "prompt": "Choisissez la réponse pour la question 22.",
         "marks": 1,
         "expectedAnswer": "B",
-        "acceptedAnswer": "comment",
-        "rejectedAnswer": "A ; C ; D ; E ; F"
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q23",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q23",
         "number": "23",
         "textLabel": "Texte B",
         "prompt": "Choisissez la réponse pour la question 23.",
         "marks": 1,
-        "expectedAnswer": "D",
-        "acceptedAnswer": "sans",
-        "rejectedAnswer": "A ; B ; C ; E ; F"
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q24",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q24",
         "number": "24",
         "textLabel": "Texte C",
-        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nL’association achète surtout du matériel neuf.",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
         "marks": 1,
-        "expectedAnswer": "Faux + récupère des ordinateurs donnés par des entreprises",
-        "acceptedAnswer": "toute citation équivalente montrant qu’il ne s’agit pas de matériel neuf",
-        "rejectedAnswer": "Faux sans justification ; Vrai"
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q25",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q25",
         "number": "25",
         "textLabel": "Texte C",
-        "prompt": "Les machines distribuées sont préparées avant d’arriver chez les familles.",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
         "marks": 1,
-        "expectedAnswer": "Vrai + triées, nettoyées et réparées / installent des logiciels libres",
-        "acceptedAnswer": "toute preuve textuelle montrant que les machines sont préparées",
-        "rejectedAnswer": "Vrai sans justification ; Faux"
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q26",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q26",
         "number": "26",
         "textLabel": "Texte C",
-        "prompt": "Le projet réduit aussi les déchets électroniques.",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
         "marks": 1,
-        "expectedAnswer": "Vrai + réduire une partie des déchets électroniques",
-        "acceptedAnswer": "toute citation claire sur le gaspillage ou la durée de vie du matériel",
-        "rejectedAnswer": "Vrai sans justification ; Faux"
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q27",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q27",
         "number": "27",
         "textLabel": "Texte C",
-        "prompt": "Pour l’équipe, remettre un ordinateur suffit toujours.\nRépondez aux questions suivantes (paragraphes 2-7).",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
         "marks": 1,
-        "expectedAnswer": "Faux + L’accompagnement compte presque autant que l’équipement / Ce soutien évite que l’ordinateur reste fermé",
-        "acceptedAnswer": "toute citation montrant qu’un simple don ne suffit pas",
-        "rejectedAnswer": "Faux sans justification ; Vrai"
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q28",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q28",
         "number": "28",
         "textLabel": "Texte C",
-        "prompt": "Sur quel appareil certaines familles comptaient-elles avant l’aide de l’association ?",
+        "prompt": "Que font d’abord les participants ?",
         "marks": 1,
-        "expectedAnswer": "un téléphone",
-        "acceptedAnswer": "un seul téléphone",
-        "rejectedAnswer": "un ordinateur ; une tablette"
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q29",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q29",
         "number": "29",
         "textLabel": "Texte C",
-        "prompt": "Quel type de logiciels l’équipe installe-t-elle ?",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
         "marks": 1,
-        "expectedAnswer": "des logiciels libres",
-        "acceptedAnswer": "",
-        "rejectedAnswer": "des jeux ; des logiciels payants"
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q30",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q30",
         "number": "30",
         "textLabel": "Texte C",
-        "prompt": "Que peuvent enfin faire plus facilement les enfants ?",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
         "marks": 1,
-        "expectedAnswer": "leurs devoirs en ligne",
-        "acceptedAnswer": "les devoirs ; le travail scolaire en ligne",
-        "rejectedAnswer": "des achats ; des vidéos"
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q31",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q31",
         "number": "31",
         "textLabel": "Texte C",
-        "prompt": "Quel type de démarches les adultes peuvent-ils mieux gérer ?\nÀ qui ou à quoi les mots soulignés font-ils référence ?",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
         "marks": 1,
-        "expectedAnswer": "des démarches administratives",
-        "acceptedAnswer": "une démarche administrative ; des formulaires administratifs",
-        "rejectedAnswer": "des loisirs ; des voyages"
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q32",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q32",
         "number": "32",
         "textLabel": "Texte C",
-        "prompt": "`Ce matériel` (paragraphe 3)",
+        "prompt": "`La démarche`",
         "marks": 1,
-        "expectedAnswer": "les ordinateurs donnés par des entreprises / les machines récupérées",
-        "acceptedAnswer": "les ordinateurs récupérés",
-        "rejectedAnswer": "l’atelier ; les familles"
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q33",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q33",
         "number": "33",
         "textLabel": "Texte C",
-        "prompt": "`elles` dans `beaucoup d’entre elles n’avaient qu’un téléphone` (paragraphe 2)",
+        "prompt": "`ils` dans `ils comprennent mieux`",
         "marks": 1,
-        "expectedAnswer": "les familles",
-        "acceptedAnswer": "certaines familles",
-        "rejectedAnswer": "les entreprises ; les bénévoles"
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q34",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q34",
         "number": "34",
         "textLabel": "Texte C",
-        "prompt": "`Ce soutien` (paragraphe 4)",
+        "prompt": "`ce soutien`",
         "marks": 1,
-        "expectedAnswer": "les ateliers / l’accompagnement",
-        "acceptedAnswer": "ce soutien à l’usage ; l’aide apportée par l’association",
-        "rejectedAnswer": "l’ordinateur seul"
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q35",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q35",
         "number": "35",
         "textLabel": "Texte C",
-        "prompt": "`il` dans `il redonne une marge de liberté` (paragraphe 7)\nChoisissez la bonne réponse (paragraphe 8).",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
         "marks": 1,
-        "expectedAnswer": "l’accès au numérique",
-        "acceptedAnswer": "cet accès ; le numérique",
-        "rejectedAnswer": "Aïcha ; l’ordinateur"
+        "expectedAnswer": "l’expression « avoir le vent en poupe » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q36",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q36",
         "number": "36",
         "textLabel": "Texte C",
-        "prompt": "L’idée principale du projet est surtout de… A.\nrelier utilité sociale et réduction du gaspillage numérique.\nB.\nremplacer tous les services publics.\nC.\nvendre des ordinateurs très performants.",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
         "marks": 1,
         "expectedAnswer": "A",
-        "acceptedAnswer": "relier utilité sociale et réduction du gaspillage numérique",
-        "rejectedAnswer": "B ; C"
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-ingeniosite_humaine-technologie-frenchease-premium-v1-q37",
+        "id": "paper-2-reading-experiences-activites_de_loisirs-validated-v2-q37",
         "number": "37",
         "textLabel": "Texte C",
-        "prompt": "Pourquoi l’association refuse-t-elle de parler d’une simple charité passive ? A.\nParce qu’elle souhaite surtout faire de la publicité.\nB.\nParce qu’elle cherche une autonomie numérique durable.\nC.\nParce qu’elle réserve ses ordinateurs aux experts.",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
         "marks": 1,
-        "expectedAnswer": "B",
-        "acceptedAnswer": "viser une autonomie numérique durable",
-        "rejectedAnswer": "A ; C"
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
       }
-    ]
+    ],
+    "sourceDocuments": {
+      "textBooklet": "activites_de_loisirs_reading_text_booklet_v2.html",
+      "questionBooklet": "activites_de_loisirs_reading_question_booklet_v2.html",
+      "markscheme": "activites_de_loisirs_reading_markscheme_v2.html",
+      "page1": "activites_de_loisirs_comprehension_ecrite_page_1_v2.pptx"
+    }
   },
   {
-    "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1",
+    "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Expériences",
+    "topic": "coutumes et traditions",
+    "themeKey": "experiences",
+    "topicKey": "coutumes-et-traditions",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur tradition familiale connue",
+        "body": "Texte sur la traditionnelle chasse aux œufs de Pâques en France, avec l’idée que ce sont les cloches — et non le lapin — qui apportent les œufs dans l’imaginaire français.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « coutumes et traditions » à partir d’une situation concrète. Texte sur la traditionnelle chasse aux œufs de Pâques en France, avec l’idée que ce sont les cloches — et non le lapin — qui apportent les œufs dans l’imaginaire français. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur Pâques, chasse aux œufs, France, cloches. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de coutume et habitude, tradition familiale, fête et célébration, mais elle évite explication religieuse trop lourde. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « coutumes et traditions » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Coutumes et traditions : comprendre les effets concrets",
+        "body": "Article sur une association de quartier qui, à l’occasion de la Chandeleur, invite les enfants à venir préparer des crêpes pour renforcer les liens sociaux autour d’une célébration très connue.\n\nLe deuxième texte adopte un ton plus explicatif. Article sur une association de quartier qui, à l’occasion de la Chandeleur, invite les enfants à venir préparer des crêpes pour renforcer les liens sociaux autour d’une célébration très connue. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve Chandeleur, crêpes, association de quartier, enfants. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de patrimoine culturel, transmission intergénérationnelle, pratiques symboliques. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « qui se ressemble s'assemble » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « coutumes et traditions » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite recette de cuisine pure et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « coutumes et traditions » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand coutumes et traditions devient un enjeu collectif",
+        "body": "Article sur les Fêtes de Bayonne, où les participants sont vêtus de blanc avec un foulard rouge.\n\nLe dernier texte est plus dense et plus collectif. Article sur les Fêtes de Bayonne, où les participants sont vêtus de blanc avec un foulard rouge. Le texte montre le mélange entre régionalisme, tradition, grande fête populaire et événement touristique connu au-delà de la France. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque Fêtes de Bayonne, blanc et foulard rouge, régionalisme, tradition, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « faire la tête » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite folklore caricatural. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « coutumes et traditions » demande une organisation durable. Le champ lexical de héritage vivant, identité collective, valeur symbolique renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « coutumes et traditions ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « faire la tête » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-coutumes_et_traditions-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "coutumes_et_traditions_reading_text_booklet_v2.html",
+      "questionBooklet": "coutumes_et_traditions_reading_question_booklet_v2.html",
+      "markscheme": "coutumes_et_traditions_reading_markscheme_v2.html",
+      "page1": "coutumes_et_traditions_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-experiences-migration-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Expériences",
+    "topic": "migration",
+    "themeKey": "experiences",
+    "topicKey": "migration",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur s’installer ailleurs dans l’espace francophone",
+        "body": "Portrait de Jean, qui a quitté la Suisse pour s’installer en Guadeloupe.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « migration » à partir d’une situation concrète. Portrait de Jean, qui a quitté la Suisse pour s’installer en Guadeloupe. Il pensait que parler français suffirait, mais il a découvert un territoire avec ses propres traditions, son parler et un mode de vie différent. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur Suisse, Guadeloupe, langue française, traditions propres. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de départ et arrivée, pays et frontières, famille et séparation, mais elle évite vision exotique simpliste. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « migration » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Migration : comprendre les effets concrets",
+        "body": "Article sur des bénévoles qui aident les étrangers dans leurs démarches administratives : rendez-vous, formulaires, dossiers, compréhension des règles.\n\nLe deuxième texte adopte un ton plus explicatif. Article sur des bénévoles qui aident les étrangers dans leurs démarches administratives : rendez-vous, formulaires, dossiers, compréhension des règles. Le texte montre à quel point cet accompagnement peut être décisif. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve bénévoles, étrangers, démarches administratives, formulaires. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de mobilité et déplacement, raisons du départ, intégration sociale. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « prendre ses jambes à son cou » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « migration » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite texte purement bureaucratique et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « migration » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand migration devient un enjeu collectif",
+        "body": "Article sur ces descendants d’immigrés nés en France qui choisissent de partir vivre dans le pays d’origine de leurs parents ou grands-parents.\n\nLe dernier texte est plus dense et plus collectif. Article sur ces descendants d’immigrés nés en France qui choisissent de partir vivre dans le pays d’origine de leurs parents ou grands-parents. Le texte montre leur volonté de se reconnecter à leurs racines tout en apportant des compétences acquises en France. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque descendants d’immigrés, nés en France, retour vers le pays d’origine, études, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « faire des pieds et des mains » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite récit romantique sans difficultés. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « migration » demande une organisation durable. Le champ lexical de parcours migratoire, déracinement et attachement, adaptation culturelle renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « migration ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « faire des pieds et des mains » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-migration-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "migration_reading_text_booklet_v2.html",
+      "questionBooklet": "migration_reading_question_booklet_v2.html",
+      "markscheme": "migration_reading_markscheme_v2.html",
+      "page1": "migration_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-experiences-rites_de_passage-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Expériences",
+    "topic": "rites de passage",
+    "themeKey": "experiences",
+    "topicKey": "rites-de-passage",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur rite de passage quotidien",
+        "body": "Article sur le permis de conduire comme rite de passage : autonomie nouvelle, responsabilité, rapport à l’âge adulte et importance symbolique de cette étape dans la vie de nombreux jeunes.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « rites de passage » à partir d’une situation concrète. Article sur le permis de conduire comme rite de passage : autonomie nouvelle, responsabilité, rapport à l’âge adulte et importance symbolique de cette étape dans la vie de nombreux jeunes. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur permis de conduire, autonomie, responsabilité, âge adulte. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de enfance et croissance, étapes de la vie, famille et tradition, mais elle évite article purement technique sur le code. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « rites de passage » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Rites de passage : comprendre les effets concrets",
+        "body": "Article sur les cérémonies funéraires vaudou en Louisiane et sur leurs racines historiques mêlant influences d’Afrique de l’Ouest, des Amérindiens et de l’histoire locale.\n\nLe deuxième texte adopte un ton plus explicatif. Article sur les cérémonies funéraires vaudou en Louisiane et sur leurs racines historiques mêlant influences d’Afrique de l’Ouest, des Amérindiens et de l’histoire locale. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve Louisiane, vaudou, cérémonies funéraires, Afrique de l’Ouest. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de transition vers l’âge adulte, transmission familiale, rites religieux et culturels. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « tomber dans les pommes » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « rites de passage » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite folklorisation et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « rites de passage » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand rites de passage devient un enjeu collectif",
+        "body": "Article sur un couple passionné de voyages qui a choisi de passer sa lune de miel à bord du train minier en Mauritanie, faisant de ce rite de passage une expérience radicalement hors du commun.\n\nLe dernier texte est plus dense et plus collectif. Article sur un couple passionné de voyages qui a choisi de passer sa lune de miel à bord du train minier en Mauritanie, faisant de ce rite de passage une expérience radicalement hors du commun. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque lune de miel, rite de passage, train minier, Mauritanie, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « avoir le cafard » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite simple récit touristique. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « rites de passage » demande une organisation durable. Le champ lexical de construction de soi, valeur symbolique, passage et transformation renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « rites de passage ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « avoir le cafard » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-rites_de_passage-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "rites_de_passage_reading_text_booklet_v2.html",
+      "questionBooklet": "rites_de_passage_reading_question_booklet_v2.html",
+      "markscheme": "rites_de_passage_reading_markscheme_v2.html",
+      "page1": "rites_de_passage_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Expériences",
+    "topic": "vacances et voyages",
+    "themeKey": "experiences",
+    "topicKey": "vacances-et-voyages",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur voyager en travaillant",
+        "body": "Article sur ces personnes qui “font les saisons” (travailleurs saisonniers): l’été elles travaillent au bord de la mer, l’hiver en montagne, ou sur des bateaux de croisière.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « vacances et voyages » à partir d’une situation concrète. Article sur ces personnes qui “font les saisons” (travailleurs saisonniers): l’été elles travaillent au bord de la mer, l’hiver en montagne, ou sur des bateaux de croisière. Le texte montre qu’elles voyagent beaucoup sans être vraiment des touristes, parce qu’elles suivent le rythme des vacanciers pour travailler. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur travail saisonnier, mer l’été, montagne l’hiver, croisières. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de préparation du voyage, moyens de transport, hébergement, mais elle évite portrait de vacanciers. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « vacances et voyages » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Vacances et voyages : comprendre les effets concrets",
+        "body": "Article sur le tourisme de masse à Paris, avec la tour Eiffel comme symbole d’une ville très visitée.\n\nLe deuxième texte adopte un ton plus explicatif. Article sur le tourisme de masse à Paris, avec la tour Eiffel comme symbole d’une ville très visitée. Le texte interroge les effets négatifs du tourisme sur l’écologie, le respect des lieux, les cultures locales et le mode de vie des habitants. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve Paris, tourisme de masse, tour Eiffel, photos. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de organisation du séjour, tourisme et fréquentation, mobilité et déplacements. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « tomber à pic » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « vacances et voyages » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite carte postale touristique et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « vacances et voyages » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand vacances et voyages devient un enjeu collectif",
+        "body": "Article sur le succès des catacombes de Paris et sur l’attrait durable qu’exerce cette visite sur les touristes.\n\nLe dernier texte est plus dense et plus collectif. Article sur le succès des catacombes de Paris et sur l’attrait durable qu’exerce cette visite sur les touristes. Le texte montre comment un lieu sombre, historique et singulier est devenu une expérience de voyage très recherchée. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque catacombes de Paris, succès touristique, lieu historique, attrait du lieu, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « voir la vie en rose » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite texte d’horreur sensationnaliste. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « vacances et voyages » demande une organisation durable. Le champ lexical de rapport au voyage, mobilité contemporaine, authenticité et immersion renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « vacances et voyages ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « voir la vie en rose » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-experiences-vacances_et_voyages-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "vacances_et_voyages_reading_text_booklet_v2.html",
+      "questionBooklet": "vacances_et_voyages_reading_question_booklet_v2.html",
+      "markscheme": "vacances_et_voyages_reading_markscheme_v2.html",
+      "page1": "vacances_et_voyages_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Identités",
+    "topic": "convictions et valeurs",
+    "themeKey": "identites",
+    "topicKey": "convictions-et-valeurs",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur portrait engagé",
+        "body": "Portrait de Samia, musulmane et militante pour le droit des femmes à s’habiller comme elles veulent.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « convictions et valeurs » à partir d’une situation concrète. Portrait de Samia, musulmane et militante pour le droit des femmes à s’habiller comme elles veulent. Elle raconte les discriminations qu’elle a subies, notamment dans l’emploi, et explique pourquoi elle juge grave de ne pas être pleinement acceptée à cause de sa croyance. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur Samia, musulmane, droit des femmes, liberté vestimentaire. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de opinions et croyances, valeurs morales, principes personnels, mais elle évite polémique simpliste. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « convictions et valeurs » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Convictions et valeurs : comprendre les effets concrets",
+        "body": "Article sur le mouvement scout en Belgique : à l’origine lié aux croyances, il transmet aujourd’hui surtout des valeurs à travers des expériences marquantes pour les enfants et les adolescents.\n\nLe deuxième texte adopte un ton plus explicatif. Article sur le mouvement scout en Belgique : à l’origine lié aux croyances, il transmet aujourd’hui surtout des valeurs à travers des expériences marquantes pour les enfants et les adolescents. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve scouts, Belgique, origine liée aux croyances, valeurs. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de convictions et principes, éthique et intégrité, tolérance et diversité. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « petit à petit, l'oiseau fait son nid » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « convictions et valeurs » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite nostalgie vide et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « convictions et valeurs » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand convictions et valeurs devient un enjeu collectif",
+        "body": "Article ou portrait d’un auteur originaire de Nouvelle-Calédonie qui réécrit des histoires inspirées des contes et mythes de son territoire.\n\nLe dernier texte est plus dense et plus collectif. Article ou portrait d’un auteur originaire de Nouvelle-Calédonie qui réécrit des histoires inspirées des contes et mythes de son territoire. Le texte montre comment ces récits portent une autre vision de la planète, de la nature et du rapport au monde. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque Nouvelle-Calédonie, auteur, contes, mythes, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « faire bonne figure » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite folklore simpliste. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « convictions et valeurs » demande une organisation durable. Le champ lexical de système de valeurs, cohérence entre discours et actes, remise en question renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « convictions et valeurs ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « faire bonne figure » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-convictions_et_valeurs-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "convictions_et_valeurs_reading_text_booklet_v2.html",
+      "questionBooklet": "convictions_et_valeurs_reading_question_booklet_v2.html",
+      "markscheme": "convictions_et_valeurs_reading_markscheme_v2.html",
+      "page1": "convictions_et_valeurs_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-identites-langue_et_identite-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Identités",
+    "topic": "langue et identité",
+    "themeKey": "identites",
+    "topicKey": "langue-et-identite",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur voix personnelle brève",
+        "body": "Récit d’une personne qui a vécu pendant un an en Corse pour apprendre le français.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « langue et identité » à partir d’une situation concrète. Récit d’une personne qui a vécu pendant un an en Corse pour apprendre le français. Ce voyage immersif lui a fait découvrir que la Corse est bien une région française, mais aussi un territoire très à part, marqué par une forte identité qu’il a rapidement perçue à travers la langue corse, qu’il a lui aussi essayé d’apprendre. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur un an en Corse, apprentissage du français, voyage immersif, région française. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de langue et origine, parler et s’exprimer, accent et prononciation, mais elle évite texte encyclopédique. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « langue et identité » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Langue et identité : comprendre les effets concrets",
+        "body": "Article sur les quartiers français à l’étranger, où l’on retrouve des produits, des commerces ou des restaurants français, souvent dans une logique économique.\n\nLe deuxième texte adopte un ton plus explicatif. Article sur les quartiers français à l’étranger, où l’on retrouve des produits, des commerces ou des restaurants français, souvent dans une logique économique. Le texte évoque aussi les Alliances françaises et les Instituts français comme lieux de rayonnement culturel et linguistique dans le monde. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve quartiers français à l’étranger, produits français, restaurants français, lieux économiques. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de langue maternelle et héritage, registre et adaptation, accent et perception. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « se creuser la tête » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « langue et identité » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article neutre sans angle et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « langue et identité » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand langue et identité devient un enjeu collectif",
+        "body": "Article sur une application qui aide à apprendre les langues grâce à l’intelligence artificielle.\n\nLe dernier texte est plus dense et plus collectif. Article sur une application qui aide à apprendre les langues grâce à l’intelligence artificielle. Son fonctionnement repose sur des voyages culturels virtuels pour rendre l’apprentissage aussi immersif que possible et faire découvrir la langue à travers la culture de ses locuteurs. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque application, apprentissage des langues, intelligence artificielle, voyages culturels, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « avoir un coup de foudre » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite niveau HL. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « langue et identité » demande une organisation durable. Le champ lexical de construction identitaire, insécurité linguistique, légitimité et reconnaissance renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « langue et identité ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « avoir un coup de foudre » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-langue_et_identite-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "langue_et_identite_reading_text_booklet_v2.html",
+      "questionBooklet": "langue_et_identite_reading_question_booklet_v2.html",
+      "markscheme": "langue_et_identite_reading_markscheme_v2.html",
+      "page1": "langue_et_identite_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Identités",
+    "topic": "santé et bien-être",
+    "themeKey": "identites",
+    "topicKey": "sante-et-bien-etre",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur événement bien-être collectif",
+        "body": "Article sur la Journée internationale du yoga organisée à Bruxelles au parc du Cinquantenaire, rassemblant des milliers de participants, débutants ou pratiquants réguliers, surpris de découvrir une activité à la fois physique, relaxante et sociale.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « santé et bien-être » à partir d’une situation concrète. Article sur la Journée internationale du yoga organisée à Bruxelles au parc du Cinquantenaire, rassemblant des milliers de participants, débutants ou pratiquants réguliers, surpris de découvrir une activité à la fois physique, relaxante et sociale. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur Bruxelles, parc du Cinquantenaire, yoga, milliers de participants. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de corps et forme, santé générale, alimentation saine, mais elle évite texte promotionnel pur. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « santé et bien-être » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Santé et bien-être : comprendre les effets concrets",
+        "body": "Article sur une association qui vérifie réellement les produits dits biologiques et s’intéresse aussi aux circuits courts et à la rémunération équitable des producteurs.\n\nLe deuxième texte adopte un ton plus explicatif. Article sur une association qui vérifie réellement les produits dits biologiques et s’intéresse aussi aux circuits courts et à la rémunération équitable des producteurs. Le texte montre que si le contrôle est souvent sérieux, des fraudes subsistent. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve biologique, contrôle, circuits courts, rémunération équitable. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de hygiène de vie, prévention et protection, fatigue et récupération. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « être au bout du rouleau » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « santé et bien-être » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite publicité pour le bio et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « santé et bien-être » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand santé et bien-être devient un enjeu collectif",
+        "body": "Article sur un collectif de lycéens né au Québec pour alerter sur le mal-être étudiant, le harcèlement et la dépression.\n\nLe dernier texte est plus dense et plus collectif. Article sur un collectif de lycéens né au Québec pour alerter sur le mal-être étudiant, le harcèlement et la dépression. Le collectif recueille des témoignages et propose aussi du soutien aux jeunes concernés. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque Québec, lycéens, mal-être étudiant, harcèlement, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « avoir la pêche » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite ton sensationnaliste. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « santé et bien-être » demande une organisation durable. Le champ lexical de rapport au corps, bien-être durable, surcharge et épuisement renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « santé et bien-être ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « avoir la pêche » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sante_et_bien_etre-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "sante_et_bien_etre_reading_text_booklet_v2.html",
+      "questionBooklet": "sante_et_bien_etre_reading_question_booklet_v2.html",
+      "markscheme": "sante_et_bien_etre_reading_markscheme_v2.html",
+      "page1": "sante_et_bien_etre_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-identites-sous_cultures-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Identités",
+    "topic": "sous-cultures",
+    "themeKey": "identites",
+    "topicKey": "sous-cultures",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur portrait d’un graffeur engagé et libre",
+        "body": "Portrait de Yanis, passionné de graffiti depuis des années.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « sous-cultures » à partir d’une situation concrète. Portrait de Yanis, passionné de graffiti depuis des années. Il raconte ses sorties nocturnes pour taguer sur les ponts ou les métros, sa vision du graffiti comme art brut, et la liberté que cela lui donne pour faire passer parfois des messages politiques ou simplement créer quelque chose de beau. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur Yanis, graffiti, passion ancienne, sorties nocturnes. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de appartenance et groupe, apparence et style, codes et signes, mais elle évite texte encyclopédique. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « sous-cultures » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Sous-cultures : comprendre les effets concrets",
+        "body": "Article sur la Japan Expo à Paris, présentée comme un temple de la sous-culture japonaise.\n\nLe deuxième texte adopte un ton plus explicatif. Article sur la Japan Expo à Paris, présentée comme un temple de la sous-culture japonaise. Le texte montre le rayonnement de l’univers manga, mais aussi des jeux vidéo, du cosplay et des costumes, ainsi que l’influence durable de cette culture chez les jeunes et les moins jeunes. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve Japan Expo, Paris, sous-culture japonaise, manga. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de identité collective, codes culturels, esthétique alternative. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « l'habit ne fait pas le moine » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « sous-cultures » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article neutre sans angle et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « sous-cultures » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand sous-cultures devient un enjeu collectif",
+        "body": "Article développé sur la culture cajun en Louisiane : son histoire, sa langue française issue d’un vieux fonds de français, les habitants qui la parlent encore comme langue maternelle, et le réseau culturel qui continue de la faire vivre.\n\nLe dernier texte est plus dense et plus collectif. Article développé sur la culture cajun en Louisiane : son histoire, sa langue française issue d’un vieux fonds de français, les habitants qui la parlent encore comme langue maternelle, et le réseau culturel qui continue de la faire vivre. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque culture cajun, Louisiane, histoire, français ancien, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « être à côté de la plaque » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite niveau HL. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « sous-cultures » demande une organisation durable. Le champ lexical de affirmation de soi, sentiment d’appartenance, marginalité et reconnaissance renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « sous-cultures ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « être à côté de la plaque » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-sous_cultures-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "sous_cultures_reading_text_booklet_v2.html",
+      "questionBooklet": "sous_cultures_reading_question_booklet_v2.html",
+      "markscheme": "sous_cultures_reading_markscheme_v2.html",
+      "page1": "sous_cultures_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-identites-styles_de_vie-validated-v2",
     "kind": "Paper 2 Reading",
     "theme": "Identités",
     "topic": "styles de vie",
     "themeKey": "identites",
     "topicKey": "styles-de-vie",
-    "variant": "FrenchEase development v1",
+    "variant": "Validated v2",
     "totalMarks": 40,
     "gradeBands": [
       {
@@ -510,392 +4438,7358 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     "texts": [
       {
         "label": "Texte A",
-        "title": "Genre / source simulée: portrait local dans un magazine de quartier",
-        "body": "1. Quand on rencontre Maxime Delorme à la journée des initiatives citoyennes, il parle moins de jardinage que de rythme de vie. Il y a un an, ce Strasbourgeois de vingt-neuf ans n’aurait jamais imaginé passer ses fins d’après-midi dans un jardin partagé. La première fois, il était simplement venu donner un coup de main à un voisin un samedi matin. Il pensait rester une heure. Finalement, il a découvert un lieu où l’on prend le temps de respirer.\n\n2. À cette époque, ses journées se ressemblaient beaucoup. Il se couchait souvent trop tard, commandait régulièrement des plats préparés et passait presque toujours la soirée devant un écran. Même le week-end, il récupérait difficilement. « J’avais l’impression d’être débordé sans arrêt », résume-t-il aujourd’hui.\n\n3. Peu à peu, le jardin est devenu un repère fixe. Le mardi et le jeudi, Maxime y passe après le travail. Le samedi, il y reste généralement toute la matinée. Il arrose sa parcelle, désherbe, observe les récoltes et discute avec d’autres bénévoles. Ce rendez-vous régulier l’a aidé à mieux organiser ses semaines.\n\n4. Les effets se voient aussi chez lui. Il marche davantage, cuisine plus souvent et achète moins de produits déjà préparés. Comme il suit les légumes qui poussent au fil des saisons, il fait plus attention à ce qu’il met dans son assiette. Il dort mieux parce qu’il passe moins de temps sur son téléphone le soir et qu’il bouge plus pendant la journée.\n\n5. Ce changement ne tient pas seulement à la santé. Maxime insiste surtout sur la dimension sociale du projet. Il connaît maintenant ses voisins, participe parfois à des repas collectifs et se sent moins isolé qu’avant. Bien sûr, il lui arrive encore de reprendre un rythme trop rapide pendant les périodes de travail intense. Pourtant, le jardin lui sert désormais de point d’équilibre. Pour lui, ce n’est plus un simple loisir du samedi: c’est une manière de vivre plus calmement et de façon plus cohérente."
+        "title": "Un premier regard sur portrait d’un passeur de loisirs",
+        "body": "Portrait de Michel, responsable de la ludothèque de sa ville.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « styles de vie » à partir d’une situation concrète. Portrait de Michel, responsable de la ludothèque de sa ville. Cette année, il met à l’honneur les jeux en bois et les jeux anciens pour montrer aux jeunes générations qu’on peut créer des expériences riches et intelligentes sans écran, sans électricité et sans technologie moderne. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur Michel, ludothèque, jeux en bois, jeux anciens. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de routine quotidienne, rythme de vie, sommeil et repos, mais elle évite discours anti-technologie caricatural. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « styles de vie » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
       },
       {
         "label": "Texte B",
-        "title": "Genre / source simulée: article magazine de société avec citations intégrées",
-        "body": "1. À Strasbourg, les pistes cyclables font partie du paysage quotidien, mais toutes les familles ne les utilisent pas de la même manière. Chez Sophie et Pierre Martin, le vélo n’est ni un symbole ni un défi sportif: c’est surtout une façon d’organiser la semaine. En général, Sophie va travailler à vélo, tandis que Pierre accompagne les enfants selon l’emploi du temps du jour. Le week-end, la famille roule souvent le long du canal avant de s’arrêter dans un parc.\n\n2. Cette organisation a évolué progressivement. Au début, Léa restait presque toujours dans une remorque, alors que son frère roulait déjà seul. Aujourd’hui, la plus jeune veut gagner en autonomie. Ses parents l’encouragent, mais sans brûler les étapes. Ils préfèrent préparer les trajets à l’avance, surtout quand la promenade a lieu en fin de matinée et que la voie verte devient plus fréquentée.\n\n3. Pierre explique que la sécurité dépend moins de la vitesse que de la régularité des gestes. « Si chacun sait où se placer, quand ralentir et à quel moment se regrouper, tout se passe bien », dit-il. Pour cette raison, la famille garde toujours le même début de parcours. Paul part devant avec son père, Léa roule près de sa mère sur la partie la plus calme, puis tout le monde se retrouve après le pont. Ce petit rituel donne de la confiance à la fillette sans la mettre sous pression.\n\n4. Ce mode de déplacement influence aussi d’autres aspects du quotidien. Sophie prend parfois le tram quand la météo se dégrade, mais elle constate que le vélo lui permet d’observer la ville autrement. Les enfants, eux, comprennent peu à peu qu’un trajet n’est pas forcément un moment perdu. C’est parfois l’occasion de parler ou de ralentir avant l’école.\n\n5. Bien sûr, cette vie demande un minimum d’anticipation. Les sacs doivent être prêts, les casques retrouvés, et chacun doit partir à l’heure. Quand le réveil est difficile, Sophie plaisante en disant qu’il ne faut pas être dans le brouillard au moment de quitter l’appartement. Les jours de pluie, la famille adapte son programme et rentre plus tôt si Léa fatigue.\n\n6. Ce que Sophie et Pierre défendent, ce n’est pas un modèle parfait. Ils parlent plutôt d’un ensemble de gestes simples répétés chaque semaine. À force de refaire les mêmes trajets et d’ajuster les horaires, ils ont trouvé un équilibre qui leur ressemble. Leur style de vie paraît modeste, mais il révèle des priorités très claires: bouger, prendre l’air, rester ensemble et vivre dans une ville sans subir constamment son rythme."
+        "title": "Styles de vie : comprendre les effets concrets",
+        "body": "Article sur la Paris Games Week, grande manifestation consacrée au jeu vidéo, présentée comme un rendez-vous majeur pour découvrir les nouveautés, suivre les tendances et rassembler un public très varié.\n\nLe deuxième texte adopte un ton plus explicatif. Article sur la Paris Games Week, grande manifestation consacrée au jeu vidéo, présentée comme un rendez-vous majeur pour découvrir les nouveautés, suivre les tendances et rassembler un public très varié. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve Paris Games Week, jeu vidéo, grand événement, nouveautés. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de hygiène de vie, cadence et organisation, fatigue et récupération. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « être dans le brouillard » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « styles de vie » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite simple publicité et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « styles de vie » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
       },
       {
         "label": "Texte C",
-        "title": "Genre / source simulée: entretien écrit dans un magazine de société",
-        "body": "1. **Eric Lemaire:** De plus en plus de retraités veulent ralentir après des années passées dans une grande ville. Qu’est-ce qui les attire dans ce changement?\n\n**Émilie Vasseur:** Beaucoup ont vécu longtemps dans l’urgence: transports, bruit, horaires serrés, consommation automatique. À la retraite, ils ne cherchent pas seulement une maison plus calme. Ils veulent habiter d’une manière qui corresponde enfin à leurs valeurs.\n\n2. **Eric:** Vous avez suivi un couple venu de Suisse et installé dans une maison écologique. Pourquoi cet exemple vous paraît-il révélateur?\n\n**Émilie:** Parce qu’il montre que l’habitat peut transformer les habitudes. Leur maison est construite avec des matériaux durables, équipée de panneaux solaires et entourée d’un terrain qu’ils cultivent eux-mêmes. Ils jardinent presque tous les jours quand le temps le permet, récoltent régulièrement leurs fruits et légumes et achètent moins de produits superflus qu’avant.\n\n3. **Eric:** Donc le sujet ne concerne pas seulement le bâtiment.\n\n**Émilie:** Exactement. Monsieur travaille souvent le bois pour fabriquer des objets utiles, tandis que sa compagne crée des décorations à partir de matériaux recyclés. Ces gestes répétés redonnent une structure au temps libre et les obligent à vivre davantage au fil des saisons.\n\n4. **Eric:** Ce choix reste pourtant exigeant.\n\n**Émilie:** Oui. Ce mode de vie demande de l’énergie, de la patience et une vraie capacité d’adaptation. En hiver, l’entretien du terrain devient plus lourd, certaines réparations prennent du temps et l’isolement peut peser. Ce n’est donc pas une solution magique.\n\n5. **Eric:** Malgré cela, vous y voyez une réponse crédible à un malaise plus large.\n\n**Émilie:** Oui, parce qu’elle agit sur plusieurs plans à la fois. Ces retraités veulent moins subir la vitesse urbaine, moins dépendre d’achats permanents et reprendre une maîtrise quotidienne. Quand ils préparent leurs repas avec ce qu’ils produisent, ils ont le sentiment de choisir leur temps au lieu de le laisser filer.\n\n6. **Eric:** Est-ce aussi pour cela que leur projet fascine autant?\n\n**Émilie:** Sans doute. Ils ne vivent pas en marge du monde, mais ils montrent qu’une autre organisation est possible, plus sobre et parfois plus satisfaisante. Cela parle particulièrement à des personnes qui ont passé des années à courir d’une obligation à l’autre.\n\n7. **Eric:** Vous écrivez que la retraitée a découvert qu’elle avait la main verte. Qu’entendez-vous par là?\n\n**Émilie:** J’entends qu’elle a appris à faire pousser, à observer et à recommencer. Aujourd’hui, elle sait reconnaître le bon moment pour planter, arroser ou récolter. L’expression résume bien leur évolution: ils ont acquis des compétences et une confiance nouvelle dans leur manière d’habiter.\n\n8. **Eric:** Quelle leçon générale retenez-vous de cette expérience?\n\n**Émilie:** Qu’on peut vivre plus sobrement sans vivre moins bien. La vraie question n’est pas de renoncer à tout confort, mais de décider ce qui mérite réellement du temps, de l’espace et de l’énergie. Pour ce couple, la réponse passe par un potager, des créations manuelles et un quotidien moins encombré. Pour d’autres, elle prendra une autre forme, mais il s’agit toujours de vivre plus consciemment."
+        "title": "Quand styles de vie devient un enjeu collectif",
+        "body": "Article sur le Puy du Fou comme expérience de loisirs singulière : à la fois spectacle, immersion historique et sortie familiale.\n\nLe dernier texte est plus dense et plus collectif. Article sur le Puy du Fou comme expérience de loisirs singulière : à la fois spectacle, immersion historique et sortie familiale. Le texte montre pourquoi ce lieu attire autant de visiteurs. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque Puy du Fou, spectacle, immersion historique, sortie familiale, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « avoir la main verte » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite confusion avec le topic divertissements. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « styles de vie » demande une organisation durable. Le champ lexical de sobriété et frugalité, connexion permanente, gestion du temps personnel renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
       }
     ],
     "questions": [
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q1",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q1",
         "number": "1",
         "textLabel": "Texte A",
-        "prompt": "Choisissez les quatre affirmations vraies (`paragraphes 1-2`). `[4]`\nA. Maxime a découvert le jardin partagé grâce à une activité organisée par son entreprise.\nB. Au départ, il pensait aider un voisin pendant un court moment.\nC. Avant cette expérience, il passait souvent ses soirées dehors avec ses voisins.\nD. Il commandait régulièrement des plats préparés.\nE. Avant, il récupérait facilement dès le week-end.\nF. Il avait l’impression d’être débordé en permanence.\nG. Il voulait tout de suite devenir jardinier professionnel.\nH. Le jardin lui a d’abord paru être un lieu où l’on peut aussi échanger.\nEn vous basant sur le `paragraphe 3`, trouvez les mots qui ont la signification suivante :",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « styles de vie ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
         "marks": 4,
         "expectedAnswer": "B, D, F, H",
         "acceptedAnswer": "ordre indifférent",
         "rejectedAnswer": "toute autre combinaison"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q2",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q2",
         "number": "2",
         "textLabel": "Texte A",
-        "prompt": "petite portion de terrain cultivée",
+        "prompt": "habitude qui revient régulièrement",
         "marks": 1,
-        "expectedAnswer": "parcelle",
-        "acceptedAnswer": "la parcelle",
-        "rejectedAnswer": "terrain ; jardin"
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q3",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q3",
         "number": "3",
         "textLabel": "Texte A",
-        "prompt": "retirer les mauvaises herbes",
+        "prompt": "signes ou points qui permettent de se guider",
         "marks": 1,
-        "expectedAnswer": "désherbe",
-        "acceptedAnswer": "désherber",
-        "rejectedAnswer": "arroser ; récolter"
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q4",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q4",
         "number": "4",
         "textLabel": "Texte A",
-        "prompt": "personnes qui aident sans être payées\nChoisissez la bonne réponse (`paragraphes 4-5`).",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
         "marks": 1,
-        "expectedAnswer": "bénévoles",
-        "acceptedAnswer": "autres bénévoles ; bénévoles du jardin",
-        "rejectedAnswer": "voisins ; habitants"
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q5",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q5",
         "number": "5",
         "textLabel": "Texte A",
-        "prompt": "Quel changement alimentaire le texte met-il surtout en avant ?\nA. Maxime a supprimé tous les produits achetés en magasin.\nB. Maxime fait davantage attention à ce qu’il mange.\nC. Maxime refuse désormais de cuisiner le soir.",
-        "marks": 1,
-        "expectedAnswer": "B",
-        "acceptedAnswer": "fait plus attention à son alimentation ; mange de façon plus réfléchie",
-        "rejectedAnswer": "A ; C"
-      },
-      {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q6",
-        "number": "6",
-        "textLabel": "Texte A",
-        "prompt": "Pourquoi dort-il mieux maintenant ?\nA. Parce qu’il a changé de travail.\nB. Parce qu’il passe toutes ses soirées au jardin.\nC. Parce qu’il utilise moins son téléphone le soir et bouge plus la journée.",
-        "marks": 1,
-        "expectedAnswer": "C",
-        "acceptedAnswer": "utilise moins son téléphone le soir et bouge plus la journée",
-        "rejectedAnswer": "a changé de travail ; passe tout son temps au jardin"
-      },
-      {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q7",
-        "number": "7",
-        "textLabel": "Texte A",
-        "prompt": "Quelle dimension du projet Maxime valorise-t-il le plus ?\nA. La possibilité de gagner de l’argent.\nB. La relation avec les autres habitants du quartier.\nC. La compétition entre jardiniers.",
-        "marks": 1,
-        "expectedAnswer": "B",
-        "acceptedAnswer": "le lien avec les voisins ; la dimension sociale ; connaître ses voisins",
-        "rejectedAnswer": "gagner de l’argent ; compétition"
-      },
-      {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q8",
-        "number": "8",
-        "textLabel": "Texte A",
-        "prompt": "Que signifie ici l’expression `point d’équilibre` ?\nA. Une activité qui stabilise son quotidien.\nB. Un endroit où il fait du sport intensif.\nC. Une méthode pour mieux compter ses dépenses.",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
         "marks": 1,
         "expectedAnswer": "A",
-        "acceptedAnswer": "une activité qui stabilise son quotidien ; son repère ; ce qui l’aide à retrouver un rythme",
-        "rejectedAnswer": "sport intensif ; budget"
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q9",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q9",
         "number": "9",
         "textLabel": "Texte A",
-        "prompt": "Quelle idée résume le mieux la fin du texte ?\nA. Le jardin est devenu une obligation fatigante.\nB. Le jardin correspond à une manière de vivre plus cohérente.\nC. Le jardin reste seulement une distraction saisonnière.",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
         "marks": 1,
         "expectedAnswer": "B",
-        "acceptedAnswer": "vivre plus calmement et de façon plus cohérente ; le jardin représente désormais une vraie manière de vivre",
-        "rejectedAnswer": "A ; C"
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q10",
-        "number": "10",
-        "textLabel": "Texte B",
-        "prompt": "Répondez aux questions suivantes (`paragraphes 1-3`).\nOù la famille roule-t-elle souvent le week-end ?",
-        "marks": 1,
-        "expectedAnswer": "le long du canal",
-        "acceptedAnswer": "au bord du canal ; sur la voie verte le long du canal",
-        "rejectedAnswer": "dans un parc"
-      },
-      {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q11",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q11",
         "number": "11",
         "textLabel": "Texte B",
-        "prompt": "Quel moyen de transport Sophie prend-elle quand la météo se dégrade ?",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
         "marks": 1,
-        "expectedAnswer": "le tram",
-        "acceptedAnswer": "les transports en commun ; le tramway",
-        "rejectedAnswer": "le vélo ; la voiture"
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q12",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q12",
         "number": "12",
         "textLabel": "Texte B",
-        "prompt": "À quel endroit la famille a-t-elle prévu de se retrouver quand Léa roule seule ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans les `paragraphes 2-3`.",
+        "prompt": "Que refuse le Texte B ?",
         "marks": 1,
-        "expectedAnswer": "après le pont",
-        "acceptedAnswer": "au pont",
-        "rejectedAnswer": "sur la partie calme ; près du canal"
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q13",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q13",
         "number": "13",
         "textLabel": "Texte B",
-        "prompt": "Léa restait presque toujours dans une ______.",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
         "marks": 1,
-        "expectedAnswer": "remorque",
-        "acceptedAnswer": "une remorque",
-        "rejectedAnswer": "vélo ; voie verte"
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q14",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q14",
         "number": "14",
         "textLabel": "Texte B",
-        "prompt": "Les parents ne veulent pas ______ les étapes.",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
         "marks": 1,
-        "expectedAnswer": "brûler",
-        "acceptedAnswer": "brûler les étapes",
-        "rejectedAnswer": "changer ; accélérer"
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q15",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q15",
         "number": "15",
         "textLabel": "Texte B",
-        "prompt": "La voie verte devient plus ______ en fin de matinée.",
+        "prompt": "Le texte refuse une vision trop ______.",
         "marks": 1,
-        "expectedAnswer": "fréquentée",
-        "acceptedAnswer": "plus fréquentée",
-        "rejectedAnswer": "calme ; rapide"
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q16",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q16",
         "number": "16",
         "textLabel": "Texte B",
-        "prompt": "Ce petit rituel donne de la ______ à la fillette.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase (`paragraphes 3-4`).\nA. quand le temps devient mauvais.\nB. parce qu’elle veut regarder la ville autrement.\nC. afin que chacun garde la même place au bon moment.\nD. car leurs enfants refusent désormais de parler en route.\nE. ce qui peut transformer le trajet en moment d’échange.\nF. parce qu’il est plus rapide que tous les autres.",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
         "marks": 1,
-        "expectedAnswer": "confiance",
-        "acceptedAnswer": "plus de confiance ; de la confiance",
-        "rejectedAnswer": "autonomie ; pression"
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q17",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q17",
         "number": "17",
         "textLabel": "Texte B",
-        "prompt": "Pierre dit que la sécurité dépend de gestes réguliers,",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
         "marks": 1,
-        "expectedAnswer": "C",
-        "acceptedAnswer": "chacun garde sa place au bon moment ; chacun sache où se placer",
-        "rejectedAnswer": "A ; D ; F"
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q18",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q18",
         "number": "18",
         "textLabel": "Texte B",
-        "prompt": "Sophie apprécie le vélo,",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
         "marks": 1,
-        "expectedAnswer": "B",
-        "acceptedAnswer": "pour observer la ville autrement",
-        "rejectedAnswer": "A ; C ; F"
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q19",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q19",
         "number": "19",
         "textLabel": "Texte B",
-        "prompt": "Les enfants comprennent peu à peu qu’un déplacement n’est pas forcément inutile,\nChoisissez un mot approprié de la liste pour remplir chaque blanc dans le texte suivant (`paragraphe 5`).\nLes jours plus compliqués, les parents doivent penser aux sacs, aux casques [20] au départ de l’appartement. Les matins pluvieux ne les découragent pas, [21] ils exigent davantage d’anticipation. Sans cette organisation, chacun risque d’être [22] le brouillard avant même d’arriver à l’école. Quand Léa fatigue, la famille adapte encore son programme [23] rentrer plus tôt.\nA. dans\nB. mais\nC. et\nD. pour\nE. sans\nF. depuis",
-        "marks": 1,
-        "expectedAnswer": "E",
-        "acceptedAnswer": "cela devient un moment d’échange ; l’occasion de parler",
-        "rejectedAnswer": "D ; F"
-      },
-      {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q20",
-        "number": "20",
-        "textLabel": "Texte B",
-        "prompt": "Choisissez la réponse pour la question 20.",
+        "prompt": "Le Texte B commence par des faits observables,",
         "marks": 1,
         "expectedAnswer": "C",
-        "acceptedAnswer": "et",
-        "rejectedAnswer": "A ; B ; D ; E ; F"
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q21",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q21",
         "number": "21",
         "textLabel": "Texte B",
-        "prompt": "Choisissez la réponse pour la question 21.",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
         "marks": 1,
-        "expectedAnswer": "B",
-        "acceptedAnswer": "mais",
-        "rejectedAnswer": "A ; C ; D ; E ; F"
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q22",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q22",
         "number": "22",
         "textLabel": "Texte B",
         "prompt": "Choisissez la réponse pour la question 22.",
         "marks": 1,
-        "expectedAnswer": "A",
-        "acceptedAnswer": "dans",
-        "rejectedAnswer": "B ; C ; D ; E ; F"
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q23",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q23",
         "number": "23",
         "textLabel": "Texte B",
         "prompt": "Choisissez la réponse pour la question 23.",
         "marks": 1,
-        "expectedAnswer": "D",
-        "acceptedAnswer": "pour",
-        "rejectedAnswer": "A ; B ; C ; E ; F"
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q24",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q24",
         "number": "24",
         "textLabel": "Texte C",
-        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir `[1 point]`.\nSelon Émilie, les retraités cherchent seulement une maison plus silencieuse.",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
         "marks": 1,
-        "expectedAnswer": "Faux + Ils ne cherchent pas seulement une maison plus calme. / Ils veulent habiter d’une manière qui corresponde enfin à leurs valeurs.",
-        "acceptedAnswer": "toute justification textuelle claire montrant que la recherche dépasse le simple calme",
-        "rejectedAnswer": "choix Faux sans justification ; justification paraphrasée sans appui textuel ; Vrai"
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q25",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q25",
         "number": "25",
         "textLabel": "Texte C",
-        "prompt": "La maison du couple produit une partie de son énergie.",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
         "marks": 1,
-        "expectedAnswer": "Vrai + elle est équipée de panneaux solaires",
-        "acceptedAnswer": "toute citation textuelle claire montrant que la maison produit une partie de son énergie",
-        "rejectedAnswer": "Vrai sans justification ; justification vague ; Faux"
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q26",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q26",
         "number": "26",
         "textLabel": "Texte C",
-        "prompt": "Émilie présente ce mode de vie comme une solution idéale pour tout le monde.",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
         "marks": 1,
-        "expectedAnswer": "Faux + Ce n’est donc pas une solution magique / ni un décor de carte postale",
-        "acceptedAnswer": "toute justification textuelle claire montrant qu’Émilie refuse l’idéalisation",
-        "rejectedAnswer": "Faux sans justification ; Vrai"
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q27",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q27",
         "number": "27",
         "textLabel": "Texte C",
-        "prompt": "Le couple consomme davantage de produits inutiles qu’avant.\nRépondez aux questions suivantes (`paragraphes 4-8`).",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
         "marks": 1,
-        "expectedAnswer": "Faux + achètent moins de produits superflus qu’avant",
-        "acceptedAnswer": "toute justification textuelle claire montrant une baisse de la consommation inutile",
-        "rejectedAnswer": "Faux sans justification ; Vrai"
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q28",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q28",
         "number": "28",
         "textLabel": "Texte C",
-        "prompt": "Quelle qualité Émilie cite-t-elle entre `énergie` et `capacité d’adaptation` ?",
+        "prompt": "Que font d’abord les participants ?",
         "marks": 1,
-        "expectedAnswer": "patience",
-        "acceptedAnswer": "de la patience",
-        "rejectedAnswer": "énergie ; adaptation"
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q29",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q29",
         "number": "29",
         "textLabel": "Texte C",
-        "prompt": "Quelle forme de maîtrise les retraités veulent-ils reprendre ?",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
         "marks": 1,
-        "expectedAnswer": "une maîtrise quotidienne",
-        "acceptedAnswer": "reprendre une maîtrise quotidienne",
-        "rejectedAnswer": "ralentir ; moins subir la vitesse urbaine"
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q30",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q30",
         "number": "30",
         "textLabel": "Texte C",
-        "prompt": "Qu’ont-ils le sentiment de choisir au lieu de le laisser filer ?",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
         "marks": 1,
-        "expectedAnswer": "leur temps",
-        "acceptedAnswer": "le temps",
-        "rejectedAnswer": "leurs journées ; leur quotidien"
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q31",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q31",
         "number": "31",
         "textLabel": "Texte C",
-        "prompt": "Que signifie ici l’expression `avoir la main verte` ?\nÀ qui ou à quoi les mots soulignés font-ils référence ? Répondez en utilisant les mots tels qu’ils apparaissent dans le texte.",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
         "marks": 1,
-        "expectedAnswer": "être douée pour faire pousser les plantes",
-        "acceptedAnswer": "savoir planter, faire pousser, cultiver ; être douée pour le jardinage",
-        "rejectedAnswer": "répéter seulement l’expression"
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q32",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q32",
         "number": "32",
         "textLabel": "Texte C",
-        "prompt": "`Ce mode de vie` (`paragraphe 4`)",
+        "prompt": "`La démarche`",
         "marks": 1,
-        "expectedAnswer": "le mode de vie du couple / cette manière de vivre",
-        "acceptedAnswer": "ce choix de vie ; cette organisation",
-        "rejectedAnswer": "la maison seulement"
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q33",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q33",
         "number": "33",
         "textLabel": "Texte C",
-        "prompt": "`elle` dans `elle agit sur plusieurs plans à la fois` (`paragraphe 5`)",
+        "prompt": "`ils` dans `ils comprennent mieux`",
         "marks": 1,
-        "expectedAnswer": "l’expérience / cette expérience",
-        "acceptedAnswer": "la vie du couple ; cette façon de vivre",
-        "rejectedAnswer": "la retraite ; la maison seulement"
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q34",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q34",
         "number": "34",
         "textLabel": "Texte C",
-        "prompt": "`Cela` dans `Cela parle particulièrement à des personnes...` (`paragraphe 6`)",
+        "prompt": "`ce soutien`",
         "marks": 1,
-        "expectedAnswer": "l’idée qu’une autre organisation plus sobre est possible",
-        "acceptedAnswer": "cet exemple ; ce projet imparfait mais inspirant",
-        "rejectedAnswer": "les personnes ; les obligations"
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q35",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q35",
         "number": "35",
         "textLabel": "Texte C",
-        "prompt": "`elle` dans `elle a appris à faire pousser` (`paragraphe 7`)\nChoisissez la bonne réponse (`paragraphe 8`).",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
         "marks": 1,
-        "expectedAnswer": "la retraitée / sa compagne",
-        "acceptedAnswer": "la femme du couple ; la compagne",
-        "rejectedAnswer": "Émilie ; la maison"
+        "expectedAnswer": "l’expression « avoir la main verte » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q36",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q36",
         "number": "36",
         "textLabel": "Texte C",
-        "prompt": "Pour Émilie, vivre plus sobrement signifie surtout\nA. supprimer tout confort moderne.\nB. décider plus consciemment de l’usage de son temps et de son énergie.\nC. imiter exactement le couple présenté dans l’entretien.",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
         "marks": 1,
-        "expectedAnswer": "B",
-        "acceptedAnswer": "décider plus consciemment de l’usage de son temps, de son espace et de son énergie",
-        "rejectedAnswer": "A ; C"
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
       },
       {
-        "id": "paper-2-reading-identites-styles_de_vie-frenchease-development-v1-q37",
+        "id": "paper-2-reading-identites-styles_de_vie-validated-v2-q37",
         "number": "37",
         "textLabel": "Texte C",
-        "prompt": "Quelle idée conclut le mieux l’entretien ?\nA. Une vie plus sobre prendra la même forme pour tout le monde.\nB. Le couple suisse représente un modèle impossible à suivre.\nC. Une organisation plus consciente du quotidien peut exister sous des formes variées.",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "styles_de_vie_reading_text_booklet_v2.html",
+      "questionBooklet": "styles_de_vie_reading_question_booklet_v2.html",
+      "markscheme": "styles_de_vie_reading_markscheme_v2.html",
+      "page1": "styles_de_vie_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Ingéniosité humaine",
+    "topic": "communications et médias",
+    "themeKey": "ingeniosite-humaine",
+    "topicKey": "communications-et-medias",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur portrait clair d’un jeune et de son lieu de socialisation",
+        "body": "Article ou portrait d’un jeune installé au Canada, passionné de jeux de société et de jeux de rôle.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « communications et médias » à partir d’une situation concrète. Article ou portrait d’un jeune installé au Canada, passionné de jeux de société et de jeux de rôle. Comme il n’aime pas les lieux trop bruyants ni les soirées étudiantes, il a trouvé dans cet univers un vrai espace de socialisation où il peut sortir, rencontrer des gens et passer de bons moments. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur portrait clair, Canada, passion pour les jeux de société et les jeux de rôle, rejet des lieux trop bruyants. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de communication quotidienne, médias traditionnels, réseaux sociaux, mais elle évite portrait caricatural. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « communications et médias » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Communications et médias : comprendre les effets concrets",
+        "body": "Article court sur une association ou une initiative de quartier qui organise des soirées de jeux en bois anciens dans le cadre des « Jeudis du jeu » de la ville.\n\nLe deuxième texte adopte un ton plus explicatif. Article court sur une association ou une initiative de quartier qui organise des soirées de jeux en bois anciens dans le cadre des « Jeudis du jeu » de la ville. Le texte montre comment cette activité crée du lien entre habitants et propose un divertissement simple, collectif et accessible. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve initiative locale, jeux en bois anciens, Jeudis du jeu, objectif de convivialité. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de circulation de l’information, fiabilité et vérification, médias numériques. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « mettre les points sur les i » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « communications et médias » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite texte promotionnel et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « communications et médias » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand communications et médias devient un enjeu collectif",
+        "body": "Article ou interview sur la place prise par les algorithmes dans notre accès à l’information.\n\nLe dernier texte est plus dense et plus collectif. Article ou interview sur la place prise par les algorithmes dans notre accès à l’information. Le texte montre que nous ne choisissons pas toujours librement ce que nous voyons et explique comment cela influence notre vision du monde et nos habitudes médiatiques. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque algorithmes, accès à l’information, sélection des contenus, influence sur la vision du monde, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « tourner autour du pot » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite article trop technique. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « communications et médias » demande une organisation durable. Le champ lexical de construction de l’information, visibilité et exposition, représentation médiatique renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « communications et médias ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
         "marks": 1,
         "expectedAnswer": "C",
-        "acceptedAnswer": "une vie plus consciente peut prendre des formes variées",
-        "rejectedAnswer": "A ; B"
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « tourner autour du pot » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-communications_et_medias-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
       }
-    ]
+    ],
+    "sourceDocuments": {
+      "textBooklet": "communications_et_medias_reading_text_booklet_v2.html",
+      "questionBooklet": "communications_et_medias_reading_question_booklet_v2.html",
+      "markscheme": "communications_et_medias_reading_markscheme_v2.html",
+      "page1": "communications_et_medias_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Ingéniosité humaine",
+    "topic": "divertissements",
+    "themeKey": "ingeniosite-humaine",
+    "topicKey": "divertissements",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur portrait de créateur / représentation culturelle",
+        "body": "Portrait d’un créateur sénégalais de films d’animation pour enfants.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « divertissements » à partir d’une situation concrète. Portrait d’un créateur sénégalais de films d’animation pour enfants. Il explique pourquoi il veut montrer aux jeunes publics des références culturelles, des décors et des réalités qui leur ressemblent, plutôt que de reprendre uniquement les univers souvent dominés par des modèles européens ou américains. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur portrait clair, Sénégal, films d’animation pour enfants, références culturelles locales. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de temps libre et détente, sorties et amusement, cinéma et séries, mais elle évite discours anti-occidental caricatural. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « divertissements » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Divertissements : comprendre les effets concrets",
+        "body": "Portraits croisés de plusieurs jeunes qui partagent le même plaisir : aller à des festivals de musique.\n\nLe deuxième texte adopte un ton plus explicatif. Portraits croisés de plusieurs jeunes qui partagent le même plaisir : aller à des festivals de musique. Le texte montre ce qu’ils y recherchent — voyager, rencontrer du monde, découvrir des artistes, passer des week-ends intenses — et pourquoi ces festivals sont pour eux bien plus qu’un simple loisir musical. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve plusieurs jeunes, portraits croisés, festivals de musique, voyage. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de offre de divertissement, consommation médiatique, sorties culturelles. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « permettre de souffler » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « divertissements » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article purement descriptif et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « divertissements » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand divertissements devient un enjeu collectif",
+        "body": "Article sur un youtubeur qui a créé une chaîne fondée sur des jeux-quiz de culture générale et de connaissances.\n\nLe dernier texte est plus dense et plus collectif. Article sur un youtubeur qui a créé une chaîne fondée sur des jeux-quiz de culture générale et de connaissances. Le texte analyse pourquoi ce format connaît un grand succès chez les jeunes, alors qu’on pensait longtemps que ce type de divertissement appartenait surtout à la télévision et à un public plus âgé. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque youtubeur, chaîne de quiz, culture générale, succès important, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « il n'y a pas un chat » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite portrait trop simple du youtubeur. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « divertissements » demande une organisation durable. Le champ lexical de culture du divertissement, rapport au plaisir, divertissement et sociabilité renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « divertissements ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « il n'y a pas un chat » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-divertissements-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "divertissements_reading_text_booklet_v2.html",
+      "questionBooklet": "divertissements_reading_question_booklet_v2.html",
+      "markscheme": "divertissements_reading_markscheme_v2.html",
+      "page1": "divertissements_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Ingéniosité humaine",
+    "topic": "expressions artistiques",
+    "themeKey": "ingeniosite-humaine",
+    "topicKey": "expressions-artistiques",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur portrait d'étudiante artiste",
+        "body": "Portrait de Jeanne, étudiante en école d'art, passionnée de bande dessinée et décidée à devenir illustratrice.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « expressions artistiques » à partir d’une situation concrète. Portrait de Jeanne, étudiante en école d'art, passionnée de bande dessinée et décidée à devenir illustratrice. Le texte montre comment sa formation lui permet de progresser chaque jour, de travailler avec des professionnels et d'affiner un style personnel alors qu'elle dessinait auparavant surtout sous l'influence d'artistes qu'elle admirait. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur portrait clair, Jeanne, école d'art, passion pour la BD. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de art et création, dessin et peinture, musique et chant, mais elle évite portrait trop abstrait. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « expressions artistiques » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Expressions artistiques : comprendre les effets concrets",
+        "body": "Article sur un projet d'insertion ou de réinsertion porté par une association qui soutient l'expression artistique des personnes en situation de handicap.\n\nLe deuxième texte adopte un ton plus explicatif. Article sur un projet d'insertion ou de réinsertion porté par une association qui soutient l'expression artistique des personnes en situation de handicap. Le texte montre comment l'art peut leur permettre d'exprimer ce qu'elles ne peuvent pas toujours dire avec des mots, tout en créant du lien social et en luttant contre leur mise à l'écart. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve association, projet d'insertion ou réinsertion, personnes en situation de handicap, expression artistique. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de pratiques artistiques, techniques et matériaux, performance et interprétation. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « mettre les pieds dans le plat » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « expressions artistiques » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite ton misérabiliste et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « expressions artistiques » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand expressions artistiques devient un enjeu collectif",
+        "body": "Article ou interview sur un groupe de jeunes Français ayant lancé un atelier de sculpture pour ériger des statues consacrées aux grandes figures historiques du pays.\n\nLe dernier texte est plus dense et plus collectif. Article ou interview sur un groupe de jeunes Français ayant lancé un atelier de sculpture pour ériger des statues consacrées aux grandes figures historiques du pays. Inspirés par les statues monumentales de la Grèce antique, ils défendent l'idée que l'art peut inscrire durablement l'histoire dans l'espace public et faire rayonner la mémoire collective. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque projet original, groupe de jeunes Français, atelier de sculpture, statues d'hommes et de femmes historiques, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « être de mauvaise foi » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite nationalisme simpliste. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « expressions artistiques » demande une organisation durable. Le champ lexical de démarche artistique, sensibilité esthétique, regard critique renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « expressions artistiques ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « être de mauvaise foi » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-expressions_artistiques-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "expressions_artistiques_reading_text_booklet_v2.html",
+      "questionBooklet": "expressions_artistiques_reading_question_booklet_v2.html",
+      "markscheme": "expressions_artistiques_reading_markscheme_v2.html",
+      "page1": "expressions_artistiques_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Ingéniosité humaine",
+    "topic": "innovation scientifique",
+    "themeKey": "ingeniosite-humaine",
+    "topicKey": "innovation-scientifique",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur portrait clair / figure inspirante",
+        "body": "Portrait d’une astronaute française engagée dans une mission spatiale récente.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « innovation scientifique » à partir d’une situation concrète. Portrait d’une astronaute française engagée dans une mission spatiale récente. Le texte insiste sur son parcours, la rigueur scientifique, la formation, la dimension symbolique de sa présence dans l’espace et le fait qu’elle représente un modèle inspirant pour les jeunes générations. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur astronaute française, mission récente, parcours, formation. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de découverte et recherche, laboratoire et expérimentation, invention et innovation, mais elle évite biographie exhaustive. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « innovation scientifique » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Innovation scientifique : comprendre les effets concrets",
+        "body": "Article sur un projet citoyen de sciences participatives où des habitants aident à collecter des données sur la qualité de l’air, la biodiversité ou l’eau.\n\nLe deuxième texte adopte un ton plus explicatif. Article sur un projet citoyen de sciences participatives où des habitants aident à collecter des données sur la qualité de l’air, la biodiversité ou l’eau. Le texte montre que l’innovation scientifique peut aussi naître de la collaboration entre chercheurs et grand public. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve sciences participatives, habitants, collecte de données, qualité de l’air / biodiversité / eau. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de démarche scientifique, progrès médical, transition énergétique. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « avoir plus d'une corde à son arc » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « innovation scientifique » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article trop technique sur les protocoles et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « innovation scientifique » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand innovation scientifique devient un enjeu collectif",
+        "body": "Interview d’un spécialiste qui explique comment certaines avancées en médecine personnalisée changent progressivement la manière de soigner.\n\nLe dernier texte est plus dense et plus collectif. Interview d’un spécialiste qui explique comment certaines avancées en médecine personnalisée changent progressivement la manière de soigner. Le texte montre que l’innovation scientifique permet parfois d’adapter les traitements de façon plus précise, tout en soulevant des questions éthiques. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque médecine personnalisée, adaptation des traitements, progrès scientifique, précision, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « faire d'une pierre deux coups » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite cours de médecine. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « innovation scientifique » demande une organisation durable. Le champ lexical de avancée scientifique, recherche fondamentale et appliquée, validation et rigueur renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « innovation scientifique ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « faire d'une pierre deux coups » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-innovation_scientifique-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "innovation_scientifique_reading_text_booklet_v2.html",
+      "questionBooklet": "innovation_scientifique_reading_question_booklet_v2.html",
+      "markscheme": "innovation_scientifique_reading_markscheme_v2.html",
+      "page1": "innovation_scientifique_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Ingéniosité humaine",
+    "topic": "technologie",
+    "themeKey": "ingeniosite-humaine",
+    "topicKey": "technologie",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur portrait de jeune créateur numérique",
+        "body": "Portrait d’un jeune passionné de programmation qui crée de petits jeux.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « technologie » à partir d’une situation concrète. Portrait d’un jeune passionné de programmation qui crée de petits jeux. Le texte montre ce qu’il aime dans cette activité, ce qu’il apprend en avançant, et la satisfaction qu’il retire du fait de construire lui-même un univers interactif. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur portrait clair, jeune passionné, programmation, création de petits jeux. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de outils numériques, internet et connexion, téléphone et communication, mais elle évite texte encyclopédique sur le codage. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « technologie » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Technologie : comprendre les effets concrets",
+        "body": "Article sur les conséquences des réseaux sociaux sur l’estime de soi et le sommeil des adolescents.\n\nLe deuxième texte adopte un ton plus explicatif. Article sur les conséquences des réseaux sociaux sur l’estime de soi et le sommeil des adolescents. Le texte montre comment les comparaisons, la recherche de validation et le temps d’écran peuvent fragiliser certains jeunes au quotidien. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve effets néfastes des réseaux sociaux, adolescents, estime de soi, sommeil. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de usages numériques, innovation et progrès technique, automatisation et efficacité. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « mettre les bouchées doubles » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « technologie » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite texte moraliste et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « technologie » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand technologie devient un enjeu collectif",
+        "body": "Article sur une association qui reconditionne des ordinateurs pour des familles.\n\nLe dernier texte est plus dense et plus collectif. Article sur une association qui reconditionne des ordinateurs pour des familles. Le texte explique le fonctionnement du projet, son utilité sociale et la manière dont l’accès au matériel informatique peut réduire certaines inégalités. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque association, reconditionnement d’ordinateurs, familles, projet concret, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « être à la hauteur » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite simple fiche technique. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « technologie » demande une organisation durable. Le champ lexical de transformation des habitudes, rapport au progrès, place de l’humain renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « technologie ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « être à la hauteur » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-ingeniosite_humaine-technologie-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "technologie_reading_text_booklet_v2.html",
+      "questionBooklet": "technologie_reading_question_booklet_v2.html",
+      "markscheme": "technologie_reading_markscheme_v2.html",
+      "page1": "technologie_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-organisation_sociale-education-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Organisation sociale",
+    "topic": "éducation",
+    "themeKey": "organisation-sociale",
+    "topicKey": "education",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur sport-études et exigence scolaire",
+        "body": "Mamadou est un adolescent en sport-études.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « éducation » à partir d’une situation concrète. Mamadou est un adolescent en sport-études. Son emploi du temps est aménagé, car il suit aussi une formation de football de haut niveau : école le matin, entraînement l’après-midi. Mais tout reste très sérieux, car sa place au club dépend aussi de ses résultats scolaires. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur Mamadou, adolescent, sport-études, emploi du temps aménagé. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de école et apprentissage, élèves et enseignants, matières et connaissances, mais elle évite texte encyclopédique. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « éducation » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Éducation : comprendre les effets concrets",
+        "body": "Portrait d’une directrice d’école à Nantes qui a mis en place un partenariat avec une école rurale du Burkina Faso afin de collecter du matériel pédagogique et des financements pour soutenir son développement.\n\nLe deuxième texte adopte un ton plus explicatif. Portrait d’une directrice d’école à Nantes qui a mis en place un partenariat avec une école rurale du Burkina Faso afin de collecter du matériel pédagogique et des financements pour soutenir son développement. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve directrice, Nantes, partenariat, école rurale. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de parcours scolaire, méthodes d’apprentissage, réussite et évaluation. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « être haut comme trois pommes » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « éducation » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article neutre sans angle et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « éducation » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand éducation devient un enjeu collectif",
+        "body": "Présentation d’une école située sur une île de l’archipel de Nouvelle-Calédonie : on s’y rend en bateau, les activités nautiques y occupent une place centrale, et tout l’enseignement est lié à la mer et à l’écosystème local.\n\nLe dernier texte est plus dense et plus collectif. Présentation d’une école située sur une île de l’archipel de Nouvelle-Calédonie : on s’y rend en bateau, les activités nautiques y occupent une place centrale, et tout l’enseignement est lié à la mer et à l’écosystème local. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque école, île, archipel de Nouvelle-Calédonie, bateau, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « donner sa langue au chat » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite niveau HL. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « éducation » demande une organisation durable. Le champ lexical de rapport au savoir, égalité des chances, épanouissement scolaire renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « éducation ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « donner sa langue au chat » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-education-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "education_reading_text_booklet_v2.html",
+      "questionBooklet": "education_reading_question_booklet_v2.html",
+      "markscheme": "education_reading_markscheme_v2.html",
+      "page1": "education_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Organisation sociale",
+    "topic": "engagement social",
+    "themeKey": "organisation-sociale",
+    "topicKey": "engagement-social",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur voix personnelle brève",
+        "body": "Texte sur une classe de primaire qui organise une collecte de pièces jaunes pour une association.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « engagement social » à partir d’une situation concrète. Texte sur une classe de primaire qui organise une collecte de pièces jaunes pour une association. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur classe de primaire, collecte de pièces jaunes, association, enfants. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de aide et bénévolat, association et projet, participation citoyenne, mais elle évite texte encyclopédique. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « engagement social » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Engagement social : comprendre les effets concrets",
+        "body": "Article court sur une association de Marseille qui s’occupe de nettoyer les plages et de sensibiliser le public à la protection du littoral.\n\nLe deuxième texte adopte un ton plus explicatif. Article court sur une association de Marseille qui s’occupe de nettoyer les plages et de sensibiliser le public à la protection du littoral. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve Marseille, association, nettoyage des plages, protection du littoral. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de vie associative, action solidaire, engagement citoyen. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « mettre son grain de sel » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « engagement social » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article neutre sans angle et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « engagement social » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand engagement social devient un enjeu collectif",
+        "body": "Présentation de l’association NoJavel à Bruxelles, qui milite pour l’interdiction de l’usage de la javel par les magasins qui détruisent des produits alimentaires, et qui défend leur récupération pour les redonner aux plus démunis.\n\nLe dernier texte est plus dense et plus collectif. Présentation de l’association NoJavel à Bruxelles, qui milite pour l’interdiction de l’usage de la javel par les magasins qui détruisent des produits alimentaires, et qui défend leur récupération pour les redonner aux plus démunis. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque association NoJavel, Bruxelles, interdiction de la javel, magasins, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « prendre le taureau par les cornes » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite niveau HL. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « engagement social » demande une organisation durable. Le champ lexical de responsabilité collective, participation démocratique, cohésion sociale renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « engagement social ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « prendre le taureau par les cornes » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-engagement_social-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "engagement_social_reading_text_booklet_v2.html",
+      "questionBooklet": "engagement_social_reading_question_booklet_v2.html",
+      "markscheme": "engagement_social_reading_markscheme_v2.html",
+      "page1": "engagement_social_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Organisation sociale",
+    "topic": "monde du travail",
+    "themeKey": "organisation-sociale",
+    "topicKey": "monde-du-travail",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur surdiplômée sans emploi",
+        "body": "Portrait de Stéphanie, qui a terminé ses études depuis deux ans mais ne parvient toujours pas à trouver un emploi : trop diplômée pour certains postes, pas assez expérimentée pour d’autres.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « monde du travail » à partir d’une situation concrète. Portrait de Stéphanie, qui a terminé ses études depuis deux ans mais ne parvient toujours pas à trouver un emploi : trop diplômée pour certains postes, pas assez expérimentée pour d’autres. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur Stéphanie, fin des études, deux ans, recherche d’emploi. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de emploi et métier, travail et horaires, bureau et lieu de travail, mais elle évite texte encyclopédique. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « monde du travail » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Monde du travail : comprendre les effets concrets",
+        "body": "Portrait d’un diplomate congolais qui travaille pour l’Organisation internationale de la Francophonie.\n\nLe deuxième texte adopte un ton plus explicatif. Portrait d’un diplomate congolais qui travaille pour l’Organisation internationale de la Francophonie. Ses domaines d’action sont l’éducation et le rayonnement du français. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve diplomate congolais, Organisation internationale de la Francophonie, éducation, rayonnement du français. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de conditions de travail, recrutement et insertion, parcours professionnel. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « donner un coup de main » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « monde du travail » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article neutre sans angle et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « monde du travail » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand monde du travail devient un enjeu collectif",
+        "body": "Article sur une usine en Suisse qui fonctionne sans patron : tous les employés possèdent une part de l’entreprise.\n\nLe dernier texte est plus dense et plus collectif. Article sur une usine en Suisse qui fonctionne sans patron : tous les employés possèdent une part de l’entreprise. Cette fabrique de chaussettes repose sur un modèle coopératif qui favorise l’engagement de chacun et connaît un vrai succès. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque usine, Suisse, sans patron, employés actionnaires, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « avoir du pain sur la planche » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite niveau HL. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « monde du travail » demande une organisation durable. Le champ lexical de sens du travail, reconnaissance professionnelle, mobilité et évolution de carrière renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « monde du travail ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « avoir du pain sur la planche » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-monde_du_travail-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "monde_du_travail_reading_text_booklet_v2.html",
+      "questionBooklet": "monde_du_travail_reading_question_booklet_v2.html",
+      "markscheme": "monde_du_travail_reading_markscheme_v2.html",
+      "page1": "monde_du_travail_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Organisation sociale",
+    "topic": "ordre public",
+    "themeKey": "organisation-sociale",
+    "topicKey": "ordre-public",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur grèves des transports",
+        "body": "Article sur des mouvements de grève et de manifestation qui bloquent tout un secteur de la société, par exemple les transports.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « ordre public » à partir d’une situation concrète. Article sur des mouvements de grève et de manifestation qui bloquent tout un secteur de la société, par exemple les transports. Les manifestants dénoncent leurs conditions de travail, l’insécurité dans les transports en commun et le prix des tickets face à des salaires qui n’augmentent pas, tandis que les usagers subissent retards, difficultés de déplacement et désorganisation du quotidien. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur article, grève, manifestations, transports. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de sécurité et ordre, police et surveillance, loi et règle, mais elle évite texte encyclopédique. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « ordre public » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Ordre public : comprendre les effets concrets",
+        "body": "Texte expliquant que le fait d’ouvrir les bouches d’incendie en été pour jouer avec l’eau est strictement interdit et constitue un acte d’incivilité.\n\nLe deuxième texte adopte un ton plus explicatif. Texte expliquant que le fait d’ouvrir les bouches d’incendie en été pour jouer avec l’eau est strictement interdit et constitue un acte d’incivilité. Même si cela peut sembler amusant, cela met la population en danger en cas d’incendie, provoque des inondations et peut bloquer l’intervention des secours ou des ambulances. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve bouches d’incendie, été, eau, interdit. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de maintien de l’ordre, réglementation et encadrement, prévention de la délinquance. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « qui ne tente rien n'a rien » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « ordre public » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article neutre sans angle et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « ordre public » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand ordre public devient un enjeu collectif",
+        "body": "Article-portrait sur David, passionné de super-héros parce qu’il les voit comme des défenseurs de la justice et de l’ordre.\n\nLe dernier texte est plus dense et plus collectif. Article-portrait sur David, passionné de super-héros parce qu’il les voit comme des défenseurs de la justice et de l’ordre. Même s’il sait que cela peut paraître farfelu, il sort parfois le soir déguisé pour venir en aide à des personnes dans la rue : un engagement citoyen qui l’inspire et lui fait du bien. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque David, super-héros, justice, ordre, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « avoir bon dos » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite niveau HL. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « ordre public » demande une organisation durable. Le champ lexical de cohésion et ordre social, sécurité perçue, régulation et liberté renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « ordre public ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « avoir bon dos » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-organisation_sociale-ordre_public-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "ordre_public_reading_text_booklet_v2.html",
+      "questionBooklet": "ordre_public_reading_question_booklet_v2.html",
+      "markscheme": "ordre_public_reading_markscheme_v2.html",
+      "page1": "ordre_public_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Partage de la planète",
+    "topic": "droits de l'homme",
+    "themeKey": "partage-de-la-planete",
+    "topicKey": "droits-de-l-homme",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur inclusion scolaire d’une adolescente sourde",
+        "body": "Récit d’une adolescente sourde qui suit sa scolarité dans un établissement ordinaire.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « droits de l’homme / égalité » à partir d’une situation concrète. Récit d’une adolescente sourde qui suit sa scolarité dans un établissement ordinaire. Elle explique les obstacles, les adaptations nécessaires, mais aussi les progrès quand l’école décide vraiment d’inclure tous les élèves. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur adolescente sourde, scolarité, établissement ordinaire, obstacles. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de droits et libertés, égalité et respect, discrimination et injustice, mais elle évite texte encyclopédique. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « droits de l’homme / égalité » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Droits de l’homme / égalité : comprendre les effets concrets",
+        "body": "Reportage sur une campagne de sensibilisation contre le harcèlement de rue dans une grande ville francophone.\n\nLe deuxième texte adopte un ton plus explicatif. Reportage sur une campagne de sensibilisation contre le harcèlement de rue dans une grande ville francophone. L’article montre les actions menées, les réactions du public et le débat sur la manière de faire évoluer les comportements. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve campagne de sensibilisation, harcèlement de rue, grande ville francophone, actions. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de droits fondamentaux, égalité des chances, discrimination et préjugés. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « chercher midi à quatorze heures » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « droits de l’homme / égalité » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article neutre sans angle et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « droits de l’homme / égalité » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand droits de l’homme / égalité devient un enjeu collectif",
+        "body": "Article sur la reconnaissance progressive des droits des personnes LGBTQ+ dans plusieurs pays francophones.\n\nLe dernier texte est plus dense et plus collectif. Article sur la reconnaissance progressive des droits des personnes LGBTQ+ dans plusieurs pays francophones. Le texte montre qu’il existe de vraies avancées, mais aussi de fortes résistances sociales, religieuses ou politiques selon les contextes. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque droits LGBTQ+, pays francophones, avancées, résistances sociales, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « faire l'autruche » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite niveau HL. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « droits de l’homme / égalité » demande une organisation durable. Le champ lexical de dignité humaine, reconnaissance et visibilité, inégalités structurelles renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « droits de l’homme / égalité ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « faire l'autruche » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-droits_de_l_homme-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "droits_de_l_homme_egalite_reading_text_booklet_v2.html",
+      "questionBooklet": "droits_de_l_homme_egalite_reading_question_booklet_v2.html",
+      "markscheme": "droits_de_l_homme_egalite_reading_markscheme_v2.html",
+      "page1": "droits_de_l_homme_egalite_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Partage de la planète",
+    "topic": "égalité",
+    "themeKey": "partage-de-la-planete",
+    "topicKey": "egalite",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur inclusion scolaire d’une adolescente sourde",
+        "body": "Récit d’une adolescente sourde qui suit sa scolarité dans un établissement ordinaire.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « droits de l’homme / égalité » à partir d’une situation concrète. Récit d’une adolescente sourde qui suit sa scolarité dans un établissement ordinaire. Elle explique les obstacles, les adaptations nécessaires, mais aussi les progrès quand l’école décide vraiment d’inclure tous les élèves. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur adolescente sourde, scolarité, établissement ordinaire, obstacles. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de droits et libertés, égalité et respect, discrimination et injustice, mais elle évite texte encyclopédique. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « droits de l’homme / égalité » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Droits de l’homme / égalité : comprendre les effets concrets",
+        "body": "Reportage sur une campagne de sensibilisation contre le harcèlement de rue dans une grande ville francophone.\n\nLe deuxième texte adopte un ton plus explicatif. Reportage sur une campagne de sensibilisation contre le harcèlement de rue dans une grande ville francophone. L’article montre les actions menées, les réactions du public et le débat sur la manière de faire évoluer les comportements. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve campagne de sensibilisation, harcèlement de rue, grande ville francophone, actions. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de droits fondamentaux, égalité des chances, discrimination et préjugés. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « chercher midi à quatorze heures » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « droits de l’homme / égalité » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article neutre sans angle et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « droits de l’homme / égalité » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand droits de l’homme / égalité devient un enjeu collectif",
+        "body": "Article sur la reconnaissance progressive des droits des personnes LGBTQ+ dans plusieurs pays francophones.\n\nLe dernier texte est plus dense et plus collectif. Article sur la reconnaissance progressive des droits des personnes LGBTQ+ dans plusieurs pays francophones. Le texte montre qu’il existe de vraies avancées, mais aussi de fortes résistances sociales, religieuses ou politiques selon les contextes. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque droits LGBTQ+, pays francophones, avancées, résistances sociales, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « faire l'autruche » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite niveau HL. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « droits de l’homme / égalité » demande une organisation durable. Le champ lexical de dignité humaine, reconnaissance et visibilité, inégalités structurelles renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « droits de l’homme / égalité ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « faire l'autruche » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-egalite-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "droits_de_l_homme_egalite_reading_text_booklet_v2.html",
+      "questionBooklet": "droits_de_l_homme_egalite_reading_question_booklet_v2.html",
+      "markscheme": "droits_de_l_homme_egalite_reading_markscheme_v2.html",
+      "page1": "droits_de_l_homme_egalite_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Partage de la planète",
+    "topic": "environnement",
+    "themeKey": "partage-de-la-planete",
+    "topicKey": "environnement",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur agriculture plus durable",
+        "body": "Témoignage d’un jeune agriculteur qui abandonne progressivement les produits chimiques pour passer à une agriculture plus durable.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « environnement » à partir d’une situation concrète. Témoignage d’un jeune agriculteur qui abandonne progressivement les produits chimiques pour passer à une agriculture plus durable. Il explique les bénéfices, mais aussi les risques économiques et la quantité de travail nécessaire. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur jeune agriculteur, produits chimiques, agriculture durable, transition. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de nature et milieu de vie, pollution et déchets, climat et températures, mais elle évite texte encyclopédique. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « environnement » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Environnement : comprendre les effets concrets",
+        "body": "Article sur une ville qui a lancé un grand plan de végétalisation : plantations d’arbres, toits végétalisés, murs verts et nouveaux parcs.\n\nLe deuxième texte adopte un ton plus explicatif. Article sur une ville qui a lancé un grand plan de végétalisation : plantations d’arbres, toits végétalisés, murs verts et nouveaux parcs. Le texte présente les objectifs, les coûts et les réactions des habitants. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve ville, végétalisation, arbres, toits végétalisés. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de dégradation de l’environnement, changement climatique, gestion des déchets. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « mettre la main à la pâte » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « environnement » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article neutre sans angle et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « environnement » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand environnement devient un enjeu collectif",
+        "body": "Reportage sur une île qui limite strictement le nombre de touristes pour protéger son écosystème.\n\nLe dernier texte est plus dense et plus collectif. Reportage sur une île qui limite strictement le nombre de touristes pour protéger son écosystème. Cette politique est efficace pour l’environnement, mais elle crée aussi des tensions économiques. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque île, tourisme, limitation, écosystème, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « se serrer la ceinture » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite niveau HL. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « environnement » demande une organisation durable. Le champ lexical de biodiversité et équilibre naturel, empreinte écologique, responsabilité collective renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « environnement ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « se serrer la ceinture » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnement-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "environnement_reading_text_booklet_v2.html",
+      "questionBooklet": "environnement_reading_question_booklet_v2.html",
+      "markscheme": "environnement_reading_markscheme_v2.html",
+      "page1": "environnement_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Partage de la planète",
+    "topic": "environnements urbains et ruraux",
+    "themeKey": "partage-de-la-planete",
+    "topicKey": "environnements-urbains-et-ruraux",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur portrait d’un jeune agriculteur",
+        "body": "Portrait d’une jeune agricultrice qui aime profondément la vie rurale mais qui se sent parfois oublié par les décideurs.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « environnements urbains et ruraux » à partir d’une situation concrète. Portrait d’une jeune agricultrice qui aime profondément la vie rurale mais qui se sent parfois oublié par les décideurs. Il explique les difficultés économiques, l’isolement, mais aussi l’attachement au territoire. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur jeune agriculteur, vie rurale, décideurs, difficultés économiques. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de ville et campagne, logement et cadre de vie, transports et déplacements, mais elle évite texte encyclopédique. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « environnements urbains et ruraux » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Environnements urbains et ruraux : comprendre les effets concrets",
+        "body": "Article sur la vie dans les campements qui se forment autour des grandes villes en Afrique, sans accès aux besoins primaires, dans un contexte d’exode rural.\n\nLe deuxième texte adopte un ton plus explicatif. Article sur la vie dans les campements qui se forment autour des grandes villes en Afrique, sans accès aux besoins primaires, dans un contexte d’exode rural. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve campements, grandes villes, Afrique, besoins primaires. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de densité et organisation urbaine, isolement et accessibilité rurale, services publics et infrastructures. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « revenir à ses moutons » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « environnements urbains et ruraux » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article neutre sans angle et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « environnements urbains et ruraux » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand environnements urbains et ruraux devient un enjeu collectif",
+        "body": "Article sur les déserts médicaux dans certaines zones rurales.\n\nLe dernier texte est plus dense et plus collectif. Article sur les déserts médicaux dans certaines zones rurales. Le texte montre que l’inégalité entre territoires ne concerne pas seulement le confort de vie, mais aussi l’accès aux soins. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque déserts médicaux, zones rurales, inégalités territoriales, confort de vie, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « avoir plus d'un tour dans son sac » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite niveau HL. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « environnements urbains et ruraux » demande une organisation durable. Le champ lexical de aménagement du territoire, fracture territoriale, urbanisation et étalement renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « environnements urbains et ruraux ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « avoir plus d'un tour dans son sac » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-environnements_urbains_et_ruraux-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "environnements_urbains_et_ruraux_reading_text_booklet_v2.html",
+      "questionBooklet": "environnements_urbains_et_ruraux_reading_question_booklet_v2.html",
+      "markscheme": "environnements_urbains_et_ruraux_reading_markscheme_v2.html",
+      "page1": "environnements_urbains_et_ruraux_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Partage de la planète",
+    "topic": "éthique",
+    "themeKey": "partage-de-la-planete",
+    "topicKey": "ethique",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur gaspillage alimentaire au supermarché",
+        "body": "Portrait d’un jeune employé de supermarché à qui son responsable demande parfois de jeter des produits encore consommables.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « éthique » à partir d’une situation concrète. Portrait d’un jeune employé de supermarché à qui son responsable demande parfois de jeter des produits encore consommables. Il commence à se demander s’il est moral d’obéir à une consigne qu’il juge absurde et injuste. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur jeune employé, supermarché, produits consommables, gaspillage. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de morale et valeurs, bien et mal, respect et responsabilité, mais elle évite texte encyclopédique. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « éthique » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Éthique : comprendre les effets concrets",
+        "body": "Reportage sur une école qui a mis en place des ateliers autour de l’éthique du numérique : droit à l’image, cyberharcèlement, intelligence artificielle, rumeurs en ligne.\n\nLe deuxième texte adopte un ton plus explicatif. Reportage sur une école qui a mis en place des ateliers autour de l’éthique du numérique : droit à l’image, cyberharcèlement, intelligence artificielle, rumeurs en ligne. L’objectif est d’aider les élèves à adopter un comportement plus responsable. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve école, ateliers, éthique du numérique, droit à l’image. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de principes éthiques, dilemme et décision, responsabilité individuelle. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « mieux vaut tard que jamais » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « éthique » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article neutre sans angle et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « éthique » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand éthique devient un enjeu collectif",
+        "body": "Article sur les progrès de la génétique et les possibilités de modifier certains caractères humains.\n\nLe dernier texte est plus dense et plus collectif. Article sur les progrès de la génétique et les possibilités de modifier certains caractères humains. Le texte interroge la frontière entre soigner, améliorer et transformer l’être humain. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque génétique, modification, caractères humains, soigner, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « mieux vaut prévenir que guérir » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite niveau HL. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « éthique » demande une organisation durable. Le champ lexical de réflexion éthique, conflit de valeurs, responsabilité collective renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « éthique ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « mieux vaut prévenir que guérir » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-ethique-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "ethique_reading_text_booklet_v2.html",
+      "questionBooklet": "ethique_reading_question_booklet_v2.html",
+      "markscheme": "ethique_reading_markscheme_v2.html",
+      "page1": "ethique_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Partage de la planète",
+    "topic": "mondialisation",
+    "themeKey": "partage-de-la-planete",
+    "topicKey": "mondialisation",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur artisan local face aux importations",
+        "body": "Récit d’un artisan local dont l’activité a été fragilisée par l’arrivée de produits importés moins chers.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « mondialisation » à partir d’une situation concrète. Récit d’un artisan local dont l’activité a été fragilisée par l’arrivée de produits importés moins chers. Il explique qu’il ne rejette pas totalement la mondialisation, mais qu’il a dû repenser sa manière de travailler pour survivre. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur artisan local, produits importés, prix bas, activité fragilisée. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de échanges et ouverture, monde et circulation, produits et consommation, mais elle évite texte encyclopédique. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « mondialisation » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Mondialisation : comprendre les effets concrets",
+        "body": "Présentation d’un festival francophone qui réunit des artistes d’Europe, d’Afrique, du Canada et des Caraïbes.\n\nLe deuxième texte adopte un ton plus explicatif. Présentation d’un festival francophone qui réunit des artistes d’Europe, d’Afrique, du Canada et des Caraïbes. L’article montre comment la langue française circule dans le monde tout en prenant des formes très différentes selon les contextes. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve festival francophone, artistes, Europe, Afrique. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de échanges internationaux, économie mondialisée, mobilité et connectivité. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « coûter les yeux de la tête » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « mondialisation » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article neutre sans angle et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « mondialisation » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand mondialisation devient un enjeu collectif",
+        "body": "Reportage sur un port maritime majeur où arrivent chaque jour des milliers de marchandises venues du monde entier.\n\nLe dernier texte est plus dense et plus collectif. Reportage sur un port maritime majeur où arrivent chaque jour des milliers de marchandises venues du monde entier. Le texte montre que ce lieu résume à lui seul les avantages, les dépendances et les fragilités de la mondialisation. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque port maritime, marchandises, commerce mondial, circulation, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « faire les yeux doux » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite niveau HL. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « mondialisation » demande une organisation durable. Le champ lexical de interconnexion du monde, uniformisation et diversité, interdépendance économique renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « mondialisation ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « faire les yeux doux » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-mondialisation-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "mondialisation_reading_text_booklet_v2.html",
+      "questionBooklet": "mondialisation_reading_question_booklet_v2.html",
+      "markscheme": "mondialisation_reading_markscheme_v2.html",
+      "page1": "mondialisation_comprehension_ecrite_page_1_v2.pptx"
+    }
+  },
+  {
+    "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2",
+    "kind": "Paper 2 Reading",
+    "theme": "Partage de la planète",
+    "topic": "paix et conflits",
+    "themeKey": "partage-de-la-planete",
+    "topicKey": "paix-et-conflits",
+    "variant": "Validated v2",
+    "totalMarks": 40,
+    "gradeBands": [
+      {
+        "min": 85,
+        "grade": 7
+      },
+      {
+        "min": 73,
+        "grade": 6
+      },
+      {
+        "min": 61,
+        "grade": 5
+      },
+      {
+        "min": 49,
+        "grade": 4
+      },
+      {
+        "min": 37,
+        "grade": 3
+      },
+      {
+        "min": 25,
+        "grade": 2
+      },
+      {
+        "min": 0,
+        "grade": 1
+      }
+    ],
+    "texts": [
+      {
+        "label": "Texte A",
+        "title": "Un premier regard sur accueil d’un jeune réfugié",
+        "body": "Témoignage d’un adolescent dont la famille a accueilli pendant plusieurs mois un jeune réfugié.\n\nDans un dossier destiné aux élèves de français B, le premier texte aborde le topic « paix et conflits » à partir d’une situation concrète. Témoignage d’un adolescent dont la famille a accueilli pendant plusieurs mois un jeune réfugié. Il raconte comment cette cohabitation a changé sa vision de la guerre, de l’exil et de la solidarité. Le lecteur entre donc dans le sujet par un portrait ou une scène facile à identifier, avant d’aller vers des questions plus larges. Ce choix correspond au rôle du Texte A: installer le contexte sans charger immédiatement la lecture.\n\nLe texte insiste surtout sur adolescent, famille d’accueil, jeune réfugié, cohabitation. Ces éléments ne sont pas présentés comme une liste de mots à apprendre, mais comme les détails d’une expérience située. On comprend pourquoi cette situation compte pour la personne ou le groupe concerné, et comment elle transforme le regard porté sur le quotidien. Le passage garde une progression simple: d’abord le cadre, puis les gestes, puis le sens de ces gestes.\n\nPeu à peu, un rituel se met en place: observer, comparer, puis ajuster ses choix. Ces repères permettent de mieux comprendre le sujet sans perdre le fil. L’autonomie ne vient pas d’un grand discours, mais d’une série de décisions simples que le texte rend visibles. Le lecteur peut donc repérer des informations précises tout en commençant à voir la valeur personnelle de l’expérience.\n\nCette approche reste volontairement accessible. Elle mobilise le champ lexical de paix et stabilité, conflit et tension, guerre et violence, mais elle évite texte encyclopédique. Le texte montre ainsi que le thème peut être étudié à partir d’un exemple précis, lisible et humain. Les informations restent concrètes: elles peuvent soutenir des questions de repérage, de vocabulaire et de compréhension globale.\n\nLa conclusion garde une nuance importante: l’exemple ne prétend pas tout expliquer. Il sert plutôt de porte d’entrée vers le reste du bundle. Le lecteur retient que le topic « paix et conflits » se comprend mieux quand on observe les gestes, les contraintes et les choix qui donnent du sens à une situation réelle."
+      },
+      {
+        "label": "Texte B",
+        "title": "Paix et conflits : comprendre les effets concrets",
+        "body": "Reportage sur une exposition scolaire consacrée aux objets du quotidien en temps de guerre : lettres, vêtements, photos, carnets.\n\nLe deuxième texte adopte un ton plus explicatif. Reportage sur une exposition scolaire consacrée aux objets du quotidien en temps de guerre : lettres, vêtements, photos, carnets. Le but est de montrer que les conflits ne sont pas seulement des dates et des batailles, mais des vies bouleversées. L’article ne cherche pas à faire peur au lecteur; il construit une réflexion à partir de faits observables et d’exemples proches de la vie quotidienne. Le sujet est présenté comme un phénomène social: on ne s’intéresse pas seulement à une activité, mais aussi à la manière dont elle organise les habitudes, les attentes et les comportements.\n\nAu départ, la question paraît simple, mais elle devient vite plus riche. On y retrouve exposition scolaire, objets du quotidien, guerre, lettres. Le texte refuse une vision trop simpliste et cherche au contraire à rendre le problème concret. Pour cela, il montre comment une comparaison, une contrainte ou un choix individuel peut modifier le rythme d’un groupe. Les exemples sont choisis pour que le lecteur puisse suivre une progression: constater, interpréter, puis évaluer les conséquences.\n\nPlusieurs passages invitent à prendre du recul. La confiance ne se construit pas seulement avec de bonnes intentions: elle dépend aussi de la façon dont chacun interprète les signes, les attentes et les limites. Cette réflexion s’appuie sur le champ lexical de affrontement et hostilité, négociation et médiation, cessez-le-feu et résolution. Le vocabulaire n’est pas décoratif: il sert à nommer les tensions, à distinguer les causes des effets et à éviter une lecture trop rapide.\n\nUn court passage reprend l’expression « jeter l'éponge » pour rendre plus visible la tension du sujet: dans ce contexte, elle aide le lecteur à comprendre comment le thème « paix et conflits » touche des choix réels, pas seulement des idées générales.\n\nL’article propose ensuite des réponses mesurées. Il ne suffit pas de répéter que le sujet est important; il faut créer des situations où les élèves peuvent analyser, justifier et reformuler. Cette méthode évite article neutre sans angle et donne une vraie place à la nuance. Elle montre aussi que les décisions efficaces sont souvent modestes: elles changent un cadre, une règle, une habitude ou une manière de parler du problème.\n\nLa fin du texte ouvre une perspective plus large. Elle montre que le topic « paix et conflits » touche à la fois la personne, le groupe et la société. Le lecteur doit donc comprendre non seulement ce qui se passe, mais aussi pourquoi ce phénomène mérite d’être discuté avec précision. Cette dernière partie prépare naturellement des questions de reformulation, de complétion et de choix entre plusieurs interprétations plausibles."
+      },
+      {
+        "label": "Texte C",
+        "title": "Quand paix et conflits devient un enjeu collectif",
+        "body": "Article sur les mémoires de la guerre d’Algérie : mémoires familiales, mémoires politiques, silence, reconnaissance, commémorations et divergences entre générations.\n\nLe dernier texte est plus dense et plus collectif. Article sur les mémoires de la guerre d’Algérie : mémoires familiales, mémoires politiques, silence, reconnaissance, commémorations et divergences entre générations. Le texte montre que cette guerre continue de peser sur les identités, les récits et les relations entre la France et l’Algérie. Il présente une initiative, une tension ou un débat où plusieurs acteurs doivent avancer ensemble malgré des contraintes visibles. Le lecteur doit suivre plusieurs niveaux à la fois: ce qui est fait, pourquoi cela est fait et quelles limites apparaissent quand le projet rencontre la réalité.\n\nLe problème de départ n’est pas seulement pratique. Le texte évoque guerre d’Algérie, mémoires familiales, mémoires politiques, silence, et il révèle une distance entre les principes annoncés et la réalité vécue. Cette distance oblige les responsables à préparer leurs décisions en amont plutôt qu’à improviser une réponse rapide. C’est cette préparation qui donne au texte sa cohérence interne.\n\nLa démarche commence par une observation attentive. Les participants recueillent des exemples, identifient les obstacles et vérifient ce qui fonctionne déjà. Cette préparation en amont évite de transformer le projet en simple geste symbolique. Elle donne aussi au lecteur des preuves concrètes pour suivre le raisonnement. Chaque étape répond à la précédente, ce qui rend possibles des questions sur les référents, les liens logiques et les justifications.\n\nCe soutien compte autant que l’action principale. Des explications, des échanges et parfois un accompagnement progressif permettent aux personnes concernées de ne pas rester seules face au problème. Ils comprennent mieux ce qu’ils peuvent faire, mais aussi ce qui dépend encore d’un cadre plus large. Le texte suggère ainsi que l’autonomie n’est pas isolée: elle se construit avec des outils, des repères et une aide bien ciblée.\n\nL’expression « après la pluie, le beau temps » apparaît ensuite comme une formule de synthèse: elle rappelle que le problème ne se résout pas par une annonce spectaculaire, mais par une lecture patiente des besoins et des conséquences.\n\nLe texte garde cependant une limite claire. L’initiative n’est pas une solution miracle: certaines difficultés demeurent, surtout quand le temps, la confiance ou les moyens manquent. Cette réserve rend l’analyse plus crédible et évite niveau HL. Elle oblige le lecteur à distinguer un progrès réel d’une réussite totale, nuance fréquente dans les textes de fin de sujet.\n\nEn conclusion, le projet relie une dimension personnelle à une dimension collective. Il redonne une marge de liberté à ceux qui étaient bloqués, tout en rappelant que le topic « paix et conflits » demande une organisation durable. Le champ lexical de polarisation sociale, réconciliation durable, mémoire et commémoration renforce cette lecture fine. Le lecteur termine donc sur une analyse qui reste accessible au niveau SL, mais qui exige une attention réelle aux preuves du texte."
+      }
+    ],
+    "questions": [
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q1",
+        "number": "1",
+        "textLabel": "Texte A",
+        "prompt": "Choisissez les quatre affirmations vraies (Texte A, paragraphes 1-5). [4]\nA.\nLe texte reprend un document officiel de l’IB sans modification.\nB.\nLe texte présente un exemple concret lié au thème « paix et conflits ».\nC.\nLe texte affirme que toutes les contraintes ont disparu.\nD.\nLe texte évite de réduire le sujet à un slogan général.\nE.\nLe texte présente le sujet comme une simple publicité.\nF.\nLe texte montre que des repères aident à comprendre la situation.\nG.\nLe texte refuse toute nuance à la fin.\nH.\nLe texte associe l’expérience à une forme d’autonomie.\nEn vous basant sur le paragraphe 3, trouvez les mots qui ont la signification suivante.",
+        "marks": 4,
+        "expectedAnswer": "B, D, F, H",
+        "acceptedAnswer": "ordre indifférent",
+        "rejectedAnswer": "toute autre combinaison"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q2",
+        "number": "2",
+        "textLabel": "Texte A",
+        "prompt": "habitude qui revient régulièrement",
+        "marks": 1,
+        "expectedAnswer": "rituel",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "habitude seule"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q3",
+        "number": "3",
+        "textLabel": "Texte A",
+        "prompt": "signes ou points qui permettent de se guider",
+        "marks": 1,
+        "expectedAnswer": "repères",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "indices si le mot exact est demandé"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q4",
+        "number": "4",
+        "textLabel": "Texte A",
+        "prompt": "capacité à agir par soi-même\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "autonomie",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "liberté seule"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q5",
+        "number": "5",
+        "textLabel": "Texte A",
+        "prompt": "Quelle est la fonction principale du Texte A ? A.\nOuvrir le sujet par un cas concret.\nB.\nPrésenter une théorie abstraite.\nC.\nDonner uniquement une liste de vocabulaire.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Ouvrir le sujet par un cas concret.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q6",
+        "number": "6",
+        "textLabel": "Texte A",
+        "prompt": "Pourquoi les détails du texte sont-ils importants ? A.\nIls remplacent les questions.\nB.\nIls rendent l’expérience située et lisible.\nC.\nIls effacent le thème du bundle.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "Ils rendent l’expérience située et lisible.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q7",
+        "number": "7",
+        "textLabel": "Texte A",
+        "prompt": "Que montre le paragraphe 4 ? A.\nLe texte reste accessible et humain.\nB.\nLe sujet devient volontairement publicitaire.\nC.\nLe lecteur doit ignorer le contexte.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Le texte reste accessible et humain.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q8",
+        "number": "8",
+        "textLabel": "Texte A",
+        "prompt": "Quelle idée correspond le mieux à la fin du texte ? A.\nUn seul exemple explique tout.\nB.\nL’exemple sert de porte d’entrée vers le bundle.\nC.\nLe Texte A ferme toute discussion.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "L’exemple sert de porte d’entrée vers le bundle.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q9",
+        "number": "9",
+        "textLabel": "Texte A",
+        "prompt": "Le ton du Texte A est surtout… A.\nconcret et nuancé.\nB.\njuridique et opaque.\nC.\npolémique et agressif.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "concret et nuancé.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q10",
+        "number": "10",
+        "textLabel": "Texte A",
+        "prompt": "Le Texte A prépare surtout le lecteur à… A.\nmémoriser des réponses officielles.\nB.\nobserver des gestes, contraintes et choix.\nC.\néviter les textes B et C.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "observer des gestes, contraintes et choix.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q11",
+        "number": "11",
+        "textLabel": "Texte B",
+        "prompt": "Répondez aux questions suivantes (Texte B, paragraphes 1-5).\nQuel type de réflexion le Texte B construit-il ?",
+        "marks": 1,
+        "expectedAnswer": "une réflexion à partir de faits observables / d’exemples quotidiens",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q12",
+        "number": "12",
+        "textLabel": "Texte B",
+        "prompt": "Que refuse le Texte B ?",
+        "marks": 1,
+        "expectedAnswer": "une vision trop simpliste",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q13",
+        "number": "13",
+        "textLabel": "Texte B",
+        "prompt": "Quel sentiment ou relation ne se construit pas seulement avec de bonnes intentions ?",
+        "marks": 1,
+        "expectedAnswer": "la confiance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q14",
+        "number": "14",
+        "textLabel": "Texte B",
+        "prompt": "Pourquoi faut-il créer des situations d’analyse ?\nTrouvez les mots qui complètent les phrases suivantes. Utilisez les mots tels qu’ils apparaissent dans le Texte B.",
+        "marks": 1,
+        "expectedAnswer": "pour analyser, justifier et reformuler / pour donner une place à la nuance",
+        "acceptedAnswer": "toute réponse qui conserve le même noyau de sens",
+        "rejectedAnswer": "réponse vague sans preuve textuelle"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q15",
+        "number": "15",
+        "textLabel": "Texte B",
+        "prompt": "Le texte refuse une vision trop ______.",
+        "marks": 1,
+        "expectedAnswer": "simpliste",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q16",
+        "number": "16",
+        "textLabel": "Texte B",
+        "prompt": "Le problème doit devenir ______ pour le lecteur.",
+        "marks": 1,
+        "expectedAnswer": "concret",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q17",
+        "number": "17",
+        "textLabel": "Texte B",
+        "prompt": "Plusieurs passages invitent à prendre du ______.",
+        "marks": 1,
+        "expectedAnswer": "recul",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q18",
+        "number": "18",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B ouvre une ______ plus large.\nChoisissez la fin appropriée de la liste pour terminer chaque phrase.",
+        "marks": 1,
+        "expectedAnswer": "perspective",
+        "acceptedAnswer": "",
+        "rejectedAnswer": "mot grammaticalement ou sémantiquement incompatible"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q19",
+        "number": "19",
+        "textLabel": "Texte B",
+        "prompt": "Le Texte B commence par des faits observables,",
+        "marks": 1,
+        "expectedAnswer": "C",
+        "acceptedAnswer": "afin d’éviter un discours seulement abstrait.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q20",
+        "number": "20",
+        "textLabel": "Texte B",
+        "prompt": "La confiance dépend aussi de l’interprétation des signes,",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "ce qui oblige le lecteur à prendre du recul.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q21",
+        "number": "21",
+        "textLabel": "Texte B",
+        "prompt": "La fin du Texte B élargit le sujet,\nA.\nce qui oblige le lecteur à prendre du recul.\nB.\nparce que le texte refuse toute explication.\nC.\nafin d’éviter un discours seulement abstrait.\nD.\npour supprimer le rôle du groupe.\nE.\nen reliant la personne, le groupe et la société.\nF.\nen remplaçant le texte par une liste.\nChoisissez un mot approprié de la liste pour remplir chaque blanc.\nLe Texte B propose de discuter 22 culpabiliser et d’agir 23 répéter des slogans.\nA. plutôt que\nB. sans\nC. avec\nD. avant",
+        "marks": 1,
+        "expectedAnswer": "E",
+        "acceptedAnswer": "en reliant la personne, le groupe et la société.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q22",
+        "number": "22",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 22.",
+        "marks": 1,
+        "expectedAnswer": "B",
+        "acceptedAnswer": "sans",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q23",
+        "number": "23",
+        "textLabel": "Texte B",
+        "prompt": "Choisissez la réponse pour la question 23.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "plutôt que",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q24",
+        "number": "24",
+        "textLabel": "Texte C",
+        "prompt": "Les affirmations suivantes sont soit vraies, soit fausses. Cochez la bonne réponse et justifiez votre réponse par des mots du texte. Ces deux exigences doivent être respectées pour obtenir [1 point].\nAffirmation Vrai Faux Justification\nLe Texte C présente une question seulement pratique.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « le problème n’est pas seulement pratique »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q25",
+        "number": "25",
+        "textLabel": "Texte C",
+        "prompt": "La préparation en amont évite une réponse improvisée.",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « préparer leurs décisions en amont / préparation en amont »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q26",
+        "number": "26",
+        "textLabel": "Texte C",
+        "prompt": "Le texte affirme que l’initiative est une solution miracle.",
+        "marks": 1,
+        "expectedAnswer": "Faux + « l’initiative n’est pas une solution miracle »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Faux sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q27",
+        "number": "27",
+        "textLabel": "Texte C",
+        "prompt": "Le projet relie une dimension personnelle et une dimension collective.\nRépondez aux questions suivantes (Texte C).",
+        "marks": 1,
+        "expectedAnswer": "Vrai + « relie une dimension personnelle à une dimension collective »",
+        "acceptedAnswer": "toute citation équivalente",
+        "rejectedAnswer": "Vrai sans justification ; justification contradictoire"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q28",
+        "number": "28",
+        "textLabel": "Texte C",
+        "prompt": "Que font d’abord les participants ?",
+        "marks": 1,
+        "expectedAnswer": "ils observent / recueillent des exemples / identifient les obstacles",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q29",
+        "number": "29",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi la préparation en amont est-elle utile ?",
+        "marks": 1,
+        "expectedAnswer": "elle évite un simple geste symbolique / elle donne des preuves concrètes",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q30",
+        "number": "30",
+        "textLabel": "Texte C",
+        "prompt": "Qu’est-ce qui peut encore manquer selon le texte ?",
+        "marks": 1,
+        "expectedAnswer": "le temps / la confiance / les moyens",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q31",
+        "number": "31",
+        "textLabel": "Texte C",
+        "prompt": "Que le projet redonne-t-il aux personnes bloquées ?\nÀ qui ou à quoi les mots suivants font-ils référence ?",
+        "marks": 1,
+        "expectedAnswer": "une marge de liberté",
+        "acceptedAnswer": "toute réponse équivalente fondée sur le texte",
+        "rejectedAnswer": "réponse générale sans lien avec le passage"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q32",
+        "number": "32",
+        "textLabel": "Texte C",
+        "prompt": "`La démarche`",
+        "marks": 1,
+        "expectedAnswer": "l’initiative / le projet présenté",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q33",
+        "number": "33",
+        "textLabel": "Texte C",
+        "prompt": "`ils` dans `ils comprennent mieux`",
+        "marks": 1,
+        "expectedAnswer": "les participants / les personnes concernées",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q34",
+        "number": "34",
+        "textLabel": "Texte C",
+        "prompt": "`ce soutien`",
+        "marks": 1,
+        "expectedAnswer": "les explications, échanges et accompagnement progressif",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q35",
+        "number": "35",
+        "textLabel": "Texte C",
+        "prompt": "`elle` dans `elle rappelle`\nChoisissez la bonne réponse.",
+        "marks": 1,
+        "expectedAnswer": "l’expression « après la pluie, le beau temps » / la formule de synthèse",
+        "acceptedAnswer": "réponse qui identifie clairement le référent",
+        "rejectedAnswer": "référent trop large ou incorrect"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q36",
+        "number": "36",
+        "textLabel": "Texte C",
+        "prompt": "Quelle idée résume le mieux le Texte C ? A.\nUne action durable exige observation, soutien et nuance.\nB.\nUne annonce suffit à résoudre le problème.\nC.\nLe groupe n’a aucun rôle à jouer.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Une action durable exige observation, soutien et nuance.",
+        "rejectedAnswer": "autre lettre"
+      },
+      {
+        "id": "paper-2-reading-partage_de_la_planete-paix_et_conflits-validated-v2-q37",
+        "number": "37",
+        "textLabel": "Texte C",
+        "prompt": "Pourquoi le texte mentionne-t-il les limites du projet ? A.\nPour rendre l’analyse plus crédible.\nB.\nPour annuler tout l’intérêt du sujet.\nC.\nPour éviter la compréhension fine.",
+        "marks": 1,
+        "expectedAnswer": "A",
+        "acceptedAnswer": "Pour rendre l’analyse plus crédible.",
+        "rejectedAnswer": "autre lettre"
+      }
+    ],
+    "sourceDocuments": {
+      "textBooklet": "paix_et_conflits_reading_text_booklet_v2.html",
+      "questionBooklet": "paix_et_conflits_reading_question_booklet_v2.html",
+      "markscheme": "paix_et_conflits_reading_markscheme_v2.html",
+      "page1": "paix_et_conflits_comprehension_ecrite_page_1_v2.pptx"
+    }
   }
 ];
 

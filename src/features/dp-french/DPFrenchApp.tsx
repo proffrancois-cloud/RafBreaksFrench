@@ -12,7 +12,7 @@ import { diagnosticExerciseIds, exercises, exercisesById } from "./data/exercise
 import { lessons, lessonsById } from "./data/lessons";
 import { iaStimuliByTopic } from "./data/iaStimuli.generated";
 import { mockExamThemes } from "./data/mockExamCatalog.generated";
-import { premiumListeningPapers, premiumReadingPapers, type PremiumGradeBand, type PremiumMockPaper } from "./data/premiumMockPapers.generated";
+import { premiumListeningPapers, premiumReadingPapers, type PremiumGradeBand, type PremiumMockPaper, type PremiumSourceDocuments } from "./data/premiumMockPapers.generated";
 import { categoryOrder, skills, skillsById } from "./data/skills";
 import { textTypes } from "./data/textTypes";
 import {
@@ -68,6 +68,7 @@ interface PaperSession {
   gradeBands: PremiumGradeBand[];
   texts: PaperSessionText[];
   questions: PaperSessionQuestion[];
+  sourceDocuments?: PremiumSourceDocuments;
 }
 
 const navItems: View[] = ["Dashboard", "Lessons", "Practice", "DP Themes", "Paper 1 Pack", "Text Types", "Progress"];
@@ -537,6 +538,17 @@ export function DPFrenchApp() {
             <span>marks</span>
           </div>
         </div>
+
+        {paper.sourceDocuments ? (
+          <div className="paper-source-documents" aria-label="Validated source documents">
+            <span>Text booklet</span>
+            <strong>{paper.sourceDocuments.textBooklet}</strong>
+            <span>Question booklet</span>
+            <strong>{paper.sourceDocuments.questionBooklet}</strong>
+            <span>Markscheme</span>
+            <strong>{paper.sourceDocuments.markscheme}</strong>
+          </div>
+        ) : null}
 
         <div className="paper-text-stack">
           {paper.texts.map((text, index) => (

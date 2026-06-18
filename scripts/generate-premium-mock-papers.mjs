@@ -6,7 +6,6 @@ const appOutput = path.resolve("src/features/dp-french/data/premiumMockPapers.ge
 const publicAudioRoot = path.resolve("public/frenchease/premium-mock-papers/audio");
 
 const readingFinalRoot = path.join(frenchEaseRoot, "Paper_2_Reading", "05_final_validated_outputs");
-const readingDevelopmentRoot = path.join(frenchEaseRoot, "Paper_2_Reading", "02_topic_development");
 const listeningFinalRoot = path.join(frenchEaseRoot, "Paper_2_Listening", "05_final_validated_outputs");
 const listeningMockRoot = path.join(frenchEaseRoot, "Paper_2_Listening", "04_assessment_assets", "mock_booklets");
 const listeningAudioRoot = path.join(frenchEaseRoot, "Paper_2_Listening", "03_audio_outputs");
@@ -27,6 +26,9 @@ const topicLabels = {
   coutumes_et_traditions: "coutumes et traditions",
   divertissements: "divertissements",
   droits_de_lhomme_egalite: "droits de l'homme",
+  droits_de_l_homme: "droits de l'homme",
+  droits_de_l_homme_egalite: "droits de l'homme / égalité",
+  egalite: "égalité",
   education: "éducation",
   engagement_social: "engagement social",
   environnement: "environnement",
@@ -88,6 +90,8 @@ const linesFromText = (value) =>
     .filter(Boolean);
 
 const readIfExists = (filePath) => (filePath && fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : "");
+
+const readJson = (filePath) => JSON.parse(fs.readFileSync(filePath, "utf8"));
 
 const walk = (dir) => {
   if (!fs.existsSync(dir)) return [];
@@ -357,9 +361,9 @@ const gradeBands = [
   { min: 0, grade: 1 },
 ];
 
-const createPaper = ({ kind, themeKey, topicKey, variant, texts, questions, markscheme }) => {
-  const theme = themeLabels[themeKey] ?? themeKey.replaceAll("_", " ");
-  const topic = topicLabels[topicKey] ?? topicKey.replaceAll("_", " ");
+const createPaper = ({ kind, themeKey, topicKey, variant, texts, questions, markscheme, themeLabel, topicLabel, sourceDocuments }) => {
+  const theme = themeLabel ?? themeLabels[themeKey] ?? themeKey.replaceAll("_", " ");
+  const topic = topicLabel ?? topicLabels[topicKey] ?? topicKey.replaceAll("_", " ");
   const paperId = `${kind.toLowerCase().replace(/\s+/g, "-")}-${themeKey}-${topicKey}-${normalizeKey(variant)}`;
   const mergedQuestions = mergeQuestionsAndMarkscheme(paperId, questions, markscheme);
   return {
@@ -374,17 +378,18 @@ const createPaper = ({ kind, themeKey, topicKey, variant, texts, questions, mark
     gradeBands,
     texts,
     questions: mergedQuestions,
+    sourceDocuments,
   };
 };
 
 const readingPapers = [];
 const listeningPapers = [];
 
-const addReadingPaper = ({ themeKey, topicKey, variant, textFile, questionFile, markschemeFile }) => {
+const addReadingPaper = ({ themeKey, topicKey, variant, textFile, questionFile, markschemeFile, themeLabel, topicLabel, sourceDocuments }) => {
   const texts = parseTexts(textFile);
   const questions = parseQuestionBooklet(questionFile);
   const markscheme = markschemeFile.endsWith(".html") ? parseMarkschemeHtml(markschemeFile) : parseMarkschemeMarkdown(markschemeFile);
-  if (!texts.length || !markscheme.length) return;
+  if (!texts.length || !markscheme.length) return false;
   readingPapers.push(
     createPaper({
       kind: "Paper 2 Reading",
@@ -394,27 +399,72 @@ const addReadingPaper = ({ themeKey, topicKey, variant, textFile, questionFile, 
       texts,
       questions,
       markscheme,
+      themeLabel,
+      topicLabel,
+      sourceDocuments,
     }),
   );
+  return true;
 };
 
-addReadingPaper({
-  themeKey: "ingeniosite_humaine",
-  topicKey: "technologie",
-  variant: "FrenchEase premium v1",
-  textFile: path.join(readingFinalRoot, "ingeniosite_humaine", "technologie", "02_text_booklet", "technologie_reading_text_booklet_premium_v1.html"),
-  questionFile: path.join(readingFinalRoot, "ingeniosite_humaine", "technologie", "03_question_booklet", "technologie_reading_question_booklet_premium_v1.html"),
-  markschemeFile: path.join(readingFinalRoot, "ingeniosite_humaine", "technologie", "04_markscheme", "technologie_reading_markscheme_premium_v1.html"),
+const resolveManifestFile = (manifestFile, sourceFile) => {
+  if (!sourceFile) return "";
+  if (fs.existsSync(sourceFile)) return sourceFile;
+  const localMatch = walk(path.dirname(manifestFile)).find((file) => path.basename(file) === path.basename(sourceFile));
+  return localMatch ?? sourceFile;
+};
+
+const sourceDocumentsFromManifest = (manifestFile, finalFiles) => ({
+  textBooklet: path.basename(resolveManifestFile(manifestFile, finalFiles.text_booklet_html)),
+  questionBooklet: path.basename(resolveManifestFile(manifestFile, finalFiles.question_booklet_html ?? finalFiles.question_answer_booklet_html)),
+  markscheme: path.basename(resolveManifestFile(manifestFile, finalFiles.markscheme_html)),
+  page1: finalFiles.page_1_pptx ? path.basename(resolveManifestFile(manifestFile, finalFiles.page_1_pptx)) : undefined,
 });
 
-addReadingPaper({
-  themeKey: "identites",
-  topicKey: "styles_de_vie",
-  variant: "FrenchEase development v1",
-  textFile: path.join(readingDevelopmentRoot, "identites", "styles_de_vie", "styles_de_vie_reading_texts_v1.md"),
-  questionFile: path.join(readingDevelopmentRoot, "identites", "styles_de_vie", "styles_de_vie_reading_question_booklet_v1.md"),
-  markschemeFile: path.join(readingDevelopmentRoot, "identites", "styles_de_vie", "styles_de_vie_reading_markscheme_v1.md"),
-});
+const readingExpansions = (themeKey, topicKey, manifest) => {
+  if (themeKey === "partage_de_la_planete" && topicKey === "droits_de_l_homme_egalite") {
+    return [
+      { topicKey: "droits_de_l_homme", topicLabel: "droits de l'homme" },
+      { topicKey: "egalite", topicLabel: "égalité" },
+    ];
+  }
+  return [{ topicKey, topicLabel: manifest.topic }];
+};
+
+const addReadingPaperFromManifest = (manifestFile) => {
+  const manifest = readJson(manifestFile);
+  const [themeKey, topicKey] = path.relative(readingFinalRoot, path.dirname(manifestFile)).split(path.sep);
+  const finalFiles = manifest.final_files ?? {};
+  const textFile = resolveManifestFile(manifestFile, finalFiles.text_booklet_html);
+  const questionFile = resolveManifestFile(manifestFile, finalFiles.question_booklet_html ?? finalFiles.question_answer_booklet_html);
+  const markschemeFile = resolveManifestFile(manifestFile, finalFiles.markscheme_html);
+  const themeLabel = manifest.theme ?? (themeKey === "cas_special" ? "Cas spécial" : undefined);
+  const variant = manifest.active_version ? `Validated ${manifest.active_version}` : "Validated bundle";
+  const sourceDocuments = sourceDocumentsFromManifest(manifestFile, finalFiles);
+
+  for (const expansion of readingExpansions(themeKey, topicKey, manifest)) {
+    addReadingPaper({
+      themeKey,
+      topicKey: expansion.topicKey,
+      variant,
+      textFile,
+      questionFile,
+      markschemeFile,
+      themeLabel,
+      topicLabel: expansion.topicLabel ?? manifest.title,
+      sourceDocuments,
+    });
+  }
+};
+
+const readingManifestFiles = [
+  ...walk(readingFinalRoot).filter((file) => /bundle_manifest_v2\.json$/i.test(file)),
+  ...walk(path.join(readingFinalRoot, "cas_special")).filter((file) => /bundle_manifest\.json$/i.test(file)),
+].sort();
+
+for (const manifestFile of readingManifestFiles) {
+  addReadingPaperFromManifest(manifestFile);
+}
 
 const addListeningPaper = ({ themeKey, topicKey, variant, transcriptFile, questionFile, markschemeFile, audioFiles }) => {
   const texts = attachAudio(parseTexts(transcriptFile), audioFiles, normalizeKey(themeLabels[themeKey] ?? themeKey), normalizeKey(topicLabels[topicKey] ?? topicKey),);
@@ -539,6 +589,13 @@ export interface PremiumMockQuestion {
   rejectedAnswer: string;
 }
 
+export interface PremiumSourceDocuments {
+  textBooklet: string;
+  questionBooklet: string;
+  markscheme: string;
+  page1?: string;
+}
+
 export interface PremiumGradeBand {
   min: number;
   grade: number;
@@ -556,6 +613,7 @@ export interface PremiumMockPaper {
   gradeBands: PremiumGradeBand[];
   texts: PremiumMockText[];
   questions: PremiumMockQuestion[];
+  sourceDocuments?: PremiumSourceDocuments;
 }
 
 export const premiumReadingPapers: PremiumMockPaper[] = ${JSON.stringify(readingPapers, null, 2)};

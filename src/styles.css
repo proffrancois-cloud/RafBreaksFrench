@@ -1466,6 +1466,31 @@ textarea:focus {
   margin: 4px 0 0;
 }
 
+.paper-source-documents {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-soft);
+  padding: 10px 12px;
+}
+
+.paper-source-documents span {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.paper-source-documents strong {
+  min-width: 0;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 720;
+  overflow-wrap: anywhere;
+}
+
 .paper-score-card,
 .paper-final-score {
   display: inline-flex;
@@ -2157,7 +2182,8 @@ textarea:focus {
 
   .paper-text-details summary,
   .paper-correction-box,
-  .paper-correction-grid {
+  .paper-correction-grid,
+  .paper-source-documents {
     grid-template-columns: 1fr;
   }
 
