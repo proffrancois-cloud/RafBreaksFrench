@@ -5,7 +5,6 @@ import { LessonView } from "./components/LessonView";
 import { Paper1SlPackView } from "./components/Paper1SlPackView";
 import { ProgressBar } from "./components/ProgressBar";
 import { SkillCard } from "./components/SkillCard";
-import { TextTypeCard } from "./components/TextTypeCard";
 import { cultureTopics } from "./data/cultureTopics";
 import { diagnosticExerciseIds, exercises, exercisesById } from "./data/exercises";
 import { lessons, lessonsById } from "./data/lessons";
@@ -13,7 +12,6 @@ import { iaStimuliByTopic } from "./data/iaStimuli.generated";
 import { mockExamThemes } from "./data/mockExamCatalog.generated";
 import { premiumListeningPapers, premiumReadingPapers, type PremiumGradeBand, type PremiumMockPaper, type PremiumSourceDocuments } from "./data/premiumMockPapers.generated";
 import { categoryOrder, skills, skillsById } from "./data/skills";
-import { textTypes } from "./data/textTypes";
 import {
   createEmptyProgress,
   defaultSkillProgress,
@@ -30,7 +28,7 @@ import { getCategorySummaries, getNextLessonRecommendation, getOverallReadiness 
 import { speakFrench, stopSpeaking } from "./services/ttsService";
 import type { Category, Exercise, ListeningMock, ProgressState, ReadingMock, Skill } from "./types";
 
-type View = "Dashboard" | "Lessons" | "Practice" | "DP Themes" | "Text Types" | "Progress";
+type View = "Dashboard" | "Lessons" | "Practice" | "DP Themes" | "Progress";
 type DPThemeMode = "Culture" | "Mock Exam";
 type MockPaperType = "Paper 1" | "Paper 2 Reading" | "Paper 2 Listening" | "IA";
 type ThemeTone = "blue" | "green" | "purple" | "yellow" | "red";
@@ -69,7 +67,7 @@ interface PaperSession {
   sourceDocuments?: PremiumSourceDocuments;
 }
 
-const navItems: View[] = ["Dashboard", "Lessons", "Practice", "DP Themes", "Text Types", "Progress"];
+const navItems: View[] = ["Dashboard", "Lessons", "Practice", "DP Themes", "Progress"];
 const dpThemeModes: DPThemeMode[] = ["Culture", "Mock Exam"];
 const mockPaperTypes: MockPaperType[] = ["Paper 1", "Paper 2 Reading", "Paper 2 Listening", "IA"];
 const defaultMockTheme = mockExamThemes[0];
@@ -980,20 +978,6 @@ export function DPFrenchApp() {
     </div>
   );
 
-  const renderTextTypes = () => (
-    <div className="resource-layout">
-      <div className="section-heading">
-        <h2>Text-type trainer</h2>
-        <span className="status-pill">{textTypes.length} formats</span>
-      </div>
-      <div className="resource-grid">
-        {textTypes.map((textType) => (
-          <TextTypeCard key={textType.id} textType={textType} />
-        ))}
-      </div>
-    </div>
-  );
-
   const renderProgress = () => (
     <div className="progress-layout">
       <section className="content-band">
@@ -1076,7 +1060,6 @@ export function DPFrenchApp() {
     if (activeView === "Lessons") return renderLessons();
     if (activeView === "Practice") return renderPractice();
     if (activeView === "DP Themes") return renderDPThemes();
-    if (activeView === "Text Types") return renderTextTypes();
     return renderProgress();
   };
 

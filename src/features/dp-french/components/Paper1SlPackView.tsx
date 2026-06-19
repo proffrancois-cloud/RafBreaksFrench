@@ -1,18 +1,10 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
+import { TextTypeCard } from "./TextTypeCard";
 import { paper1SlPack, paper1SlPackStats, type Paper1SlPackTask } from "../data/paper1SlPack";
+import { textTypes } from "../data/textTypes";
 import { resolveAssetUrl } from "../services/assetService";
 
 const taskLabels = ["Sujet 1", "Sujet 2", "Sujet 3"];
-
-const countByBestTextType = () => {
-  const counts = new Map<string, number>();
-  paper1SlPack.forms.forEach((form) => {
-    form.tasks.forEach((task) => counts.set(task.best, (counts.get(task.best) ?? 0) + 1));
-  });
-  return Array.from(counts.entries())
-    .map(([label, count]) => ({ label, count }))
-    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
-};
 
 function TaskCard({ task, index }: { task: Paper1SlPackTask; index: number }) {
   return (
@@ -50,13 +42,15 @@ function TaskCard({ task, index }: { task: Paper1SlPackTask; index: number }) {
 
 export function Paper1SlPackView() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeTextTypeId, setActiveTextTypeId] = useState<string | null>(null);
   const activeForm = paper1SlPack.forms[activeIndex] ?? paper1SlPack.forms[0];
-  const textTypeCounts = useMemo(countByBestTextType, []);
+  const activeTextType = textTypes.find((textType) => textType.id === activeTextTypeId);
   const docxUrl = resolveAssetUrl(paper1SlPack.sourceDocxUrl);
 
   const goToSlide = (nextIndex: number) => {
     const bounded = Math.max(0, Math.min(paper1SlPack.forms.length - 1, nextIndex));
     setActiveIndex(bounded);
+    setActiveTextTypeId(null);
   };
 
   return (
@@ -95,104 +89,118 @@ export function Paper1SlPackView() {
       </section>
 
       <section className="paper1-pack-shell">
-        <aside className="left-rail paper1-pack-rail" aria-label="Paper 1 epreuve selector">
-          <h2>Epreuves</h2>
-          <div className="lesson-list">
-            {paper1SlPack.forms.map((form, index) => (
-              <button
-                type="button"
-                key={form.id}
-                className={activeForm.id === form.id ? "lesson-button is-selected" : "lesson-button"}
-                onClick={() => goToSlide(index)}
-              >
-                <span>{form.id}</span>
-                <small>{form.tasks.length} sujets</small>
-              </button>
-            ))}
-          </div>
-          <details className="question-bank-details paper1-pack-texttype-summary">
-            <summary>
-              Types de texte <span>{paper1SlPackStats.bestTextTypes.length}</span>
-            </summary>
-            <div className="mini-list">
-              {textTypeCounts.map((item) => (
-                <span key={item.label}>
-                  {item.label}: {item.count}
-                </span>
+        <aside className="left-rail paper1-pack-rail" aria-label="Paper 1 selector">
+          <section className="paper1-pack-rail-box">
+            <h2>Epreuves</h2>
+            <div className="lesson-list">
+              {paper1SlPack.forms.map((form, index) => (
+                <button
+                  type="button"
+                  key={form.id}
+                  className={!activeTextType && activeForm.id === form.id ? "lesson-button is-selected" : "lesson-button"}
+                  onClick={() => goToSlide(index)}
+                >
+                  <span>{form.id}</span>
+                  <small>{form.tasks.length} sujets</small>
+                </button>
               ))}
             </div>
-          </details>
+          </section>
+          <section className="paper1-pack-rail-box">
+            <h2>Text types</h2>
+            <div className="lesson-list">
+              {textTypes.map((textType) => (
+                <button
+                  type="button"
+                  key={textType.id}
+                  className={activeTextTypeId === textType.id ? "lesson-button is-selected" : "lesson-button"}
+                  onClick={() => setActiveTextTypeId(textType.id)}
+                >
+                  <span>{textType.title}</span>
+                  <small>{textType.register}</small>
+                </button>
+              ))}
+            </div>
+          </section>
         </aside>
 
         <main className="paper1-pack-stage" aria-live="polite">
-          <div className="paper1-pack-controls">
-            <button type="button" className="button button-ghost" onClick={() => goToSlide(activeIndex - 1)} disabled={activeIndex === 0}>
-              Previous
-            </button>
-            <span>
-              {activeIndex + 1} / {paper1SlPack.forms.length}
-            </span>
-            <button
-              type="button"
-              className="button button-ghost"
-              onClick={() => goToSlide(activeIndex + 1)}
-              disabled={activeIndex === paper1SlPack.forms.length - 1}
-            >
-              Next
-            </button>
-          </div>
-
-          <article className="paper1-pack-slide">
-            <div className="paper1-pack-slide-head">
-              <div>
-                <span className="level-chip">Paper 1 Writing</span>
-                <h2>{activeForm.id}</h2>
-                <p>{paper1SlPack.instructions}</p>
+          {activeTextType ? (
+            <section className="paper1-pack-texttype-stage">
+              <TextTypeCard textType={activeTextType} />
+            </section>
+          ) : (
+            <>
+              <div className="paper1-pack-controls">
+                <button type="button" className="button button-ghost" onClick={() => goToSlide(activeIndex - 1)} disabled={activeIndex === 0}>
+                  Previous
+                </button>
+                <span>
+                  {activeIndex + 1} / {paper1SlPack.forms.length}
+                </span>
+                <button
+                  type="button"
+                  className="button button-ghost"
+                  onClick={() => goToSlide(activeIndex + 1)}
+                  disabled={activeIndex === paper1SlPack.forms.length - 1}
+                >
+                  Next
+                </button>
               </div>
-              <div className="paper1-pack-timer">
-                <strong>{paper1SlPack.durationMinutes}</strong>
-                <span>minutes</span>
+
+              <article className="paper1-pack-slide">
+                <div className="paper1-pack-slide-head">
+                  <div>
+                    <span className="level-chip">Paper 1 Writing</span>
+                    <h2>{activeForm.id}</h2>
+                    <p>{paper1SlPack.instructions}</p>
+                  </div>
+                  <div className="paper1-pack-timer">
+                    <strong>{paper1SlPack.durationMinutes}</strong>
+                    <span>minutes</span>
+                  </div>
+                </div>
+
+                <div className="paper1-pack-task-grid">
+                  {activeForm.tasks.map((task, index) => (
+                    <TaskCard key={`${activeForm.id}-${index}`} task={task} index={index} />
+                  ))}
+                </div>
+
+                <details className="question-bank-details paper1-pack-shared-marking">
+                  <summary>
+                    Paper 1 marking reminder <span>3 criteria</span>
+                  </summary>
+                  <div className="compact-list-grid">
+                    <div className="mini-list">
+                      <strong>Language</strong>
+                      <span>Range, accuracy, control of structures, and clear sentence-level communication.</span>
+                    </div>
+                    <div className="mini-list">
+                      <strong>Message</strong>
+                      <span>All parts of the task are addressed with relevant development and coherent organization.</span>
+                    </div>
+                    <div className="mini-list">
+                      <strong>Conceptual understanding</strong>
+                      <span>Register, audience, purpose, and text-type conventions match the chosen format.</span>
+                    </div>
+                  </div>
+                </details>
+              </article>
+
+              <div className="paper1-pack-dots" aria-label="Paper 1 slide position">
+                {paper1SlPack.forms.map((form, index) => (
+                  <button
+                    type="button"
+                    key={`${form.id}-dot`}
+                    className={activeIndex === index ? "is-selected" : ""}
+                    aria-label={`Open ${form.id}`}
+                    onClick={() => goToSlide(index)}
+                  />
+                ))}
               </div>
-            </div>
-
-            <div className="paper1-pack-task-grid">
-              {activeForm.tasks.map((task, index) => (
-                <TaskCard key={`${activeForm.id}-${index}`} task={task} index={index} />
-              ))}
-            </div>
-
-            <details className="question-bank-details paper1-pack-shared-marking">
-              <summary>
-                Paper 1 marking reminder <span>3 criteria</span>
-              </summary>
-              <div className="compact-list-grid">
-                <div className="mini-list">
-                  <strong>Language</strong>
-                  <span>Range, accuracy, control of structures, and clear sentence-level communication.</span>
-                </div>
-                <div className="mini-list">
-                  <strong>Message</strong>
-                  <span>All parts of the task are addressed with relevant development and coherent organization.</span>
-                </div>
-                <div className="mini-list">
-                  <strong>Conceptual understanding</strong>
-                  <span>Register, audience, purpose, and text-type conventions match the chosen format.</span>
-                </div>
-              </div>
-            </details>
-          </article>
-
-          <div className="paper1-pack-dots" aria-label="Paper 1 slide position">
-            {paper1SlPack.forms.map((form, index) => (
-              <button
-                type="button"
-                key={`${form.id}-dot`}
-                className={activeIndex === index ? "is-selected" : ""}
-                aria-label={`Open ${form.id}`}
-                onClick={() => goToSlide(index)}
-              />
-            ))}
-          </div>
+            </>
+          )}
         </main>
       </section>
     </div>
