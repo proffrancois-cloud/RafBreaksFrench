@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<base target="_blank">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mémoires algériennes, cultures partagées - Markscheme</title>
+  <style>
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #d9d9d9;
+      color: #111;
+      font-family: "Source Sans 3", "Avenir Next", Arial, sans-serif;
+    }
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 8mm;
+      background: #fff;
+      padding: 18mm 16mm 24mm;
+      page-break-after: always;
+      break-after: page;
+    }
+    .page:last-child { margin-bottom: 0; }
+    .corner {
+      position: absolute;
+      width: 10mm;
+      height: 10mm;
+      border-color: #B894D2;
+      border-style: solid;
+      opacity: 0.92;
+    }
+    .tl { top: 7mm; left: 7mm; border-width: 0.45mm 0 0 0.45mm; }
+    .tr { top: 7mm; right: 7mm; border-width: 0.45mm 0.45mm 0 0; }
+    .bl { bottom: 7mm; left: 7mm; border-width: 0 0 0.45mm 0.45mm; }
+    .br { bottom: 7mm; right: 7mm; border-width: 0 0.45mm 0.45mm 0; }
+    .page-code {
+      position: absolute;
+      top: 11mm;
+      right: 16mm;
+      color: #B894D2;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .cover {
+      display: flex;
+      min-height: 245mm;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    .cover-title {
+      color: #B894D2;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      line-height: 1.15;
+      margin: 0 0 7mm;
+    }
+    .cover-subtitle {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8mm;
+    }
+    .meta {
+      display: inline-block;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .section-label {
+      color: #B894D2;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 2mm;
+    }
+    .section-title {
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 700;
+      margin: 0 0 3mm;
+    }
+    .section-description {
+      color: #B894D2;
+      font-weight: 700;
+      margin: 0 0 5mm;
+      font-size: 13px;
+    }
+    .paragraph {
+      font-size: 11.35px;
+      line-height: 1.48;
+      margin: 0 0 3.4mm;
+      text-align: justify;
+    }
+    .instruction {
+      color: #B894D2;
+      font-size: 13px;
+      font-weight: 700;
+      margin: 0 0 3mm;
+    }
+    .q {
+      margin: 0 0 3.4mm;
+      font-size: 11.7px;
+      line-height: 1.43;
+    }
+    .opts { margin: 1.5mm 0 3mm 7mm; }
+    .opt {
+      display: flex;
+      gap: 3mm;
+      margin: 0.9mm 0;
+      font-size: 11.6px;
+      line-height: 1.35;
+    }
+    .letter { font-weight: 700; min-width: 5mm; }
+    .line {
+      display: block;
+      border-bottom: 0.25mm dotted #999;
+      height: 6mm;
+      margin-top: 1mm;
+    }
+    .short-line {
+      display: inline-block;
+      min-width: 52mm;
+      border-bottom: 0.25mm dotted #999;
+      height: 4.5mm;
+      vertical-align: bottom;
+    }
+    .tf-table, .mark-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2mm;
+    }
+    .tf-table th, .tf-table td {
+      border: 0.25mm solid #999;
+      padding: 2mm;
+      vertical-align: top;
+      font-size: 10.8px;
+    }
+    .tf-table th {
+      background: rgba(184, 148, 210, 0.18);
+      font-weight: 700;
+    }
+    .tf-statement { width: 27%; }
+    .tf-choice { width: 7%; text-align: center; }
+    .tf-justify { width: 59%; }
+    .match-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2mm 0 5mm;
+    }
+    .match-table th, .match-table td {
+      border: 0.25mm solid #999;
+      padding: 2mm;
+      vertical-align: top;
+      font-size: 11.1px;
+      line-height: 1.35;
+    }
+    .match-table th {
+      background: rgba(184, 148, 210, 0.18);
+      font-weight: 700;
+    }
+    .match-left { width: 48%; }
+    .match-right { width: 52%; }
+    .tick-box {
+      display: inline-block;
+      width: 5mm;
+      height: 5mm;
+      border: 0.35mm solid #888;
+    }
+    .mark-table th, .mark-table td {
+      border: 0.25mm solid #B894D2;
+      padding: 1.6mm;
+      vertical-align: top;
+      font-size: 9.7px;
+      line-height: 1.25;
+    }
+    .mark-table th {
+      background: rgba(184, 148, 210, 0.18);
+      color: #222;
+    }
+    .total {
+      margin-top: 4mm;
+      font-weight: 700;
+      color: #B894D2;
+    }
+    u {
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.16em;
+    }
+  </style>
+</head>
+<body><section class="page"><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><div class="page-code">FE-MEM-RD-MS</div><div class="cover"><h1 class="cover-title">Mémoires algériennes, cultures partagées</h1><div class="cover-subtitle">Markscheme</div><div class="meta"><div><strong>Assessment:</strong> IBDP French B SL - Paper 2 Reading Comprehension - Mock exam spécial</div><div><strong>Durée:</strong> 1 heure</div><div><strong>Total:</strong> 40 points</div><div><strong>Consigne:</strong> Répondez à toutes les questions.</div></div></div></section><section id="texte-a" class="page"><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><div class="page-code">FE-MEM-RD-MS</div><div class="section-label">Texte A</div><h1 class="section-title">Texte A - Barème de correction</h1><table class="mark-table"><thead><tr><th>Question</th><th>Réponse attendue</th><th>Accepter</th><th>Ne pas accepter</th><th>Points</th></tr></thead><tbody><tr><td>1</td><td>A, C, E, G</td><td>Ordre indifférent. Accorder 1 point par bonne lettre, sans pénalité sauf si plus de quatre réponses sont données.</td><td>Toute lettre incorrecte au-delà de quatre choix.</td><td>4</td></tr><tr><td>2</td><td>B</td><td>L&#x27;expression montre qu&#x27;il se sent construit par deux cultures.</td><td>A ; C</td><td>1</td></tr><tr><td>3</td><td>paroles</td><td></td><td>texte ; chanson</td><td>1</td></tr><tr><td>4</td><td>épreuves</td><td>les épreuves</td><td>difficultés si le mot demandé devait être recopié du texte</td><td>1</td></tr><tr><td>5</td><td>chaîne</td><td>à la chaîne</td><td>usine seul</td><td>1</td></tr><tr><td>6</td><td>B</td><td>Il veut montrer que des difficultés différentes peuvent exprimer le même besoin de respect.</td><td>A ; C</td><td>1</td></tr><tr><td>7</td><td>A</td><td>Il ne veut pas faire un cours d&#x27;histoire.</td><td>B ; C</td><td>1</td></tr><tr><td>8</td><td>C</td><td>Des parents qui reconnaissent les mélodies d&#x27;Oran et des adolescents qui les découvrent.</td><td>A ; B</td><td>1</td></tr><tr><td>9</td><td>C</td><td>Il préfère être un pont entre des publics et des héritages différents.</td><td>A ; B</td><td>1</td></tr></tbody></table><div class="total">Total _____/12</div></section><section id="texte-b" class="page"><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><div class="page-code">FE-MEM-RD-MS</div><div class="section-label">Texte B</div><h1 class="section-title">Texte B - Barème de correction</h1><table class="mark-table"><thead><tr><th>Question</th><th>Réponse attendue</th><th>Accepter</th><th>Ne pas accepter</th><th>Points</th></tr></thead><tbody><tr><td>10</td><td>La mémoire / la reconnaissance des harkis.</td><td>Une cérémonie consacrée aux harkis.</td><td>Une fête musicale ; une cérémonie militaire actuelle.</td><td>1</td></tr><tr><td>11</td><td>Des descendants de harkis.</td><td>Un groupe de descendants ; des familles de harkis.</td><td>Des soldats actuels seul.</td><td>1</td></tr><tr><td>12</td><td>Parce que certaines familles se sentent encore oubliées / insuffisamment reconnues.</td><td>Parce que l&#x27;histoire reste douloureuse.</td><td>Parce que la salle était petite.</td><td>1</td></tr><tr><td>13</td><td>Parce que la page n&#x27;a jamais été vraiment lue / parce que l&#x27;histoire n&#x27;a pas été assez reconnue.</td><td>Parce qu&#x27;il faut reconnaître clairement l&#x27;histoire avant d&#x27;avancer.</td><td>Parce qu&#x27;ils refusent toute évolution.</td><td>1</td></tr><tr><td>14</td><td>archives</td><td></td><td>documents seul</td><td>1</td></tr><tr><td>15</td><td>ateliers</td><td>ateliers pédagogiques</td><td>cours seul</td><td>1</td></tr><tr><td>16</td><td>lieu</td><td>lieu de mémoire</td><td>monument si le mot du texte est exigé</td><td>1</td></tr><tr><td>17</td><td>engagements</td><td></td><td>promesses si le mot du texte est exigé</td><td>1</td></tr><tr><td>18</td><td>C</td><td>La commune pourrait soutenir des rencontres entre historiens, familles et jeunes.</td><td>A ; B ; D ; E ; F</td><td>1</td></tr><tr><td>19</td><td>F</td><td>Le dialogue actuel pourrait ouvrir une étape utile.</td><td>A ; B ; C ; D ; E</td><td>1</td></tr><tr><td>20</td><td>B</td><td>Tourner la page ne signifie pas fermer le livre.</td><td>A ; C ; D ; E ; F</td><td>1</td></tr><tr><td>21</td><td>E</td><td>Cette histoire a été longtemps laissée dans les marges.</td><td>A ; B ; C ; D ; F</td><td>1</td></tr><tr><td>22</td><td>B</td><td>Un sentiment nuancé mêlant méfiance et émotion.</td><td>A ; C</td><td>1</td></tr><tr><td>23</td><td>C</td><td>Le ton est prudent, équilibré et informatif.</td><td>A ; B</td><td>1</td></tr></tbody></table><div class="total">Total _____/14</div></section><section id="texte-c" class="page"><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><div class="page-code">FE-MEM-RD-MS</div><div class="section-label">Texte C</div><h1 class="section-title">Texte C - Barème de correction</h1><table class="mark-table"><thead><tr><th>Question</th><th>Réponse attendue</th><th>Accepter</th><th>Ne pas accepter</th><th>Points</th></tr></thead><tbody><tr><td>24</td><td>Faux + preuve: familles venues d&#x27;Afrique du Nord, d&#x27;Europe, d&#x27;Asie ou des Antilles / les langues se mélangent.</td><td>Toute citation montrant la diversité du département.</td><td>Faux sans preuve ; Vrai.</td><td>1</td></tr><tr><td>25</td><td>Vrai + preuve: prendre le RER vers le centre d&#x27;entraînement du PSG.</td><td>Toute citation montrant qu&#x27;ils s&#x27;y rendent ensemble.</td><td>Vrai sans preuve ; Faux.</td><td>1</td></tr><tr><td>26</td><td>Faux + preuve: Jimmy est petit-fils de pieds-noirs ; Karim est petit-fils d&#x27;un homme lié au FLN.</td><td>Toute preuve indiquant des histoires opposées.</td><td>Faux sans preuve ; Vrai.</td><td>1</td></tr><tr><td>27</td><td>Faux + preuve: le grand-père raconte moins / il choisit ses mots avec lenteur.</td><td>Toute citation montrant que Karim n&#x27;entend pas un récit facile ou rapide.</td><td>Faux sans preuve ; Vrai.</td><td>1</td></tr><tr><td>28</td><td>un conflit</td><td>le conflit lié à la guerre d&#x27;Algérie.</td><td>leurs familles ; l&#x27;amitié.</td><td>1</td></tr><tr><td>29</td><td>un territoire / cette banlieue</td><td>la banlieue ; la Seine-Saint-Denis si le lien est clair.</td><td>les mémoires ; le RER.</td><td>1</td></tr><tr><td>30</td><td>des récits</td><td>les récits familiaux.</td><td>les adultes ; les colères.</td><td>1</td></tr><tr><td>31</td><td>une expression un peu ancienne</td><td>l&#x27;expression enterrer la hache de guerre.</td><td>Jimmy ; l&#x27;entraîneur.</td><td>1</td></tr><tr><td>32</td><td>Enterrer la hache de guerre.</td><td>L&#x27;expression une expression un peu ancienne si le lien est clair.</td><td>Un conflit ; le RER.</td><td>1</td></tr><tr><td>33</td><td>Parce qu&#x27;elle donne l&#x27;impression qu&#x27;il suffirait de cacher le passé sous terre.</td><td>Parce qu&#x27;elle semble simplifier ou cacher le passé.</td><td>Parce qu&#x27;il déteste son entraîneur.</td><td>1</td></tr><tr><td>34</td><td>Que ce n&#x27;est pas oublier.</td><td>Enterrer la hache de guerre ne veut pas dire oublier.</td><td>Qu&#x27;il faut oublier.</td><td>1</td></tr><tr><td>35</td><td>Accepter que deux histoires restent différentes sans empêcher leur amitié.</td><td>Ne pas oublier, mais vivre ensemble malgré des mémoires différentes.</td><td>Oublier complètement le passé.</td><td>1</td></tr><tr><td>36</td><td>B</td><td>Un ton prudent mais porteur d&#x27;espoir.</td><td>A ; C</td><td>1</td></tr><tr><td>37</td><td>A</td><td>Les jeunes peuvent vivre avec des mémoires opposées sans être prisonniers d&#x27;elles.</td><td>B ; C</td><td>1</td></tr></tbody></table><div class="total">Total _____/14</div></section></body>
+</html>

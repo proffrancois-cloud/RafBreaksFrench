@@ -4,6 +4,7 @@ import path from "node:path";
 const frenchEaseRoot = process.env.FRENCHEASE_ROOT || path.resolve("..", "Playground", "FrenchEase");
 const appOutput = path.resolve("src/features/dp-french/data/premiumMockPapers.generated.ts");
 const publicAudioRoot = path.resolve("public/frenchease/premium-mock-papers/audio");
+const publicReadingHtmlRoot = path.resolve("public/frenchease/premium-mock-papers/reading-html");
 
 const readingFinalRoot = path.join(frenchEaseRoot, "Paper_2_Reading", "05_final_validated_outputs");
 const listeningFinalRoot = path.join(frenchEaseRoot, "Paper_2_Listening", "05_final_validated_outputs");
@@ -92,6 +93,8 @@ const linesFromText = (value) =>
 const readIfExists = (filePath) => (filePath && fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : "");
 
 const readJson = (filePath) => JSON.parse(fs.readFileSync(filePath, "utf8"));
+
+const publicUrlFor = (filePath) => `/${path.relative(path.resolve("public"), filePath).split(path.sep).join("/")}`;
 
 const walk = (dir) => {
   if (!fs.existsSync(dir)) return [];
@@ -341,6 +344,34 @@ const copyAudio = (sourceFile, themeKey, topicKey, label) => {
   return `/frenchease/premium-mock-papers/audio/${themeKey}/${topicKey}/${destinationFile}`;
 };
 
+const addTextAnchors = (html) => {
+  const marker = '<section class="page">';
+  const parts = html.split(marker);
+  if (parts.length === 1) return html;
+
+  const anchoredLabels = new Set();
+  return parts.slice(1).reduce((result, part) => {
+    const label = ["A", "B", "C"].find((letter) => !anchoredLabels.has(letter) && part.includes(`<div class="section-label">Texte ${letter}</div>`));
+    if (!label) return `${result}${marker}${part}`;
+    anchoredLabels.add(label);
+    return `${result}<section id="texte-${label.toLowerCase()}" class="page">${part}`;
+  }, parts[0]);
+};
+
+const sanitizeHtmlForViewer = (html) =>
+  addTextAnchors(html)
+    .replace(/@font-face\s*\{[\s\S]*?\}\s*/g, "")
+    .replace(/<head([^>]*)>/i, '<head$1>\n<base target="_blank">');
+
+const copyReadingHtml = (sourceFile, themeKey, topicKey, role) => {
+  if (!sourceFile || !fs.existsSync(sourceFile)) return undefined;
+  const destinationDir = path.join(publicReadingHtmlRoot, normalizeKey(themeKey.replaceAll("_", " ")), normalizeKey(topicKey.replaceAll("_", " ")));
+  fs.mkdirSync(destinationDir, { recursive: true });
+  const destination = path.join(destinationDir, `${role}.html`);
+  fs.writeFileSync(destination, sanitizeHtmlForViewer(fs.readFileSync(sourceFile, "utf8")));
+  return publicUrlFor(destination);
+};
+
 const attachAudio = (texts, audioFiles, themeKey, topicKey) =>
   texts.map((text) => {
     const audioFile = audioFiles[text.label];
@@ -414,10 +445,13 @@ const resolveManifestFile = (manifestFile, sourceFile) => {
   return localMatch ?? sourceFile;
 };
 
-const sourceDocumentsFromManifest = (manifestFile, finalFiles) => ({
+const sourceDocumentsFromManifest = (manifestFile, finalFiles, themeKey, topicKey) => ({
   textBooklet: path.basename(resolveManifestFile(manifestFile, finalFiles.text_booklet_html)),
+  textBookletUrl: copyReadingHtml(resolveManifestFile(manifestFile, finalFiles.text_booklet_html), themeKey, topicKey, "text-booklet"),
   questionBooklet: path.basename(resolveManifestFile(manifestFile, finalFiles.question_booklet_html ?? finalFiles.question_answer_booklet_html)),
+  questionBookletUrl: copyReadingHtml(resolveManifestFile(manifestFile, finalFiles.question_booklet_html ?? finalFiles.question_answer_booklet_html), themeKey, topicKey, "question-booklet"),
   markscheme: path.basename(resolveManifestFile(manifestFile, finalFiles.markscheme_html)),
+  markschemeUrl: copyReadingHtml(resolveManifestFile(manifestFile, finalFiles.markscheme_html), themeKey, topicKey, "markscheme"),
   page1: finalFiles.page_1_pptx ? path.basename(resolveManifestFile(manifestFile, finalFiles.page_1_pptx)) : undefined,
 });
 
@@ -440,7 +474,6 @@ const addReadingPaperFromManifest = (manifestFile) => {
   const markschemeFile = resolveManifestFile(manifestFile, finalFiles.markscheme_html);
   const themeLabel = manifest.theme ?? (themeKey === "cas_special" ? "Cas spécial" : undefined);
   const variant = manifest.active_version ? `Validated ${manifest.active_version}` : "Validated bundle";
-  const sourceDocuments = sourceDocumentsFromManifest(manifestFile, finalFiles);
 
   for (const expansion of readingExpansions(themeKey, topicKey, manifest)) {
     addReadingPaper({
@@ -452,7 +485,7 @@ const addReadingPaperFromManifest = (manifestFile) => {
       markschemeFile,
       themeLabel,
       topicLabel: expansion.topicLabel ?? manifest.title,
-      sourceDocuments,
+      sourceDocuments: sourceDocumentsFromManifest(manifestFile, finalFiles, themeKey, expansion.topicKey),
     });
   }
 };
@@ -461,6 +494,8 @@ const readingManifestFiles = [
   ...walk(readingFinalRoot).filter((file) => /bundle_manifest_v2\.json$/i.test(file)),
   ...walk(path.join(readingFinalRoot, "cas_special")).filter((file) => /bundle_manifest\.json$/i.test(file)),
 ].sort();
+
+fs.rmSync(publicReadingHtmlRoot, { recursive: true, force: true });
 
 for (const manifestFile of readingManifestFiles) {
   addReadingPaperFromManifest(manifestFile);
@@ -591,8 +626,11 @@ export interface PremiumMockQuestion {
 
 export interface PremiumSourceDocuments {
   textBooklet: string;
+  textBookletUrl?: string;
   questionBooklet: string;
+  questionBookletUrl?: string;
   markscheme: string;
+  markschemeUrl?: string;
   page1?: string;
 }
 

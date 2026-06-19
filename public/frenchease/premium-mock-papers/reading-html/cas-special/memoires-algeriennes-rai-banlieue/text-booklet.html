@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<base target="_blank">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mémoires algériennes, cultures partagées - Text booklet</title>
+  <style>
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #d9d9d9;
+      color: #111;
+      font-family: "Source Sans 3", "Avenir Next", Arial, sans-serif;
+    }
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 8mm;
+      background: #fff;
+      padding: 18mm 16mm 24mm;
+      page-break-after: always;
+      break-after: page;
+    }
+    .page:last-child { margin-bottom: 0; }
+    .corner {
+      position: absolute;
+      width: 10mm;
+      height: 10mm;
+      border-color: #B894D2;
+      border-style: solid;
+      opacity: 0.92;
+    }
+    .tl { top: 7mm; left: 7mm; border-width: 0.45mm 0 0 0.45mm; }
+    .tr { top: 7mm; right: 7mm; border-width: 0.45mm 0.45mm 0 0; }
+    .bl { bottom: 7mm; left: 7mm; border-width: 0 0 0.45mm 0.45mm; }
+    .br { bottom: 7mm; right: 7mm; border-width: 0 0.45mm 0.45mm 0; }
+    .page-code {
+      position: absolute;
+      top: 11mm;
+      right: 16mm;
+      color: #B894D2;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .cover {
+      display: flex;
+      min-height: 245mm;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    .cover-title {
+      color: #B894D2;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      line-height: 1.15;
+      margin: 0 0 7mm;
+    }
+    .cover-subtitle {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8mm;
+    }
+    .meta {
+      display: inline-block;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .section-label {
+      color: #B894D2;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 2mm;
+    }
+    .section-title {
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 700;
+      margin: 0 0 3mm;
+    }
+    .section-description {
+      color: #B894D2;
+      font-weight: 700;
+      margin: 0 0 5mm;
+      font-size: 13px;
+    }
+    .paragraph {
+      font-size: 11.35px;
+      line-height: 1.48;
+      margin: 0 0 3.4mm;
+      text-align: justify;
+    }
+    .instruction {
+      color: #B894D2;
+      font-size: 13px;
+      font-weight: 700;
+      margin: 0 0 3mm;
+    }
+    .q {
+      margin: 0 0 3.4mm;
+      font-size: 11.7px;
+      line-height: 1.43;
+    }
+    .opts { margin: 1.5mm 0 3mm 7mm; }
+    .opt {
+      display: flex;
+      gap: 3mm;
+      margin: 0.9mm 0;
+      font-size: 11.6px;
+      line-height: 1.35;
+    }
+    .letter { font-weight: 700; min-width: 5mm; }
+    .line {
+      display: block;
+      border-bottom: 0.25mm dotted #999;
+      height: 6mm;
+      margin-top: 1mm;
+    }
+    .short-line {
+      display: inline-block;
+      min-width: 52mm;
+      border-bottom: 0.25mm dotted #999;
+      height: 4.5mm;
+      vertical-align: bottom;
+    }
+    .tf-table, .mark-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2mm;
+    }
+    .tf-table th, .tf-table td {
+      border: 0.25mm solid #999;
+      padding: 2mm;
+      vertical-align: top;
+      font-size: 10.8px;
+    }
+    .tf-table th {
+      background: rgba(184, 148, 210, 0.18);
+      font-weight: 700;
+    }
+    .tf-statement { width: 27%; }
+    .tf-choice { width: 7%; text-align: center; }
+    .tf-justify { width: 59%; }
+    .match-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2mm 0 5mm;
+    }
+    .match-table th, .match-table td {
+      border: 0.25mm solid #999;
+      padding: 2mm;
+      vertical-align: top;
+      font-size: 11.1px;
+      line-height: 1.35;
+    }
+    .match-table th {
+      background: rgba(184, 148, 210, 0.18);
+      font-weight: 700;
+    }
+    .match-left { width: 48%; }
+    .match-right { width: 52%; }
+    .tick-box {
+      display: inline-block;
+      width: 5mm;
+      height: 5mm;
+      border: 0.35mm solid #888;
+    }
+    .mark-table th, .mark-table td {
+      border: 0.25mm solid #B894D2;
+      padding: 1.6mm;
+      vertical-align: top;
+      font-size: 9.7px;
+      line-height: 1.25;
+    }
+    .mark-table th {
+      background: rgba(184, 148, 210, 0.18);
+      color: #222;
+    }
+    .total {
+      margin-top: 4mm;
+      font-weight: 700;
+      color: #B894D2;
+    }
+    u {
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.16em;
+    }
+  </style>
+</head>
+<body><section class="page"><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><div class="page-code">FE-MEM-RD-TB</div><div class="cover"><h1 class="cover-title">Mémoires algériennes, cultures partagées</h1><div class="cover-subtitle">Text booklet</div><div class="meta"><div><strong>Assessment:</strong> IBDP French B SL - Paper 2 Reading Comprehension - Mock exam spécial</div><div><strong>Durée:</strong> 1 heure</div><div><strong>Total:</strong> 40 points</div><div><strong>Consigne:</strong> Répondez à toutes les questions.</div></div></div></section><section id="texte-a" class="page"><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><div class="page-code">FE-MEM-RD-TB</div><div class="section-label">Texte A</div><h1 class="section-title">Nassim, une voix de raï entre deux rives</h1><div class="section-description">Portrait accessible d&#x27;un jeune musicien français d&#x27;origine algérienne qui relie le raï d&#x27;Oran, son quartier et l&#x27;histoire familiale.</div><p class="paragraph">À vingt ans, Nassim Bekhti n&#x27;a pas encore sorti d&#x27;album, mais son nom circule déjà dans plusieurs maisons de jeunes de la région lyonnaise. Sur scène, il arrive avec un clavier, un petit ordinateur et parfois une derbouka prêtée par son oncle. Ce qui surprend le public, c&#x27;est son choix musical: Nassim chante du raï, une musique populaire née autour d&#x27;Oran, que son père écoutait autrefois sur des cassettes usées.</p><p class="paragraph">Nassim est né en France, dans un quartier populaire où les familles viennent de partout. À la maison, on parlait surtout français, mais certains mots arabes revenaient dans les repas, les blagues et les refrains. Il dit souvent qu&#x27;il a le cœur partagé entre deux cultures, non pas parce qu&#x27;il devrait choisir, mais parce qu&#x27;il se sent construit par les deux. Le raï lui offre justement un espace où cette double appartenance devient une force.</p><p class="paragraph">Ses paroles racontent la vie d&#x27;un jeune homme qui prend le bus tôt, qui voit ses amis chercher un stage et qui connaît les cages d&#x27;escalier où l&#x27;on discute tard le soir. Mais elles parlent aussi des épreuves que ses parents ont traversées. Arrivés d&#x27;Algérie avant sa naissance, ils ont travaillé des années à la chaîne, dans une usine dont Nassim connaît les horaires décalés et la fatigue.</p><p class="paragraph">Dans une chanson récente, il compare la solitude d&#x27;un adolescent qui se sent invisible dans sa cité à celle de sa mère, qui ne comprenait pas toujours les papiers administratifs en arrivant en France. Le parallèle est simple, presque discret. Nassim ne veut pas faire un cours d&#x27;histoire: il veut montrer que les difficultés changent de forme, mais que le besoin de respect reste le même.</p><p class="paragraph">Pour toucher des jeunes de son âge, il mélange le raï avec des sons électroniques et quelques rythmes de rap. Ses concerts restent modestes, mais ils rassemblent parfois des parents qui reconnaissent les mélodies d&#x27;Oran et des adolescents qui découvrent cette musique pour la première fois. Nassim sourit quand on lui demande s&#x27;il est un chanteur traditionnel ou moderne. Il répond qu&#x27;il préfère être un pont, dont chacun peut traverser une partie.</p></section><section id="texte-b" class="page"><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><div class="page-code">FE-MEM-RD-TB</div><div class="section-label">Texte B</div><h1 class="section-title">Harkis : une cérémonie pour une mémoire encore sensible</h1><div class="section-description">Article sur une cérémonie de reconnaissance organisée avec des descendants de harkis, entre hommage, attentes et mémoire collective.</div><p class="paragraph">Dans une petite ville du sud de la France, la salle municipale était pleine pour une cérémonie consacrée à la mémoire des harkis. Ces Algériens avaient combattu aux côtés de l&#x27;armée française pendant la guerre d&#x27;Algérie. L&#x27;événement réunissait des élus, des élèves et surtout un groupe de descendants de harkis, invités à lire des témoignages familiaux devant le public.</p><p class="paragraph">L&#x27;hommage devait être un moment de reconnaissance. Pourtant, dès l&#x27;entrée, certains panneaux rappelaient que cette histoire reste douloureuse. Après l&#x27;indépendance de l&#x27;Algérie, beaucoup de harkis ont été considérés comme des traîtres par une partie de la société algérienne. En France, ceux qui ont pu venir ont souvent vécu dans des camps ou des lieux isolés. Plusieurs descendants disent que leurs familles se sont senties abandonnées et parfois traitées comme des citoyens de seconde zone.</p><p class="paragraph">Au micro, Samia Rahmani, petite-fille de harki, a expliqué qu&#x27;une cérémonie ne suffirait pas à réparer des années de silence. Selon elle, l&#x27;État devrait mieux reconnaître la souffrance des familles, mais les écoles devraient aussi raconter cette histoire avec plus de clarté. « On nous demande parfois de tourner la page, a-t-elle dit. Mais comment tourner la page si la page n&#x27;a jamais été vraiment lue? »</p><p class="paragraph">Le collectif qui a préparé la cérémonie formule des demandes précises. Il voudrait un accès plus simple aux archives, des ateliers pédagogiques dans les lycées et un lieu de mémoire entretenu toute l&#x27;année. Ces mesures permettraient, selon ses membres, de sortir d&#x27;un hommage seulement symbolique. Quelques participants auraient voulu que ces engagements soient annoncés depuis longtemps, mais ils reconnaissent que le dialogue actuel pourrait ouvrir une étape utile.</p><p class="paragraph">La mairie répond avec prudence. Un élu affirme que la commune ne pourrait pas tout résoudre seule, mais qu&#x27;elle pourrait soutenir des rencontres entre historiens, familles et jeunes. Une enseignante présente dans la salle ajoute qu&#x27;un travail régulier serait plus efficace qu&#x27;une seule journée officielle. Pour elle, les élèves comprennent mieux quand ils entendent plusieurs voix, y compris celles qui se contredisent.</p><p class="paragraph">À la fin, personne ne prétend que la cérémonie a effacé les blessures. Certains descendants restent méfiants, d&#x27;autres sont émus d&#x27;avoir enfin parlé publiquement. Le sentiment général est plus nuancé: reconnaître ne veut pas dire oublier, et tourner la page ne signifie pas fermer le livre. Cela signifie peut-être apprendre à lire ensemble une histoire longtemps laissée dans les marges.</p></section><section id="texte-c" class="page"><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><div class="page-code">FE-MEM-RD-TB</div><div class="section-label">Texte C</div><h1 class="section-title">Jimmy et Karim, le RER comme terrain commun</h1><div class="section-description">Reportage en Seine-Saint-Denis sur deux adolescents dont les histoires familiales opposées n&#x27;empêchent ni l&#x27;amitié ni le respect.</div><p class="paragraph">Le matin, sur le quai d&#x27;une gare de Seine-Saint-Denis, les sacs de sport croisent les cartables et les langues se mélangent. Dans ce département où des familles venues d&#x27;Afrique du Nord, d&#x27;Europe, d&#x27;Asie ou des Antilles vivent côte à côte, les histoires personnelles se répondent souvent sans se ressembler. Jimmy et Karim, seize ans tous les deux, se retrouvent trois fois par semaine pour prendre le RER vers le centre d&#x27;entraînement du PSG.</p><p class="paragraph">Le centre auquel ils se rendent n&#x27;est pas seulement un lieu de football. C&#x27;est aussi l&#x27;endroit où ils ont appris à se connaître loin des discussions familiales. Jimmy est le petit-fils de pieds-noirs partis d&#x27;Oran en 1962. Karim, lui, est le petit-fils d&#x27;un homme qui aurait aidé le FLN en transportant des messages dans son village. Sur le papier, leurs mémoires familiales semblent placées face à face.</p><p class="paragraph">Chez Jimmy, sa grand-mère parle encore de la ville d&#x27;Oran avec une tendresse inquiète. Elle se souvient de l&#x27;appartement quitté trop vite, des voisins perdus de vue et du bateau vers Marseille. Chez Karim, le grand-père raconte moins. Quand il parle de la guerre d&#x27;Algérie, à laquelle il rattache des souvenirs difficiles, il choisit ses mots avec lenteur. Les deux garçons savent que certains termes peuvent blesser avant même qu&#x27;on les explique.</p><p class="paragraph">Ils savent aussi qu&#x27;ils appartiennent à un conflit au sujet <u>duquel</u> leurs familles ne parlent pas toujours de la même manière. Au début, Jimmy évitait le sujet. Karim faisait pareil. Puis, un soir de retour d&#x27;entraînement, ils ont découvert qu&#x27;ils connaissaient tous les deux des silences semblables: des repas où un prénom fait baisser la voix, des photos que l&#x27;on garde dans une boîte, des phrases interrompues quand les plus jeunes posent trop de questions.</p><p class="paragraph">Dans la rame, leur quotidien est pourtant très éloigné des grands débats. Ils comparent leurs crampons, révisent un contrôle de maths et commentent le dernier match du PSG. Autour d&#x27;eux, il y a des jeunes dont les parents viennent du Mali, du Portugal, de Turquie ou de Kabylie. Cette banlieue, souvent décrite de l&#x27;extérieur comme un problème, leur apparaît plutôt comme un territoire <u>dans lequel</u> plusieurs mémoires apprennent à partager le même espace.</p><p class="paragraph">Cela ne veut pas dire que tout est simple. Au collège, une plaisanterie sur l&#x27;Algérie peut encore jeter un froid. Dans certaines familles, on préfère que les enfants ne posent pas trop de questions. Jimmy et Karim respectent des récits <u>auxquels</u> leurs familles tiennent, mais ils ont appris à ne pas laisser les adultes décider seuls de leur amitié. « On respecte nos grands-parents, dit Karim, mais on ne veut pas hériter de toutes leurs colères. »</p><p class="paragraph">Leur entraîneur utilise une expression un peu ancienne, <u>à laquelle</u> Jimmy n&#x27;adhère pas totalement: selon lui, les deux amis ont réussi à enterrer la hache de guerre. Jimmy n&#x27;aime pas trop l&#x27;image, parce qu&#x27;elle donne l&#x27;impression qu&#x27;il suffirait de cacher le passé sous terre. Karim nuance aussi: enterrer la hache de guerre, pour eux, ce n&#x27;est pas oublier. C&#x27;est accepter que deux histoires puissent rester différentes sans empêcher deux adolescents de courir vers le même ballon.</p></section></body>
+</html>

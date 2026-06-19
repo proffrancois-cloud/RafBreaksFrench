@@ -67,8 +67,7 @@ export function Paper1SlPackView() {
             <span className="level-chip">Paper 1 SL pack</span>
             <h1>10 epreuves, one slideshow page</h1>
             <p className="lead-text">
-              This pack is intentionally separate from the theme/topic catalog. Use the slide controls to move through the ten full
-              Paper 1 practice epreuves exactly as a standalone booklet.
+              Use the slide controls to move through the ten full Paper 1 practice epreuves as one complete FrenchEase bundle.
             </p>
           </div>
           <a className="button button-primary" href={docxUrl} download>

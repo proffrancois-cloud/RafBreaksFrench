@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<base target="_blank">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mémoires algériennes, cultures partagées - Question booklet</title>
+  <style>
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #d9d9d9;
+      color: #111;
+      font-family: "Source Sans 3", "Avenir Next", Arial, sans-serif;
+    }
+    .page {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 8mm;
+      background: #fff;
+      padding: 18mm 16mm 24mm;
+      page-break-after: always;
+      break-after: page;
+    }
+    .page:last-child { margin-bottom: 0; }
+    .corner {
+      position: absolute;
+      width: 10mm;
+      height: 10mm;
+      border-color: #B894D2;
+      border-style: solid;
+      opacity: 0.92;
+    }
+    .tl { top: 7mm; left: 7mm; border-width: 0.45mm 0 0 0.45mm; }
+    .tr { top: 7mm; right: 7mm; border-width: 0.45mm 0.45mm 0 0; }
+    .bl { bottom: 7mm; left: 7mm; border-width: 0 0 0.45mm 0.45mm; }
+    .br { bottom: 7mm; right: 7mm; border-width: 0 0.45mm 0.45mm 0; }
+    .page-code {
+      position: absolute;
+      top: 11mm;
+      right: 16mm;
+      color: #B894D2;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .cover {
+      display: flex;
+      min-height: 245mm;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    .cover-title {
+      color: #B894D2;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      line-height: 1.15;
+      margin: 0 0 7mm;
+    }
+    .cover-subtitle {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8mm;
+    }
+    .meta {
+      display: inline-block;
+      margin: 0 auto;
+      text-align: left;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .section-label {
+      color: #B894D2;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 2mm;
+    }
+    .section-title {
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 700;
+      margin: 0 0 3mm;
+    }
+    .section-description {
+      color: #B894D2;
+      font-weight: 700;
+      margin: 0 0 5mm;
+      font-size: 13px;
+    }
+    .paragraph {
+      font-size: 11.35px;
+      line-height: 1.48;
+      margin: 0 0 3.4mm;
+      text-align: justify;
+    }
+    .instruction {
+      color: #B894D2;
+      font-size: 13px;
+      font-weight: 700;
+      margin: 0 0 3mm;
+    }
+    .q {
+      margin: 0 0 3.4mm;
+      font-size: 11.7px;
+      line-height: 1.43;
+    }
+    .opts { margin: 1.5mm 0 3mm 7mm; }
+    .opt {
+      display: flex;
+      gap: 3mm;
+      margin: 0.9mm 0;
+      font-size: 11.6px;
+      line-height: 1.35;
+    }
+    .letter { font-weight: 700; min-width: 5mm; }
+    .line {
+      display: block;
+      border-bottom: 0.25mm dotted #999;
+      height: 6mm;
+      margin-top: 1mm;
+    }
+    .short-line {
+      display: inline-block;
+      min-width: 52mm;
+      border-bottom: 0.25mm dotted #999;
+      height: 4.5mm;
+      vertical-align: bottom;
+    }
+    .tf-table, .mark-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2mm;
+    }
+    .tf-table th, .tf-table td {
+      border: 0.25mm solid #999;
+      padding: 2mm;
+      vertical-align: top;
+      font-size: 10.8px;
+    }
+    .tf-table th {
+      background: rgba(184, 148, 210, 0.18);
+      font-weight: 700;
+    }
+    .tf-statement { width: 27%; }
+    .tf-choice { width: 7%; text-align: center; }
+    .tf-justify { width: 59%; }
+    .match-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2mm 0 5mm;
+    }
+    .match-table th, .match-table td {
+      border: 0.25mm solid #999;
+      padding: 2mm;
+      vertical-align: top;
+      font-size: 11.1px;
+      line-height: 1.35;
+    }
+    .match-table th {
+      background: rgba(184, 148, 210, 0.18);
+      font-weight: 700;
+    }
+    .match-left { width: 48%; }
+    .match-right { width: 52%; }
+    .tick-box {
+      display: inline-block;
+      width: 5mm;
+      height: 5mm;
+      border: 0.35mm solid #888;
+    }
+    .mark-table th, .mark-table td {
+      border: 0.25mm solid #B894D2;
+      padding: 1.6mm;
+      vertical-align: top;
+      font-size: 9.7px;
+      line-height: 1.25;
+    }
+    .mark-table th {
+      background: rgba(184, 148, 210, 0.18);
+      color: #222;
+    }
+    .total {
+      margin-top: 4mm;
+      font-weight: 700;
+      color: #B894D2;
+    }
+    u {
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.16em;
+    }
+  </style>
+</head>
+<body><section class="page"><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><div class="page-code">FE-MEM-RD-QB</div><div class="cover"><h1 class="cover-title">Mémoires algériennes, cultures partagées</h1><div class="cover-subtitle">Question-and-answer booklet</div><div class="meta"><div><strong>Assessment:</strong> IBDP French B SL - Paper 2 Reading Comprehension - Mock exam spécial</div><div><strong>Durée:</strong> 1 heure</div><div><strong>Total:</strong> 40 points</div><div><strong>Consigne:</strong> Répondez à toutes les questions.</div></div></div></section><section class="page"><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><div class="page-code">FE-MEM-RD-QB</div><div class="section-label">Texte A - 12 points</div><h1 class="section-title">Nassim, une voix de raï entre deux rives</h1><div class="instruction">Choisissez les quatre affirmations vraies. [4]</div><div class="opts"><div class="opt"><div class="letter">A.</div><div>Nassim chante du raï, une musique populaire née autour d&#x27;Oran.</div></div><div class="opt"><div class="letter">B.</div><div>Sur scène, Nassim se présente avec un orchestre très nombreux.</div></div><div class="opt"><div class="letter">C.</div><div>Son père écoutait autrefois le raï sur des cassettes usées.</div></div><div class="opt"><div class="letter">D.</div><div>Nassim est né en Algérie avant de venir vivre en France.</div></div><div class="opt"><div class="letter">E.</div><div>Dans son quartier, les familles viennent de partout.</div></div><div class="opt"><div class="letter">F.</div><div>Nassim pense qu&#x27;il doit choisir entre ses deux cultures.</div></div><div class="opt"><div class="letter">G.</div><div>Le raï transforme sa double appartenance en force.</div></div><div class="opt"><div class="letter">H.</div><div>À la maison, Nassim évite tous les mots arabes.</div></div></div><div class="instruction">Choisissez la bonne réponse.</div><div class="q"><strong>2.</strong> Dans le texte, l’expression « avoir le cœur partagé entre deux cultures » signifie que Nassim...<div class="opts"><div class="opt"><div class="letter">A.</div><div>ne sait pas quelle langue parler à l&#x27;école.</div></div><div class="opt"><div class="letter">B.</div><div>se sent construit par deux héritages culturels.</div></div><div class="opt"><div class="letter">C.</div><div>veut séparer complètement sa famille et sa musique.</div></div></div></div><div class="instruction">Trouvez les mots du texte A qui ont la signification suivante.</div><div class="q"><strong>3.</strong> textes d&#x27;une chanson : <span class="short-line"></span></div><div class="q"><strong>4.</strong> difficultés traversées par une personne : <span class="short-line"></span></div><div class="q"><strong>5.</strong> ligne de production dans une usine : <span class="short-line"></span></div><div class="instruction">Choisissez la bonne réponse.</div><div class="q"><strong>6.</strong> Pourquoi Nassim compare-t-il parfois sa solitude à celle de sa mère?<div class="opts"><div class="opt"><div class="letter">A.</div><div>Pour dire que leurs vies sont exactement identiques.</div></div><div class="opt"><div class="letter">B.</div><div>Pour montrer que des difficultés différentes peuvent exprimer le même besoin de respect.</div></div><div class="opt"><div class="letter">C.</div><div>Pour affirmer que les jeunes d&#x27;aujourd&#x27;hui n&#x27;ont aucun problème.</div></div></div></div><div class="q"><strong>7.</strong> Que Nassim ne veut-il pas faire dans ses chansons?<div class="opts"><div class="opt"><div class="letter">A.</div><div>Donner un cours d&#x27;histoire.</div></div><div class="opt"><div class="letter">B.</div><div>Parler de son quartier.</div></div><div class="opt"><div class="letter">C.</div><div>Mélanger plusieurs sons.</div></div></div></div><div class="q"><strong>8.</strong> Qui ses concerts rassemblent-ils parfois?<div class="opts"><div class="opt"><div class="letter">A.</div><div>Seulement des professionnels de la musique.</div></div><div class="opt"><div class="letter">B.</div><div>Seulement des adolescents de son lycée.</div></div><div class="opt"><div class="letter">C.</div><div>Des parents qui reconnaissent les mélodies d&#x27;Oran et des adolescents qui les découvrent.</div></div></div></div><div class="q"><strong>9.</strong> Quelle image Nassim préfère-t-il pour se définir?<div class="opts"><div class="opt"><div class="letter">A.</div><div>Un professeur d&#x27;histoire.</div></div><div class="opt"><div class="letter">B.</div><div>Un chanteur uniquement moderne.</div></div><div class="opt"><div class="letter">C.</div><div>Un pont entre plusieurs publics.</div></div></div></div></section><section class="page"><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><div class="page-code">FE-MEM-RD-QB</div><div class="section-label">Texte B - 14 points</div><h1 class="section-title">Harkis : une cérémonie pour une mémoire encore sensible</h1><div class="instruction">Répondez brièvement aux questions suivantes. [4]</div><div class="q"><strong>10.</strong> À quoi la cérémonie est-elle consacrée?<span class="line"></span></div><div class="q"><strong>11.</strong> Quel groupe de personnes a été invité à lire des témoignages?<span class="line"></span></div><div class="q"><strong>12.</strong> Pourquoi l&#x27;événement reste-t-il controversé pour certains descendants?<span class="line"></span></div><div class="q"><strong>13.</strong> Pourquoi Samia Rahmani pense-t-elle qu&#x27;on ne peut pas simplement « tourner la page »?<span class="line"></span></div><div class="instruction">Complétez chaque phrase avec un mot du texte B. [4]</div><div class="q"><strong>14.</strong> Le collectif voudrait un accès plus simple aux <span class="short-line"></span>.</div><div class="q"><strong>15.</strong> Il souhaite aussi des <span class="short-line"></span> pédagogiques dans les lycées.</div><div class="q"><strong>16.</strong> Le collectif demande un <span class="short-line"></span> de mémoire entretenu toute l'année.</div><div class="q"><strong>17.</strong> Quelques participants auraient voulu que ces <span class="short-line"></span> soient annoncés depuis longtemps.</div></section><section class="page"><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><div class="page-code">FE-MEM-RD-QB</div><div class="section-label">Texte B - suite</div><h1 class="section-title">Harkis : une cérémonie pour une mémoire encore sensible</h1><div class="instruction">Associez chaque début de phrase à la fin correspondante. [4]</div><table class="match-table"><thead><tr><th class="match-left">Débuts de phrase</th><th class="match-right">Propositions</th></tr></thead><tbody><tr><td><strong>18.</strong> La commune pourrait soutenir ______</td><td><strong>A.</strong> plus efficace qu&#x27;une seule journée officielle.</td></tr><tr><td><strong>19.</strong> Le dialogue actuel pourrait ______</td><td><strong>B.</strong> fermer le livre.</td></tr><tr><td><strong>20.</strong> Tourner la page ne signifie pas ______</td><td><strong>C.</strong> des rencontres entre historiens, familles et jeunes.</td></tr><tr><td><strong>21.</strong> Cette histoire a été ______</td><td><strong>D.</strong> d&#x27;effacer toutes les blessures immédiatement.</td></tr><tr><td></td><td><strong>E.</strong> longtemps laissée dans les marges.</td></tr><tr><td></td><td><strong>F.</strong> ouvrir une étape utile.</td></tr></tbody></table><div class="instruction">Choisissez la bonne réponse. [2]</div><div class="q"><strong>22.</strong> Quel sentiment domine à la fin de la cérémonie?<div class="opts"><div class="opt"><div class="letter">A.</div><div>Une victoire simple que tout le monde accepte.</div></div><div class="opt"><div class="letter">B.</div><div>Un sentiment nuancé, entre méfiance et émotion.</div></div><div class="opt"><div class="letter">C.</div><div>Un refus total de parler publiquement.</div></div></div></div><div class="q"><strong>23.</strong> Quel est le ton général de l&#x27;article?<div class="opts"><div class="opt"><div class="letter">A.</div><div>Accusateur et agressif.</div></div><div class="opt"><div class="letter">B.</div><div>Humoristique et léger.</div></div><div class="opt"><div class="letter">C.</div><div>Prudent, équilibré et informatif.</div></div></div></div></section><section class="page"><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><div class="page-code">FE-MEM-RD-QB</div><div class="section-label">Texte C - 14 points</div><h1 class="section-title">Jimmy et Karim, le RER comme terrain commun</h1><div class="instruction">Vrai / Faux avec justification. Les deux exigences doivent être respectées pour obtenir le point. [4]</div><table class="tf-table"><thead><tr><th class="tf-statement">Affirmation</th><th class="tf-choice">Vrai</th><th class="tf-choice">Faux</th><th class="tf-justify">Justification</th></tr></thead><tbody><tr><td class="tf-statement"><strong>24.</strong> La Seine-Saint-Denis est présentée comme un lieu culturellement homogène.</td><td class="tf-choice"><span class="tick-box"></span></td><td class="tf-choice"><span class="tick-box"></span></td><td class="tf-justify"><span class="line"></span><span class="line"></span></td></tr><tr><td class="tf-statement"><strong>25.</strong> Jimmy et Karim vont ensemble au centre d&#x27;entraînement du PSG.</td><td class="tf-choice"><span class="tick-box"></span></td><td class="tf-choice"><span class="tick-box"></span></td><td class="tf-justify"><span class="line"></span><span class="line"></span></td></tr><tr><td class="tf-statement"><strong>26.</strong> Les grands-pères des deux garçons avaient combattu ou vécu l&#x27;histoire dans le même camp.</td><td class="tf-choice"><span class="tick-box"></span></td><td class="tf-choice"><span class="tick-box"></span></td><td class="tf-justify"><span class="line"></span><span class="line"></span></td></tr><tr><td class="tf-statement"><strong>27.</strong> Le grand-père de Karim raconte la guerre facilement et rapidement.</td><td class="tf-choice"><span class="tick-box"></span></td><td class="tf-choice"><span class="tick-box"></span></td><td class="tf-justify"><span class="line"></span><span class="line"></span></td></tr></tbody></table></section><section class="page"><div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div><div class="page-code">FE-MEM-RD-QB</div><div class="section-label">Texte C - suite</div><h1 class="section-title">Jimmy et Karim, le RER comme terrain commun</h1><div class="instruction">À qui ou à quoi les mots soulignés font-ils référence? [4]</div><div class="q"><strong>28.</strong> <u>duquel</u> : <span class="short-line"></span></div><div class="q"><strong>29.</strong> <u>dans lequel</u> : <span class="short-line"></span></div><div class="q"><strong>30.</strong> <u>auxquels</u> : <span class="short-line"></span></div><div class="q"><strong>31.</strong> <u>à laquelle</u> : <span class="short-line"></span></div><div class="instruction">Répondez brièvement aux questions suivantes. [4]</div><div class="q"><strong>32.</strong> Quelle expression l&#x27;entraîneur utilise-t-il pour parler de Jimmy et Karim?<span class="line"></span></div><div class="q"><strong>33.</strong> Pourquoi Jimmy n&#x27;aime-t-il pas trop cette image?<span class="line"></span></div><div class="q"><strong>34.</strong> Quelle précision Karim ajoute-t-il sur cette expression?<span class="line"></span></div><div class="q"><strong>35.</strong> Dans le texte, que signifie « enterrer la hache de guerre » pour Jimmy et Karim?<span class="line"></span></div><div class="instruction">Choisissez la bonne réponse. [2]</div><div class="q"><strong>36.</strong> Quel est le ton dominant du reportage?<div class="opts"><div class="opt"><div class="letter">A.</div><div>Ironique et moqueur.</div></div><div class="opt"><div class="letter">B.</div><div>Prudent mais porteur d&#x27;espoir.</div></div><div class="opt"><div class="letter">C.</div><div>Polémique et violent.</div></div></div></div><div class="q"><strong>37.</strong> Quel message résume le mieux le texte C?<div class="opts"><div class="opt"><div class="letter">A.</div><div>Des jeunes peuvent vivre avec des mémoires opposées sans être prisonniers d&#x27;elles.</div></div><div class="opt"><div class="letter">B.</div><div>Les familles doivent toutes raconter l&#x27;histoire exactement de la même manière.</div></div><div class="opt"><div class="letter">C.</div><div>Le football permet d&#x27;effacer définitivement les conflits historiques.</div></div></div></div></section></body>
+</html>

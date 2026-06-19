@@ -1122,6 +1122,33 @@ textarea:focus {
   gap: 16px;
 }
 
+.mock-exam-flow {
+  display: grid;
+  gap: 16px;
+}
+
+.mock-paper-step {
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+
+.mock-paper-step .resource-card__top {
+  margin: 0;
+}
+
+.mock-exam-topic-flow {
+  align-items: start;
+}
+
+.mock-selected-topic-header {
+  gap: 10px;
+}
+
 .tab-row {
   display: flex;
   flex-wrap: wrap;
@@ -1491,6 +1518,48 @@ textarea:focus {
   overflow-wrap: anywhere;
 }
 
+.paper-html-viewer {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.paper-html-viewer summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  color: #1d2a3d;
+  font-size: 0.86rem;
+  font-weight: 820;
+  padding: 11px 12px;
+}
+
+.paper-html-viewer summary span {
+  border: 1px solid var(--theme-accent-border);
+  border-radius: 999px;
+  background: var(--theme-accent-soft);
+  color: var(--theme-accent-ink);
+  font-size: 0.72rem;
+  padding: 3px 7px;
+}
+
+.paper-html-viewer iframe,
+.paper-embedded-text iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: #d9d9d9;
+}
+
+.paper-html-viewer iframe {
+  height: min(76vh, 820px);
+  min-height: 640px;
+}
+
 .paper-score-card,
 .paper-final-score {
   display: inline-flex;
@@ -1563,6 +1632,30 @@ textarea:focus {
 .paper-audio-block {
   display: grid;
   gap: 8px;
+}
+
+.paper-embedded-text {
+  margin: 0 12px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #d9d9d9;
+  overflow: hidden;
+}
+
+.paper-embedded-text iframe {
+  height: 620px;
+}
+
+.paper-inline-question-list {
+  margin: 0 12px 12px;
+}
+
+.paper-transcript-text {
+  margin: 0;
+  color: #2f4055;
+  font-size: 0.92rem;
+  line-height: 1.54;
+  white-space: pre-wrap;
 }
 
 .paper-answer-sheet {
@@ -2162,6 +2255,11 @@ textarea:focus {
     flex-direction: column;
   }
 
+  .section-heading > .status-pill,
+  .resource-card__top > .status-pill {
+    align-self: flex-start;
+  }
+
   .example-row,
   .activity-row,
   .progress-row {
@@ -2189,6 +2287,12 @@ textarea:focus {
 
   .paper-submit-bar {
     bottom: 8px;
+  }
+
+  .paper-html-viewer iframe,
+  .paper-embedded-text iframe {
+    height: 520px;
+    min-height: 520px;
   }
 
   .paper1-pack-controls,

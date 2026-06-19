@@ -6,7 +6,6 @@ import { Paper1SlPackView } from "./components/Paper1SlPackView";
 import { ProgressBar } from "./components/ProgressBar";
 import { SkillCard } from "./components/SkillCard";
 import { TextTypeCard } from "./components/TextTypeCard";
-import { WritingTaskView } from "./components/WritingTaskView";
 import { cultureTopics } from "./data/cultureTopics";
 import { diagnosticExerciseIds, exercises, exercisesById } from "./data/exercises";
 import { lessons, lessonsById } from "./data/lessons";
@@ -16,7 +15,6 @@ import { premiumListeningPapers, premiumReadingPapers, type PremiumGradeBand, ty
 import { categoryOrder, skills, skillsById } from "./data/skills";
 import { textTypes } from "./data/textTypes";
 import {
-  addWritingAttempt,
   createEmptyProgress,
   defaultSkillProgress,
   exportProgress,
@@ -30,9 +28,9 @@ import {
 import { resolveAssetUrl } from "./services/assetService";
 import { getCategorySummaries, getNextLessonRecommendation, getOverallReadiness } from "./services/recommendationService";
 import { speakFrench, stopSpeaking } from "./services/ttsService";
-import type { Category, Exercise, ListeningMock, ProgressState, ReadingMock, Skill, WritingAttempt } from "./types";
+import type { Category, Exercise, ListeningMock, ProgressState, ReadingMock, Skill } from "./types";
 
-type View = "Dashboard" | "Lessons" | "Practice" | "DP Themes" | "Paper 1 Pack" | "Text Types" | "Progress";
+type View = "Dashboard" | "Lessons" | "Practice" | "DP Themes" | "Text Types" | "Progress";
 type DPThemeMode = "Culture" | "Mock Exam";
 type MockPaperType = "Paper 1" | "Paper 2 Reading" | "Paper 2 Listening" | "IA";
 type ThemeTone = "blue" | "green" | "purple" | "yellow" | "red";
@@ -71,13 +69,12 @@ interface PaperSession {
   sourceDocuments?: PremiumSourceDocuments;
 }
 
-const navItems: View[] = ["Dashboard", "Lessons", "Practice", "DP Themes", "Paper 1 Pack", "Text Types", "Progress"];
+const navItems: View[] = ["Dashboard", "Lessons", "Practice", "DP Themes", "Text Types", "Progress"];
 const dpThemeModes: DPThemeMode[] = ["Culture", "Mock Exam"];
 const mockPaperTypes: MockPaperType[] = ["Paper 1", "Paper 2 Reading", "Paper 2 Listening", "IA"];
 const defaultMockTheme = mockExamThemes[0];
 const defaultMockTopic = defaultMockTheme.topics[0];
 const mockTopicCount = mockExamThemes.reduce((sum, theme) => sum + theme.topics.length, 0);
-const mockPaperSetCount = mockTopicCount * mockPaperTypes.length;
 
 const normalizeKey = (value: string) =>
   value
@@ -266,7 +263,6 @@ export function DPFrenchApp() {
   const [selectedMockThemeId, setSelectedMockThemeId] = useState(defaultMockTheme.id);
   const [selectedMockTopicId, setSelectedMockTopicId] = useState(defaultMockTopic.id);
   const [mockPaperType, setMockPaperType] = useState<MockPaperType>("Paper 1");
-  const [selectedPaper1TaskId, setSelectedPaper1TaskId] = useState(defaultMockTopic.paper1.tasks[0].id);
   const [selectedPaperSourceIds, setSelectedPaperSourceIds] = useState<Record<string, string>>({});
   const [selectedIAStimulusIds, setSelectedIAStimulusIds] = useState<Record<string, string>>({});
   const [paperAnswers, setPaperAnswers] = useState<Record<string, string>>({});
@@ -291,7 +287,6 @@ export function DPFrenchApp() {
   const next = getNextLessonRecommendation(progress);
   const selectedMockTheme = mockExamThemes.find((theme) => theme.id === selectedMockThemeId) ?? defaultMockTheme;
   const selectedMockTopic = selectedMockTheme.topics.find((topic) => topic.id === selectedMockTopicId) ?? selectedMockTheme.topics[0];
-  const selectedPaper1Task = selectedMockTopic.paper1.tasks.find((task) => task.id === selectedPaper1TaskId) ?? selectedMockTopic.paper1.tasks[0];
   const cultureTopicsByKey = useMemo(() => new Map(cultureTopics.map((topic) => [cultureKey(topic.theme, topic.topic), topic])), []);
   const selectedCultureTopic = cultureTopicsByKey.get(cultureKey(selectedMockTheme.theme, selectedMockTopic.topic));
   const selectedThemeTone = themeToneByKey[normalizeKey(selectedMockTheme.theme)] ?? "blue";
@@ -325,10 +320,6 @@ export function DPFrenchApp() {
       const updated = recordExerciseResult(current, exercise.skillId, exercise.id, score, skill.title);
       return diagnosticExerciseIds.includes(exercise.id) ? { ...updated, diagnosticCompleted: true } : updated;
     });
-  };
-
-  const saveWriting = (attempt: Omit<WritingAttempt, "id" | "date">) => {
-    setProgress((current) => addWritingAttempt(current, attempt));
   };
 
   const importProgress = () => {
@@ -448,12 +439,10 @@ export function DPFrenchApp() {
     const firstTopic = theme.topics[0];
     setSelectedMockThemeId(theme.id);
     setSelectedMockTopicId(firstTopic.id);
-    setSelectedPaper1TaskId(firstTopic.paper1.tasks[0].id);
   };
 
   const selectMockTopic = (topic: (typeof selectedMockTheme.topics)[number]) => {
     setSelectedMockTopicId(topic.id);
-    setSelectedPaper1TaskId(topic.paper1.tasks[0].id);
   };
 
   const renderTopicStimulus = () =>
@@ -524,6 +513,77 @@ export function DPFrenchApp() {
     const isSubmitted = submittedPaperIds[paper.id] ?? false;
     const result = scorePaper(paper, paperAnswers);
     const isListening = paper.kind === "Paper 2 Listening";
+    const textBookletUrl = !isListening ? paper.sourceDocuments?.textBookletUrl : undefined;
+    const textAnchorFor = (label: string) => `texte-${(label.match(/[A-Z]$/i)?.[0] ?? label).toLowerCase()}`;
+
+    const renderHtmlViewer = (label: string, url?: string, defaultOpen = false) =>
+      url ? (
+        <details className="paper-html-viewer" open={defaultOpen}>
+          <summary>
+            {label} <span>HTML</span>
+          </summary>
+          <iframe title={`${paper.topic} ${label}`} src={resolveAssetUrl(url)} loading="lazy" />
+        </details>
+      ) : null;
+
+    const renderQuestionCard = (question: PaperSessionQuestion) => {
+      const answer = paperAnswers[question.id] ?? "";
+      const questionScore = result.questionScores[question.id] ?? 0;
+      return (
+        <article className="paper-question-card" key={question.id}>
+          <div className="paper-question-card__top">
+            <span>{question.textLabel}</span>
+            <strong>
+              {question.number}. {question.marks} {question.marks === 1 ? "mark" : "marks"}
+            </strong>
+          </div>
+          <p className="paper-question-prompt">{question.prompt}</p>
+          <label className="paper-answer-label">
+            <span>Your answer</span>
+            <textarea
+              className="answer-box"
+              value={answer}
+              disabled={isSubmitted}
+              onChange={(event) => setPaperAnswer(question.id, event.target.value)}
+              rows={question.prompt.length > 180 ? 3 : 2}
+            />
+          </label>
+          {isSubmitted ? (
+            <div className="paper-correction-box">
+              <div className="paper-correction-score">
+                <strong>
+                  {questionScore}/{question.marks}
+                </strong>
+                <span>{questionScore === question.marks ? "Full mark" : "Review"}</span>
+              </div>
+              <div className="paper-correction-grid">
+                <span>Your answer</span>
+                <p>{answer || "No answer submitted."}</p>
+                <span>Expected</span>
+                <p>{question.expectedAnswer}</p>
+                {question.acceptedAnswer ? (
+                  <>
+                    <span>Accept</span>
+                    <p>{question.acceptedAnswer}</p>
+                  </>
+                ) : null}
+                {question.rejectedAnswer ? (
+                  <>
+                    <span>Do not accept</span>
+                    <p>{question.rejectedAnswer}</p>
+                  </>
+                ) : null}
+              </div>
+            </div>
+          ) : null}
+        </article>
+      );
+    };
+
+    const renderQuestionsForText = (text: PaperSessionText) => {
+      const textQuestions = paper.questions.filter((question) => question.textLabel === text.label);
+      return textQuestions.length ? <div className="paper-question-list paper-inline-question-list">{textQuestions.map(renderQuestionCard)}</div> : null;
+    };
 
     return (
       <section className="paper-session">
@@ -542,48 +602,29 @@ export function DPFrenchApp() {
         {paper.sourceDocuments ? (
           <div className="paper-source-documents" aria-label="Validated source documents">
             <span>Text booklet</span>
-            <strong>{paper.sourceDocuments.textBooklet}</strong>
+            <strong>
+              {paper.sourceDocuments.textBookletUrl ? (
+                <a href={resolveAssetUrl(paper.sourceDocuments.textBookletUrl)} target="_blank" rel="noreferrer">
+                  {paper.sourceDocuments.textBooklet}
+                </a>
+              ) : (
+                paper.sourceDocuments.textBooklet
+              )}
+            </strong>
             <span>Question booklet</span>
             <strong>{paper.sourceDocuments.questionBooklet}</strong>
             <span>Markscheme</span>
-            <strong>{paper.sourceDocuments.markscheme}</strong>
+            <strong>
+              {isSubmitted && paper.sourceDocuments.markschemeUrl ? (
+                <a href={resolveAssetUrl(paper.sourceDocuments.markschemeUrl)} target="_blank" rel="noreferrer">
+                  {paper.sourceDocuments.markscheme}
+                </a>
+              ) : (
+                paper.sourceDocuments.markscheme
+              )}
+            </strong>
           </div>
         ) : null}
-
-        <div className="paper-text-stack">
-          {paper.texts.map((text, index) => (
-            <details className="paper-text-details" key={`${paper.id}-${text.label}`} open={!isListening && index === 0}>
-              <summary>
-                <span>{text.label}</span>
-                <strong>{text.title}</strong>
-              </summary>
-              {isListening ? (
-                <div className="paper-audio-block">
-                  {text.audioUrl ? (
-                    <div className="audio-player">
-                      <audio controls preload="metadata" src={resolveAssetUrl(text.audioUrl)}>
-                        Your browser does not support audio playback.
-                      </audio>
-                      <small>{text.audioFile ?? text.voice ?? "FrenchEase audio"}</small>
-                    </div>
-                  ) : (
-                    <div className="row-actions compact-actions">
-                      <button type="button" className="button button-primary" onClick={() => speakFrench(text.body)}>
-                        Play TTS fallback
-                      </button>
-                      <button type="button" className="button button-ghost" onClick={stopSpeaking}>
-                        Stop
-                      </button>
-                    </div>
-                  )}
-                  <p className="hint">Transcript unlocks in the correction after submission.</p>
-                </div>
-              ) : (
-                <p className="reading-text">{text.body}</p>
-              )}
-            </details>
-          ))}
-        </div>
 
         <div className="paper-answer-sheet">
           <div className="resource-card__top">
@@ -594,79 +635,52 @@ export function DPFrenchApp() {
             {isSubmitted ? <span className="status-pill">Submitted</span> : <span className="status-pill">In progress</span>}
           </div>
 
-          <div className="paper-question-list">
-            {paper.questions.map((question) => {
-              const answer = paperAnswers[question.id] ?? "";
-              const questionScore = result.questionScores[question.id] ?? 0;
-              return (
-                <article className="paper-question-card" key={question.id}>
-                  <div className="paper-question-card__top">
-                    <span>{question.textLabel}</span>
-                    <strong>
-                      {question.number}. {question.marks} {question.marks === 1 ? "mark" : "marks"}
-                    </strong>
+          <div className="paper-text-stack paper-text-question-stack">
+            {paper.texts.map((text, index) => (
+              <details className="paper-text-details paper-text-question-details" key={`${paper.id}-${text.label}`} open={index === 0}>
+                <summary>
+                  <span>{text.label}</span>
+                  <strong>{text.title}</strong>
+                </summary>
+                {isListening ? (
+                  <div className="paper-audio-block">
+                    {text.audioUrl ? (
+                      <div className="audio-player">
+                        <audio controls preload="metadata" src={resolveAssetUrl(text.audioUrl)}>
+                          Your browser does not support audio playback.
+                        </audio>
+                        <small>{text.audioFile ?? text.voice ?? "FrenchEase audio"}</small>
+                      </div>
+                    ) : (
+                      <div className="row-actions compact-actions">
+                        <button type="button" className="button button-primary" onClick={() => speakFrench(text.body)}>
+                          Play TTS fallback
+                        </button>
+                        <button type="button" className="button button-ghost" onClick={stopSpeaking}>
+                          Stop
+                        </button>
+                      </div>
+                    )}
+                    {isSubmitted ? <p className="paper-transcript-text">{text.body}</p> : <p className="hint">Transcript unlocks in the correction after submission.</p>}
                   </div>
-                  <p className="paper-question-prompt">{question.prompt}</p>
-                  <label className="paper-answer-label">
-                    <span>Your answer</span>
-                    <textarea
-                      className="answer-box"
-                      value={answer}
-                      disabled={isSubmitted}
-                      onChange={(event) => setPaperAnswer(question.id, event.target.value)}
-                      rows={question.prompt.length > 180 ? 3 : 2}
+                ) : textBookletUrl ? (
+                  <div className="paper-embedded-text">
+                    <iframe
+                      title={`${paper.topic} ${text.label}`}
+                      src={`${resolveAssetUrl(textBookletUrl)}#${textAnchorFor(text.label)}`}
+                      loading={index === 0 ? "eager" : "lazy"}
                     />
-                  </label>
-                  {isSubmitted ? (
-                    <div className="paper-correction-box">
-                      <div className="paper-correction-score">
-                        <strong>
-                          {questionScore}/{question.marks}
-                        </strong>
-                        <span>{questionScore === question.marks ? "Full mark" : "Review"}</span>
-                      </div>
-                      <div className="paper-correction-grid">
-                        <span>Your answer</span>
-                        <p>{answer || "No answer submitted."}</p>
-                        <span>Expected</span>
-                        <p>{question.expectedAnswer}</p>
-                        {question.acceptedAnswer ? (
-                          <>
-                            <span>Accept</span>
-                            <p>{question.acceptedAnswer}</p>
-                          </>
-                        ) : null}
-                        {question.rejectedAnswer ? (
-                          <>
-                            <span>Do not accept</span>
-                            <p>{question.rejectedAnswer}</p>
-                          </>
-                        ) : null}
-                      </div>
-                    </div>
-                  ) : null}
-                </article>
-              );
-            })}
+                  </div>
+                ) : (
+                  <p className="reading-text">{text.body}</p>
+                )}
+                {renderQuestionsForText(text)}
+              </details>
+            ))}
           </div>
         </div>
 
-        {isListening && isSubmitted ? (
-          <section className="paper-transcript-correction">
-            <div className="resource-card__top">
-              <h3>Listening transcripts</h3>
-              <span className="status-pill">Correction</span>
-            </div>
-            {paper.texts.map((text) => (
-              <details className="script-details" key={`${paper.id}-${text.label}-transcript`}>
-                <summary>
-                  {text.label}: {text.title}
-                </summary>
-                <p>{text.body}</p>
-              </details>
-            ))}
-          </section>
-        ) : null}
+        {!isListening && isSubmitted ? renderHtmlViewer("Markscheme", paper.sourceDocuments?.markschemeUrl) : null}
 
         <div className="paper-submit-bar">
           {isSubmitted ? (
@@ -744,53 +758,6 @@ export function DPFrenchApp() {
       </section>
     );
   };
-
-  const renderPaper1Panel = () => (
-    <section className="dp-theme-panel">
-      <div className="resource-card__top">
-        <div>
-          <h3>{selectedMockTopic.paper1.title}</h3>
-          <p className="hint">Choose one subject for this topic.</p>
-        </div>
-        <span className="status-pill">{selectedMockTopic.paper1.durationMinutes} minutes</span>
-      </div>
-      <div className="task-selector compact-task-selector">
-        {selectedMockTopic.paper1.tasks.map((task, index) => (
-          <button
-            type="button"
-            key={task.id}
-            className={selectedPaper1Task.id === task.id ? "lesson-button is-selected" : "lesson-button"}
-            onClick={() => setSelectedPaper1TaskId(task.id)}
-          >
-            <span>Subject {index + 1}</span>
-            <small>{task.textTypeChoices.join(" / ")}</small>
-          </button>
-        ))}
-      </div>
-      <article className="selected-subject-card">
-        <strong>{selectedPaper1Task.prompt}</strong>
-        <div className="stem-row compact-stems">
-          {selectedPaper1Task.textTypeChoices.map((choice) => (
-            <span key={choice}>{choice}</span>
-          ))}
-        </div>
-        <details className="question-bank-details">
-          <summary>
-            Planning hints <span>{selectedPaper1Task.planningHints.length}</span>
-          </summary>
-          <div className="mini-list">
-            {selectedPaper1Task.planningHints.map((hint) => (
-              <span key={hint}>{hint}</span>
-            ))}
-          </div>
-        </details>
-      </article>
-      <details className="question-bank-details">
-        <summary>Writing workspace</summary>
-        <WritingTaskView key={selectedPaper1Task.id} task={selectedPaper1Task} onSave={saveWriting} />
-      </details>
-    </section>
-  );
 
   const renderReadingPanel = () => (
     <section className="dp-theme-panel">
@@ -904,28 +871,84 @@ export function DPFrenchApp() {
     );
   };
 
-  const renderMockExamPanel = () => (
-    <section className="dp-theme-panel">
-      <div className="section-heading">
-        <div>
-          <span className="level-chip">{selectedMockTheme.theme}</span>
-          <h2>{selectedMockTopic.topic}</h2>
+  const renderMockTopicRail = () => (
+    <aside className="left-rail mock-left-rail">
+      <section className="mock-picker">
+        <h2>Themes</h2>
+        <div className="category-buttons">
+          {mockExamThemes.map((theme) => (
+            <button type="button" key={theme.id} className={selectedMockTheme.id === theme.id ? "is-selected" : ""} onClick={() => selectMockTheme(theme)}>
+              <span>{theme.theme}</span>
+              <small>{theme.topics.length}</small>
+            </button>
+          ))}
         </div>
-        <span className="status-pill">{mockPaperType}</span>
-      </div>
-      <div className="tab-row paper-type-row" aria-label="Paper type">
-        {mockPaperTypes.map((paperType) => (
-          <button type="button" key={paperType} className={mockPaperType === paperType ? "is-selected" : ""} onClick={() => setMockPaperType(paperType)}>
-            {paperType}
-          </button>
-        ))}
-      </div>
-      <p className="mock-source-note">{selectedMockTopic.productionNote}</p>
-      {mockPaperType === "Paper 1" ? renderPaper1Panel() : null}
-      {mockPaperType === "Paper 2 Reading" ? renderReadingPanel() : null}
-      {mockPaperType === "Paper 2 Listening" ? renderListeningPanel() : null}
-      {mockPaperType === "IA" ? renderIAPanel() : null}
-    </section>
+      </section>
+      <section className="mock-picker">
+        <h2>Topics</h2>
+        <div className="lesson-list">
+          {selectedMockTheme.topics.map((topic) => (
+            <button
+              type="button"
+              key={topic.id}
+              className={selectedMockTopic.id === topic.id ? "lesson-button is-selected" : "lesson-button"}
+              onClick={() => selectMockTopic(topic)}
+            >
+              <span>{topic.topic}</span>
+              <small>{topic.francophoneAnchor}</small>
+            </button>
+          ))}
+        </div>
+      </section>
+    </aside>
+  );
+
+  const renderMockPaperContent = () => {
+    if (mockPaperType === "Paper 2 Reading") return renderReadingPanel();
+    if (mockPaperType === "Paper 2 Listening") return renderListeningPanel();
+    return renderIAPanel();
+  };
+
+  const renderMockExamPanel = () => (
+    <div className="mock-exam-flow">
+      <section className="mock-paper-step" aria-label="Mock exam paper type">
+        <div className="resource-card__top">
+          <div>
+            <span className="level-chip">Mock Exam</span>
+            <h2>Choose paper type</h2>
+          </div>
+          <span className="status-pill">{mockPaperType}</span>
+        </div>
+        <div className="tab-row paper-type-row" aria-label="Paper type">
+          {mockPaperTypes.map((paperType) => (
+            <button type="button" key={paperType} className={mockPaperType === paperType ? "is-selected" : ""} onClick={() => setMockPaperType(paperType)}>
+              {paperType}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {mockPaperType === "Paper 1" ? (
+        <Paper1SlPackView />
+      ) : (
+        <div className="split-layout mock-catalog-layout dp-themes-layout mock-exam-topic-flow">
+          {renderMockTopicRail()}
+          <main className="main-panel mock-paper-panel dp-themes-main">
+            <section className="dp-theme-panel mock-selected-topic-header">
+              <div className="section-heading">
+                <div>
+                  <span className="level-chip">{selectedMockTheme.theme}</span>
+                  <h2>{selectedMockTopic.topic}</h2>
+                </div>
+                <span className="status-pill">{mockPaperType}</span>
+              </div>
+              <p className="mock-source-note">{selectedMockTopic.productionNote}</p>
+            </section>
+            {renderMockPaperContent()}
+          </main>
+        </div>
+      )}
+    </div>
   );
 
   const renderDPThemes = () => (
@@ -946,38 +969,14 @@ export function DPFrenchApp() {
           ))}
         </div>
       </section>
-      <div className="split-layout mock-catalog-layout dp-themes-layout">
-        <aside className="left-rail mock-left-rail">
-          <section className="mock-picker">
-            <h2>Themes</h2>
-            <div className="category-buttons">
-              {mockExamThemes.map((theme) => (
-                <button type="button" key={theme.id} className={selectedMockTheme.id === theme.id ? "is-selected" : ""} onClick={() => selectMockTheme(theme)}>
-                  <span>{theme.theme}</span>
-                  <small>{theme.topics.length}</small>
-                </button>
-              ))}
-            </div>
-          </section>
-          <section className="mock-picker">
-            <h2>Topics</h2>
-            <div className="lesson-list">
-              {selectedMockTheme.topics.map((topic) => (
-                <button
-                  type="button"
-                  key={topic.id}
-                  className={selectedMockTopic.id === topic.id ? "lesson-button is-selected" : "lesson-button"}
-                  onClick={() => selectMockTopic(topic)}
-                >
-                  <span>{topic.topic}</span>
-                  <small>{topic.francophoneAnchor}</small>
-                </button>
-              ))}
-            </div>
-          </section>
-        </aside>
-        <main className="main-panel mock-paper-panel dp-themes-main">{dpThemeMode === "Culture" ? renderCulturePanel() : renderMockExamPanel()}</main>
-      </div>
+      {dpThemeMode === "Culture" ? (
+        <div className="split-layout mock-catalog-layout dp-themes-layout">
+          {renderMockTopicRail()}
+          <main className="main-panel mock-paper-panel dp-themes-main">{renderCulturePanel()}</main>
+        </div>
+      ) : (
+        renderMockExamPanel()
+      )}
     </div>
   );
 
@@ -1077,7 +1076,6 @@ export function DPFrenchApp() {
     if (activeView === "Lessons") return renderLessons();
     if (activeView === "Practice") return renderPractice();
     if (activeView === "DP Themes") return renderDPThemes();
-    if (activeView === "Paper 1 Pack") return <Paper1SlPackView />;
     if (activeView === "Text Types") return renderTextTypes();
     return renderProgress();
   };

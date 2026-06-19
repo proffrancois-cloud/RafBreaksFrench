@@ -21,8 +21,11 @@ export interface PremiumMockQuestion {
 
 export interface PremiumSourceDocuments {
   textBooklet: string;
+  textBookletUrl?: string;
   questionBooklet: string;
+  questionBookletUrl?: string;
   markscheme: string;
+  markschemeUrl?: string;
   page1?: string;
 }
 
@@ -477,8 +480,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "memoires_algeriennes_rai_banlieue_reading_text_booklet_v1.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/cas-special/memoires-algeriennes-rai-banlieue/text-booklet.html",
       "questionBooklet": "memoires_algeriennes_rai_banlieue_reading_question_answer_booklet_v1.html",
-      "markscheme": "memoires_algeriennes_rai_banlieue_reading_markscheme_v1.html"
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/cas-special/memoires-algeriennes-rai-banlieue/question-booklet.html",
+      "markscheme": "memoires_algeriennes_rai_banlieue_reading_markscheme_v1.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/cas-special/memoires-algeriennes-rai-banlieue/markscheme.html"
     }
   },
   {
@@ -911,8 +917,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "activites_de_loisirs_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/experiences/activites-de-loisirs/text-booklet.html",
       "questionBooklet": "activites_de_loisirs_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/experiences/activites-de-loisirs/question-booklet.html",
       "markscheme": "activites_de_loisirs_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/experiences/activites-de-loisirs/markscheme.html",
       "page1": "activites_de_loisirs_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -1346,8 +1355,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "coutumes_et_traditions_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/experiences/coutumes-et-traditions/text-booklet.html",
       "questionBooklet": "coutumes_et_traditions_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/experiences/coutumes-et-traditions/question-booklet.html",
       "markscheme": "coutumes_et_traditions_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/experiences/coutumes-et-traditions/markscheme.html",
       "page1": "coutumes_et_traditions_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -1781,8 +1793,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "migration_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/experiences/migration/text-booklet.html",
       "questionBooklet": "migration_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/experiences/migration/question-booklet.html",
       "markscheme": "migration_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/experiences/migration/markscheme.html",
       "page1": "migration_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -2216,8 +2231,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "rites_de_passage_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/experiences/rites-de-passage/text-booklet.html",
       "questionBooklet": "rites_de_passage_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/experiences/rites-de-passage/question-booklet.html",
       "markscheme": "rites_de_passage_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/experiences/rites-de-passage/markscheme.html",
       "page1": "rites_de_passage_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -2651,8 +2669,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "vacances_et_voyages_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/experiences/vacances-et-voyages/text-booklet.html",
       "questionBooklet": "vacances_et_voyages_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/experiences/vacances-et-voyages/question-booklet.html",
       "markscheme": "vacances_et_voyages_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/experiences/vacances-et-voyages/markscheme.html",
       "page1": "vacances_et_voyages_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -3086,8 +3107,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "convictions_et_valeurs_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/identites/convictions-et-valeurs/text-booklet.html",
       "questionBooklet": "convictions_et_valeurs_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/identites/convictions-et-valeurs/question-booklet.html",
       "markscheme": "convictions_et_valeurs_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/identites/convictions-et-valeurs/markscheme.html",
       "page1": "convictions_et_valeurs_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -3521,8 +3545,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "langue_et_identite_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/identites/langue-et-identite/text-booklet.html",
       "questionBooklet": "langue_et_identite_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/identites/langue-et-identite/question-booklet.html",
       "markscheme": "langue_et_identite_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/identites/langue-et-identite/markscheme.html",
       "page1": "langue_et_identite_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -3956,8 +3983,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "sante_et_bien_etre_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/identites/sante-et-bien-etre/text-booklet.html",
       "questionBooklet": "sante_et_bien_etre_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/identites/sante-et-bien-etre/question-booklet.html",
       "markscheme": "sante_et_bien_etre_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/identites/sante-et-bien-etre/markscheme.html",
       "page1": "sante_et_bien_etre_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -4391,8 +4421,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "sous_cultures_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/identites/sous-cultures/text-booklet.html",
       "questionBooklet": "sous_cultures_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/identites/sous-cultures/question-booklet.html",
       "markscheme": "sous_cultures_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/identites/sous-cultures/markscheme.html",
       "page1": "sous_cultures_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -4826,8 +4859,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "styles_de_vie_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/identites/styles-de-vie/text-booklet.html",
       "questionBooklet": "styles_de_vie_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/identites/styles-de-vie/question-booklet.html",
       "markscheme": "styles_de_vie_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/identites/styles-de-vie/markscheme.html",
       "page1": "styles_de_vie_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -5261,8 +5297,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "communications_et_medias_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/ingeniosite-humaine/communications-et-medias/text-booklet.html",
       "questionBooklet": "communications_et_medias_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/ingeniosite-humaine/communications-et-medias/question-booklet.html",
       "markscheme": "communications_et_medias_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/ingeniosite-humaine/communications-et-medias/markscheme.html",
       "page1": "communications_et_medias_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -5696,8 +5735,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "divertissements_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/ingeniosite-humaine/divertissements/text-booklet.html",
       "questionBooklet": "divertissements_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/ingeniosite-humaine/divertissements/question-booklet.html",
       "markscheme": "divertissements_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/ingeniosite-humaine/divertissements/markscheme.html",
       "page1": "divertissements_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -6131,8 +6173,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "expressions_artistiques_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/ingeniosite-humaine/expressions-artistiques/text-booklet.html",
       "questionBooklet": "expressions_artistiques_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/ingeniosite-humaine/expressions-artistiques/question-booklet.html",
       "markscheme": "expressions_artistiques_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/ingeniosite-humaine/expressions-artistiques/markscheme.html",
       "page1": "expressions_artistiques_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -6566,8 +6611,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "innovation_scientifique_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/ingeniosite-humaine/innovation-scientifique/text-booklet.html",
       "questionBooklet": "innovation_scientifique_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/ingeniosite-humaine/innovation-scientifique/question-booklet.html",
       "markscheme": "innovation_scientifique_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/ingeniosite-humaine/innovation-scientifique/markscheme.html",
       "page1": "innovation_scientifique_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -7001,8 +7049,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "technologie_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/ingeniosite-humaine/technologie/text-booklet.html",
       "questionBooklet": "technologie_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/ingeniosite-humaine/technologie/question-booklet.html",
       "markscheme": "technologie_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/ingeniosite-humaine/technologie/markscheme.html",
       "page1": "technologie_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -7436,8 +7487,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "education_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/organisation-sociale/education/text-booklet.html",
       "questionBooklet": "education_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/organisation-sociale/education/question-booklet.html",
       "markscheme": "education_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/organisation-sociale/education/markscheme.html",
       "page1": "education_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -7871,8 +7925,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "engagement_social_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/organisation-sociale/engagement-social/text-booklet.html",
       "questionBooklet": "engagement_social_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/organisation-sociale/engagement-social/question-booklet.html",
       "markscheme": "engagement_social_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/organisation-sociale/engagement-social/markscheme.html",
       "page1": "engagement_social_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -8306,8 +8363,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "monde_du_travail_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/organisation-sociale/monde-du-travail/text-booklet.html",
       "questionBooklet": "monde_du_travail_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/organisation-sociale/monde-du-travail/question-booklet.html",
       "markscheme": "monde_du_travail_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/organisation-sociale/monde-du-travail/markscheme.html",
       "page1": "monde_du_travail_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -8741,8 +8801,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "ordre_public_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/organisation-sociale/ordre-public/text-booklet.html",
       "questionBooklet": "ordre_public_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/organisation-sociale/ordre-public/question-booklet.html",
       "markscheme": "ordre_public_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/organisation-sociale/ordre-public/markscheme.html",
       "page1": "ordre_public_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -9176,8 +9239,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "droits_de_l_homme_egalite_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/droits-de-l-homme/text-booklet.html",
       "questionBooklet": "droits_de_l_homme_egalite_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/droits-de-l-homme/question-booklet.html",
       "markscheme": "droits_de_l_homme_egalite_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/droits-de-l-homme/markscheme.html",
       "page1": "droits_de_l_homme_egalite_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -9611,8 +9677,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "droits_de_l_homme_egalite_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/egalite/text-booklet.html",
       "questionBooklet": "droits_de_l_homme_egalite_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/egalite/question-booklet.html",
       "markscheme": "droits_de_l_homme_egalite_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/egalite/markscheme.html",
       "page1": "droits_de_l_homme_egalite_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -10046,8 +10115,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "environnement_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/environnement/text-booklet.html",
       "questionBooklet": "environnement_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/environnement/question-booklet.html",
       "markscheme": "environnement_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/environnement/markscheme.html",
       "page1": "environnement_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -10481,8 +10553,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "environnements_urbains_et_ruraux_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/environnements-urbains-et-ruraux/text-booklet.html",
       "questionBooklet": "environnements_urbains_et_ruraux_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/environnements-urbains-et-ruraux/question-booklet.html",
       "markscheme": "environnements_urbains_et_ruraux_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/environnements-urbains-et-ruraux/markscheme.html",
       "page1": "environnements_urbains_et_ruraux_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -10916,8 +10991,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "ethique_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/ethique/text-booklet.html",
       "questionBooklet": "ethique_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/ethique/question-booklet.html",
       "markscheme": "ethique_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/ethique/markscheme.html",
       "page1": "ethique_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -11351,8 +11429,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "mondialisation_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/mondialisation/text-booklet.html",
       "questionBooklet": "mondialisation_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/mondialisation/question-booklet.html",
       "markscheme": "mondialisation_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/mondialisation/markscheme.html",
       "page1": "mondialisation_comprehension_ecrite_page_1_v2.pptx"
     }
   },
@@ -11786,8 +11867,11 @@ export const premiumReadingPapers: PremiumMockPaper[] = [
     ],
     "sourceDocuments": {
       "textBooklet": "paix_et_conflits_reading_text_booklet_v2.html",
+      "textBookletUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/paix-et-conflits/text-booklet.html",
       "questionBooklet": "paix_et_conflits_reading_question_booklet_v2.html",
+      "questionBookletUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/paix-et-conflits/question-booklet.html",
       "markscheme": "paix_et_conflits_reading_markscheme_v2.html",
+      "markschemeUrl": "/frenchease/premium-mock-papers/reading-html/partage-de-la-planete/paix-et-conflits/markscheme.html",
       "page1": "paix_et_conflits_comprehension_ecrite_page_1_v2.pptx"
     }
   }
