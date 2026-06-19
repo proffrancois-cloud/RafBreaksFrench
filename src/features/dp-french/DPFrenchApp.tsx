@@ -6,12 +6,12 @@ import { Paper1SlPackView } from "./components/Paper1SlPackView";
 import { ProgressBar } from "./components/ProgressBar";
 import { SkillCard } from "./components/SkillCard";
 import { cultureTopics } from "./data/cultureTopics";
-import { diagnosticExerciseIds, exercises, exercisesById } from "./data/exercises";
+import { diagnosticExerciseIds, exercisesById } from "./data/exercises";
 import { lessons, lessonsById } from "./data/lessons";
 import { iaStimuliByTopic } from "./data/iaStimuli.generated";
 import { mockExamThemes } from "./data/mockExamCatalog.generated";
 import { premiumListeningPapers, premiumReadingPapers, type PremiumGradeBand, type PremiumMockPaper, type PremiumSourceDocuments } from "./data/premiumMockPapers.generated";
-import { categoryOrder, skills, skillsById } from "./data/skills";
+import { skills, skillsById } from "./data/skills";
 import {
   createEmptyProgress,
   defaultSkillProgress,
@@ -26,7 +26,7 @@ import {
 import { resolveAssetUrl } from "./services/assetService";
 import { getCategorySummaries, getNextLessonRecommendation, getOverallReadiness } from "./services/recommendationService";
 import { speakFrench, stopSpeaking } from "./services/ttsService";
-import type { Category, Exercise, ListeningMock, ProgressState, ReadingMock, Skill } from "./types";
+import type { Exercise, ListeningMock, ProgressState, ReadingMock, Skill } from "./types";
 
 type View = "Dashboard" | "Lessons" | "Practice" | "DP Themes" | "Progress";
 type DPThemeMode = "Culture" | "Mock Exam";
@@ -256,7 +256,6 @@ export function DPFrenchApp() {
   const [progress, setProgress] = useState<ProgressState>(() => loadProgress());
   const [activeView, setActiveView] = useState<View>("Dashboard");
   const [selectedSkillId, setSelectedSkillId] = useState(skills[0].id);
-  const [selectedCategory, setSelectedCategory] = useState<Category>("Foundations");
   const [dpThemeMode, setDpThemeMode] = useState<DPThemeMode>("Culture");
   const [selectedMockThemeId, setSelectedMockThemeId] = useState(defaultMockTheme.id);
   const [selectedMockTopicId, setSelectedMockTopicId] = useState(defaultMockTopic.id);
@@ -307,7 +306,6 @@ export function DPFrenchApp() {
 
   const openLesson = (skill: Skill) => {
     setSelectedSkillId(skill.id);
-    setSelectedCategory(skill.category);
     setActiveView("Lessons");
   };
 
@@ -331,61 +329,41 @@ export function DPFrenchApp() {
     setImportMessage("Progress imported.");
   };
 
-  const renderLessons = () => {
-    const categorySkills = skills.filter((skill) => skill.category === selectedCategory);
-
-    return (
-      <div className="split-layout">
-        <aside className="left-rail">
-          <h2>Learning path</h2>
-          <div className="category-buttons">
-            {categoryOrder.map((category) => (
-              <button
-                type="button"
-                key={category}
-                className={selectedCategory === category ? "is-selected" : ""}
-                onClick={() => {
-                  setSelectedCategory(category);
-                  const first = skills.find((skill) => skill.category === category);
-                  if (first) setSelectedSkillId(first.id);
-                }}
-              >
-                <span>{category}</span>
-                <small>{skills.filter((skill) => skill.category === category).length}</small>
-              </button>
-            ))}
-          </div>
-          <div className="lesson-list">
-            {categorySkills.map((skill) => (
-              <button
-                type="button"
-                key={skill.id}
-                className={selectedSkillId === skill.id ? "lesson-button is-selected" : "lesson-button"}
-                onClick={() => setSelectedSkillId(skill.id)}
-              >
-                <span>{skill.title}</span>
-                <small>
-                  Level {skill.level} · {getSkillProgress(skill.id).status}
-                </small>
-              </button>
-            ))}
-          </div>
-        </aside>
-        <main className="main-panel">
-          <LessonView
-            lesson={selectedLesson}
-            skill={selectedSkill}
-            exercises={selectedLessonExercises}
-            progress={getSkillProgress(selectedSkill.id)}
-            onExerciseResult={onExerciseResult}
-            onMarkMastered={() => setProgress((current) => markSkillMastered(current, selectedSkill.id, selectedSkill.title))}
-          />
-        </main>
-      </div>
-    );
-  };
+  const renderLessons = () => (
+    <div className="split-layout">
+      <aside className="left-rail">
+        <h2>Learning path</h2>
+        <div className="lesson-list">
+          {skills.map((skill) => (
+            <button
+              type="button"
+              key={skill.id}
+              className={selectedSkillId === skill.id ? "lesson-button is-selected" : "lesson-button"}
+              onClick={() => setSelectedSkillId(skill.id)}
+            >
+              <span>{skill.title}</span>
+              <small>
+                Level {skill.level} · {getSkillProgress(skill.id).status}
+              </small>
+            </button>
+          ))}
+        </div>
+      </aside>
+      <main className="main-panel">
+        <LessonView
+          lesson={selectedLesson}
+          skill={selectedSkill}
+          exercises={selectedLessonExercises}
+          progress={getSkillProgress(selectedSkill.id)}
+          onExerciseResult={onExerciseResult}
+          onMarkMastered={() => setProgress((current) => markSkillMastered(current, selectedSkill.id, selectedSkill.title))}
+        />
+      </main>
+    </div>
+  );
 
   const renderPractice = () => {
+    const practiceDiagnosticExercises = diagnosticExercises.filter((exercise) => exercise.type !== "short-answer");
     const weakSkills = [...skills]
       .sort((a, b) => getSkillProgress(a.id).mastery - getSkillProgress(b.id).mastery || a.level - b.level)
       .slice(0, 8);
@@ -406,10 +384,10 @@ export function DPFrenchApp() {
           </div>
           <p className="lead-text">
             Checks articles, gender, present tense, infinitives, past tenses, future/conditional, negation, pronouns, y/en,
-            relative pronouns, prepositions, time expressions, faux amis, text-type choice and short production.
+            relative pronouns, prepositions, time expressions, faux amis and text-type choice.
           </p>
           <div className="exercise-stack">
-            {diagnosticExercises.map((exercise) => (
+            {practiceDiagnosticExercises.map((exercise) => (
               <ExerciseRenderer key={exercise.id} exercise={exercise} onResult={onExerciseResult} />
             ))}
           </div>
